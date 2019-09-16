@@ -1,0 +1,510 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Pr&aacute;ctica 3: Se&ntilde;ales continuas</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-09-15"><meta name="DC.source" content="P03SyS20201.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 3: Se&ntilde;ales continuas</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Descripci&oacute;n general de MATLAB</a></li><li><a href="#2">Crear documento con publish</a></li><li><a href="#3">Creaci&oacute;n de vectores</a></li><li><a href="#5">Operaci&oacute;n elemento a elemento y matricial</a></li><li><a href="#7">Crear funciones</a></li><li><a href="#8">Algunas funciones implementadas</a></li><li><a href="#10">Funciones anonimas</a></li><li><a href="#12">Gr&aacute;ficas: plot, subplot, plot3, edici&oacute;n con GUI, generar c&oacute;digo de gr&aacute;fica</a></li><li><a href="#22">Un poco de simb&oacute;lico</a></li><li><a href="#24">Observaciones</a></li><li><a href="#25">Notas</a></li><li><a href="#26">Entregables</a></li></ul></div><h2 id="1">Descripci&oacute;n general de MATLAB</h2><p> <iframe width="560" height="315" src="https://www.youtube.com/embed/YF_32dT2fNU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec01.pdf">Documento</a></p><h2 id="2">Crear documento con publish</h2><p>Ayuda en linea para publicar <a href="https://www.mathworks.com/help/matlab/matlab_prog/marking-up-matlab-comments-for-publishing.html">Publish</a></p><h2 id="3">Creaci&oacute;n de vectores</h2><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec01.pdf">Documento</a> Creamos  vectores (fila)</p><pre class="codeinput">t1= -10:5; <span class="comment">% El punto y coma es para que el resultado no sea desplegado</span>
+t2=-2:0.01:15;
+</pre><p>Para saber las dimensiones</p><pre class="codeinput">size(t1)
+size(t2)
+</pre><pre class="codeoutput">
+ans =
+
+     1    16
+
+
+ans =
+
+           1        1701
+
+</pre><h2 id="5">Operaci&oacute;n elemento a elemento y matricial</h2><p>Las operaciones elemento a elemento nos ayudan a evaluar funciones para valores de su dominio al mismo tiempo, el sigueinte c&oacute;digo genera error</p><pre class="language-matlab">t1*t1
+</pre><p>En cambio el sigueinte codigo es correcto</p><pre class="codeinput">t1.*t1
+</pre><pre class="codeoutput">
+ans =
+
+  Columns 1 through 13
+
+   100    81    64    49    36    25    16     9     4     1     0     1     4
+
+  Columns 14 through 16
+
+     9    16    25
+
+</pre><h2 id="7">Crear funciones</h2><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec02.pdf">Documento</a></p><p>Las funciones en MATLAB tienen la siguiente sintaxis</p><pre class="language-matlab"><span class="keyword">function</span> [sal1,sal2,sal3]=nombreFuncion(ent1,ent2,ent3)
+    <span class="comment">%codigo de la funcion</span>
+<span class="keyword">end</span>
+</pre><p>Algunas notas sobre las funciones</p><div><ul><li>El archivo debe guardarse como  nombreFuncion.m</li><li>Debes de estar trabajando en el directorio donde este tu funci&oacute;n para poder ocuparla, o agregar el directorio</li><li>Las salidas y las entradas son opcionales, en este sentido, hay 4 tipos funciones: con entradas y salidas, con salidas sin entrada, con entrada sin salidas, sin entradas y sin salidas</li></ul></div><p>&iquest;Podr&iacute;as escribir varias funciones en el mismo archivo y ocupar unas funciones dentro de otras?</p><h2 id="8">Algunas funciones implementadas</h2><pre class="language-matlab">help <span class="string">sin</span>
+help <span class="string">cos</span>
+help <span class="string">exp</span>
+help <span class="string">abs</span>
+help <span class="string">angle</span>
+help <span class="string">pi</span>
+help <span class="string">plot</span>
+help <span class="string">square</span>
+help <span class="string">sinc</span>
+help <span class="string">rectpuls</span>
+help <span class="string">tripuls</span>
+help <span class="string">sawtooth</span>
+help <span class="string">heaviside</span>
+help <span class="string">dirac</span>
+</pre><p>Entonces si ejecutamos alguna de las intrucciones anteriores se desplegara una breve descripci&oacute;n de la instrucci&oacute;n solicitada, si se quiere una descripci&oacute;n m&aacute;s completa tendr&iacute;a que ejecutarse <i>doc sinc</i> (por ejemplo)o directamente en la ayuda.</p><pre class="codeinput">help <span class="string">sinc</span>
+</pre><pre class="codeoutput">sinc - Sinc function
+
+    This MATLAB function returns an array, y, whose elements are the sinc of the
+    elements of the input, x.
+
+    y = sinc(x)
+
+    See also chirp, cos, diric, gauspuls, pulstran, rectpuls, sawtooth, sin, 
+        square, tripuls
+
+    Reference page in Doc Center
+       doc sinc
+
+    Other functions named sinc
+
+       sym/sinc    tall/sinc
+
+</pre><p>Como ya tenemos declarado un vecto de valores podr&iacute;amos intentar con</p><pre class="codeinput">sinc(t1)
+</pre><pre class="codeoutput">
+ans =
+
+  Columns 1 through 7
+
+   -0.0000    0.0000   -0.0000    0.0000   -0.0000    0.0000   -0.0000
+
+  Columns 8 through 14
+
+    0.0000   -0.0000    0.0000    1.0000    0.0000   -0.0000    0.0000
+
+  Columns 15 through 16
+
+   -0.0000    0.0000
+
+</pre><h2 id="10">Funciones anonimas</h2><p>Observemos el siguiente c&oacute;digo</p><pre class="codeinput">f = @(t) exp(-t).*t+exp(-t).*cos(2*t);
+u = @(t) t&gt;=0;
+p = @(t) (t&gt;=0) &amp; (t&lt;1);
+</pre><h2 id="12">Gr&aacute;ficas: plot, subplot, plot3, edici&oacute;n con GUI, generar c&oacute;digo de gr&aacute;fica</h2><pre class="codeinput">plot([1,3],[5,-4])
+</pre><img vspace="5" hspace="5" src="P03SyS20201_01.png" alt=""> <pre class="codeinput">figure
+plot(t1,sinc(t1))
+</pre><img vspace="5" hspace="5" src="P03SyS20201_02.png" alt=""> <pre class="codeinput">figure
+plot(t2,sinc(t2))
+</pre><img vspace="5" hspace="5" src="P03SyS20201_03.png" alt=""> <pre class="codeinput">figure
+t4=-100:0.1:100;
+plot(t4,t4.^3,<span class="string">'LineWidth'</span>,2)
+grid <span class="string">on</span>
+ax = gca;
+ax.XAxisLocation = <span class="string">'origin'</span>;
+ax.YAxisLocation = <span class="string">'origin'</span>;
+ax.Box = <span class="string">'off'</span>;
+title(<span class="string">'Gr&aacute;fica de la se&ntilde;al f(t)=t^3 '</span>)
+</pre><img vspace="5" hspace="5" src="P03SyS20201_04.png" alt=""> <pre class="codeinput">figure
+t3=-100:0.1:100;
+plot3(t3,cos(t3),sin(t3),<span class="string">'LineWidth'</span>,2)
+grid <span class="string">on</span>
+xlabel(<span class="string">'Dominio t'</span>)
+ylabel(<span class="string">'Re'</span>)
+zlabel(<span class="string">'Im'</span>)
+title(<span class="string">'Gr&aacute;fica de la se&ntilde;al f(t)=e^{tj} '</span>)
+</pre><img vspace="5" hspace="5" src="P03SyS20201_05.png" alt=""> <pre class="codeinput">figure
+subplot(2,3,1)
+plot(0:0.01:5,f(0:0.01:5))
+
+subplot(2,3,2)
+plot(t1,u(t1))
+
+subplot(2,3,5)
+plot(t2,p(t2))
+</pre><img vspace="5" hspace="5" src="P03SyS20201_06.png" alt=""> <pre class="codeinput">figure()
+plot(t2,u(t2))
+</pre><img vspace="5" hspace="5" src="P03SyS20201_07.png" alt=""> <pre class="codeinput">figure()
+plot(t1,p(t1))
+grid <span class="string">on</span>
+axis([-12 10, -1, 2])
+</pre><img vspace="5" hspace="5" src="P03SyS20201_08.png" alt=""> <pre class="codeinput">figure()
+subplot(1,2,1)
+plot(t1,p(t1))
+grid <span class="string">on</span>
+axis([-12 10, -1, 2])
+
+subplot(1,2,2)
+plot(t2,p(t2))
+grid <span class="string">on</span>
+axis([-12 10, -1, 2])
+</pre><img vspace="5" hspace="5" src="P03SyS20201_09.png" alt=""> <p>Entonces veamos que sucede con lo siguiente</p><pre class="codeinput">t=-10:0.001:10;
+figure
+subplot(2,1,1)
+plot(t,p(t))
+grid <span class="string">on</span>
+axis([-10, 10 -0.5 1.5])
+
+subplot(2,1,2)
+plot(t,p(t-2))
+grid <span class="string">on</span>
+axis([-10, 10 -0.5 1.5])
+</pre><img vspace="5" hspace="5" src="P03SyS20201_10.png" alt=""> <h2 id="22">Un poco de simb&oacute;lico</h2><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec05.pdf">Documento</a></p><p>Realizar las siguientes integrales</p><p><img src="P03SyS20201_eq11190555004964874609.png" alt="$$\int_a^bxe^{-x}dx,\;\;\int_0^2xe^{-x}dx,\;\;\int_0^\infty xe^{-x}dx$$"></p><pre class="codeinput">syms <span class="string">a</span> <span class="string">b</span>  <span class="string">x</span>
+Q=int(x*exp(-x),a,b)
+subs(Q,{a,b},{0,2})
+</pre><pre class="codeoutput"> 
+Q =
+ 
+exp(-a)*(a + 1) - exp(-b)*(b + 1)
+ 
+ 
+ans =
+ 
+1 - 3*exp(-2)
+ 
+</pre><p>El sigueinte c&oacute;digo produce error</p><pre class="language-matlab">subs(Q,{a,b},{0,inf})
+</pre><p>Pero este c&oacute;digo no, &iquest;Por qu&eacute;?</p><pre class="codeinput">Q=int(x*exp(-x),a,inf)
+subs(Q,a,0)
+
+close <span class="string">all</span>
+</pre><pre class="codeoutput"> 
+Q =
+ 
+exp(-a)*(a + 1)
+ 
+ 
+ans =
+ 
+1
+ 
+</pre><h2 id="24">Observaciones</h2><p>Tener claro que esto no es absoluto, es una manera de implementaci&oacute;n en MATLAB, es decir, la implementaci&oacute;n de las se&ntilde;ales podr&iacute;a variar incluso en el mismo MATLAB, y por supuesto si se utiliza otro software</p><h2 id="25">Notas</h2><div><ol><li>Guia de Matlab del  <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/index.htm">MIT OCW</a></li><li>Backgroun secci&oacute;n MB de Lathi</li></ol></div><h2 id="26">Entregables</h2><p>Se revisa una publicaci&oacute;n (html) de la pr&aacute;ctica. En este caso tendra que iniciar indicando el nombre de la pr&aacute;ctica y sus datos personales, equipos de dos o tres personas (Portada). El &iacute;ndice del contenido lo genera Publish (&iacute;ndice). Los objetivos son los sigueintes:</p><div><ul><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas continuas</li><li>Transformaci&oacute;n de se&ntilde;ales continuas (escalamientos y traslaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales continuas</li></ul></div><p>Como introducci&oacute;n investigue un poco de la historia del desarrollo de MATLAB, hable un poco sobre alternativas de software libre (Octave, Python) y porporcione enlaces (confiables) donde se pueda consultar informaci&oacute;n para comenzar a utilizar dichas herramientas</p><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><div><ol><li>Crea una funci&oacute;n que se llame <i>fun1</i> y reciba dos parametros <img src="P03SyS20201_eq08589834809570054062.png" alt="$\omega$"> y <img src="P03SyS20201_eq05508344529756732484.png" alt="$a$"> la funci&oacute;n debe regresar la evaluaci&oacute;n <img src="P03SyS20201_eq01407365636722940873.png" alt="$F(\omega)=a/(a^2+\omega^2)$">, esta funci&oacute;n debe trabajr con <img src="P03SyS20201_eq16064389548595522758.png" alt="$a\in R$"> y <img src="P03SyS20201_eq02576817051637404792.png" alt="$t\in  R^n$">. Debe mostrar su c&oacute;digo en el reporte (sin ejecutar).</li><li>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="P03SyS20201_eq02145986785580767623.png" alt="$f:R\rightarrow R$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de <img src="P03SyS20201_eq04634431881849194213.png" alt="$F(\omega)$"> vs <img src="P03SyS20201_eq08589834809570054062.png" alt="$\omega$"> en el intervalo <img src="P03SyS20201_eq01169792831847459841.png" alt="$[-2,2]$"> para <img src="P03SyS20201_eq13016372792947090052.png" alt="$a=1$">, no debe incluir el c&oacute;digo, solo el uso de la funci&oacute;n para mostrar la gr&aacute;fica</li><li>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="P03SyS20201_eq07287922491706758619.png" alt="$f:R\rightarrow R^2$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de la transformada de Fourier <img src="P03SyS20201_eq14837990414550488255.png" alt="$F(w)$"> en <img src="P03SyS20201_eq01315095555081819470.png" alt="$[-10,10]$"> de la funci&oacute;n <img src="P03SyS20201_eq16179711886080607310.png" alt="$f(t)=e^{-2t}u(t)$">, puede utilizar una funci&oacute;n anonima para este fin, no debe incluir el c&oacute;digo, solo el uso de la funci&oacute;n para mostrarla gr&aacute;fica. Reporte la gr&aacute;fica de <img src="P03SyS20201_eq09478123530129115431.png" alt="$f(t)$"> de <img src="P03SyS20201_eq05003862285080136837.png" alt="$[-1,5]$"> (recuerde que ya tiene una funci&oacute;n para esto). Reporte del espectro de magnitud y del espectro de fase en <img src="P03SyS20201_eq01315095555081819470.png" alt="$[-10,10]$"> (puedes con sultar con help la descripci&oacute;n de <i>abs</i>, <i>angle</i>, <i>atan2</i>). Solo reporte las graficas.</li><li>Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4  que se encuentra al final del cap&iacute;tulo 1 y antes de la secci&oacute;n de  problemas, cambie los <i>inline</i> por funciones anonimas</li><li>Resuelve el problema 1.2.2 usando las herramientas del paso anterior.</li><li>Escriba una funci&oacute;n que se llame <i>energia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la energ&iacute;a, para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i> Se presupone utilizar el c&oacute;digo solo con funciones de energia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.3</li><li>Escriba una funci&oacute;n que se llame <i>potencia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la potencia para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i> Se presupone utilizar el c&oacute;digo solo con funciones de potencia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.4</li></ol></div><p>No es necesario incluir conclusiones en esta pr&aacute;ctica, si lo considera necesario puede incluir ap&eacute;ndices, no olvide incluir sus referencias.</p><p>El c&oacute;digo de esta publicaci&oacute;n lo puedes encontrar en el siguiente <a href="https://www.dropbox.com/s/krv0lj76yy17qbn/P03SyS20201.m?dl=0">enlace</a></p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Práctica 3: Señales continuas
+%
+% 
+%%
+%% Descripción general de MATLAB
+%
+% <html> <iframe width="560" height="315" src="https://www.youtube.com/embed/YF_32dT2fNU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+% </html>
+%
+% <https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec01.pdf Documento>
+%% Crear documento con publish
+% Ayuda en linea para publicar <https://www.mathworks.com/help/matlab/matlab_prog/marking-up-matlab-comments-for-publishing.html Publish>
+%% Creación de vectores
+% <https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec01.pdf Documento>
+% Creamos  vectores (fila)
+t1= -10:5; % El punto y coma es para que el resultado no sea desplegado
+t2=-2:0.01:15; 
+%%
+% Para saber las dimensiones 
+size(t1)
+size(t2)
+%% Operación elemento a elemento y matricial
+% Las operaciones elemento a elemento nos ayudan a evaluar funciones para
+% valores de su dominio al mismo tiempo, el sigueinte código genera error  
+%%
+% 
+%   t1*t1
+%       
+% En cambio el sigueinte codigo es correcto
+t1.*t1
+
+%% Crear funciones
+% <https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec02.pdf Documento>
+% 
+% Las funciones en MATLAB tienen la siguiente sintaxis
+%
+%   function [sal1,sal2,sal3]=nombreFuncion(ent1,ent2,ent3)
+%       %codigo de la funcion 
+%   end
+% 
+% Algunas notas sobre las funciones
+% 
+% * El archivo debe guardarse como  nombreFuncion.m
+% * Debes de estar trabajando en el directorio donde este tu función para
+% poder ocuparla, o agregar el directorio
+% * Las salidas y las entradas son opcionales, en este sentido, hay 4 tipos 
+% funciones: con entradas y salidas, con salidas sin entrada, con entrada
+% sin salidas, sin entradas y sin salidas
+%
+% ¿Podrías escribir varias funciones en el mismo archivo y ocupar unas
+% funciones dentro de otras?
+
+%% Algunas funciones implementadas
+%
+%   help sin 
+%   help cos
+%   help exp
+%   help abs
+%   help angle
+%   help pi
+%   help plot
+%   help square
+%   help sinc
+%   help rectpuls
+%   help tripuls
+%   help sawtooth
+%   help heaviside
+%   help dirac
+%
+% Entonces si ejecutamos alguna de las intrucciones anteriores se
+% desplegara una breve descripción de la instrucción solicitada, si se
+% quiere una descripción más completa tendría que ejecutarse _doc sinc_  
+% (por ejemplo)o directamente en la ayuda.
+%
+help sinc
+
+%%
+% Como ya tenemos declarado un vecto de valores podríamos intentar con 
+%
+sinc(t1)
+%% Funciones anonimas
+% Observemos el siguiente código
+%%
+% 
+f = @(t) exp(-t).*t+exp(-t).*cos(2*t);
+u = @(t) t>=0;
+p = @(t) (t>=0) & (t<1);
+
+%% Gráficas: plot, subplot, plot3, edición con GUI, generar código de gráfica
+
+plot([1,3],[5,-4])
+
+%%
+
+figure
+plot(t1,sinc(t1))
+
+%%
+
+figure
+plot(t2,sinc(t2))
+
+%%
+
+figure
+t4=-100:0.1:100;
+plot(t4,t4.^3,'LineWidth',2)
+grid on
+ax = gca;
+ax.XAxisLocation = 'origin';
+ax.YAxisLocation = 'origin';
+ax.Box = 'off';
+title('Gráfica de la señal f(t)=t^3 ')
+
+%%
+
+figure
+t3=-100:0.1:100;
+plot3(t3,cos(t3),sin(t3),'LineWidth',2)
+grid on
+xlabel('Dominio t')
+ylabel('Re')
+zlabel('Im')
+title('Gráfica de la señal f(t)=e^{tj} ')
+
+%%
+
+figure
+subplot(2,3,1)
+plot(0:0.01:5,f(0:0.01:5))
+
+subplot(2,3,2)
+plot(t1,u(t1))
+
+subplot(2,3,5)
+plot(t2,p(t2))
+
+%%
+
+figure()
+plot(t2,u(t2))
+
+%%
+
+figure()
+plot(t1,p(t1))
+grid on
+axis([-12 10, -1, 2])
+
+%%
+
+figure()
+subplot(1,2,1)
+plot(t1,p(t1))
+grid on
+axis([-12 10, -1, 2])
+
+subplot(1,2,2)
+plot(t2,p(t2))
+grid on
+axis([-12 10, -1, 2])
+%%
+% Entonces veamos que sucede con lo siguiente
+t=-10:0.001:10;
+figure
+subplot(2,1,1)
+plot(t,p(t))
+grid on
+axis([-10, 10 -0.5 1.5]) 
+
+subplot(2,1,2)
+plot(t,p(t-2))
+grid on
+axis([-10, 10 -0.5 1.5]) 
+
+
+%% Un poco de simbólico
+% <https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/lecture-notes/MIT6_094IAP10_lec05.pdf Documento>
+%
+% Realizar las siguientes integrales
+% 
+% $$\int_a^bxe^{-x}dx,\;\;\int_0^2xe^{-x}dx,\;\;\int_0^\infty xe^{-x}dx$$
+% 
+
+syms a b  x 
+Q=int(x*exp(-x),a,b)
+subs(Q,{a,b},{0,2})
+
+%%
+% El sigueinte código produce error 
+%
+%   subs(Q,{a,b},{0,inf})
+% 
+% Pero este código no, ¿Por qué?
+
+Q=int(x*exp(-x),a,inf)
+subs(Q,a,0)
+
+close all
+
+%% Observaciones
+% Tener claro que esto no es absoluto, es una manera de implementación en 
+% MATLAB, es decir, la implementación de las señales podría variar incluso
+% en el mismo MATLAB, y por supuesto si se utiliza otro software
+%% Notas 
+% # Guia de Matlab del  <https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-094-introduction-to-matlab-january-iap-2010/index.htm MIT OCW>
+% # Backgroun sección MB de Lathi
+
+%% Entregables
+% Se revisa una publicación (html) de la práctica. En este caso tendra que
+% iniciar indicando el nombre de la práctica y sus datos personales,
+% equipos de dos o tres personas
+% (Portada). El índice del contenido lo genera Publish (índice). Los
+% objetivos son los sigueintes:
+%
+% * Manipulación básica de MATLAB
+% * Gráficas de señales reales y complejas continuas 
+% * Transformación de señales continuas (escalamientos y traslaciones)
+% * Calculo de energía y potencia de señales continuas
+%
+% Como introducción investigue un poco de la historia del desarrollo de
+% MATLAB, hable un poco sobre alternativas de software libre (Octave, Python)
+% y porporcione enlaces (confiables) donde se pueda consultar información
+% para comenzar a utilizar dichas herramientas
+%
+% Para el desarrollo se tienen que resolver cada uno de los siguientes
+% problemas comenzando una nueva sección (para la publicación) en cada uno de ellos.
+%
+% # Crea una función que se llame _fun1_ y reciba dos parametros $\omega$ y 
+% $a$ la función debe regresar la evaluación $F(\omega)=a/(a^2+\omega^2)$,
+% esta función debe trabajr con $a\in R$ y $t\in  R^n$. Debe
+% mostrar su código en el reporte (sin ejecutar).
+% # Construya una función que gráfique funciones de
+% $f:R\rightarrow R$ en el formato de su elección y pruebe
+% su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
+% $[-2,2]$ para $a=1$, no debe
+% incluir el código, solo el uso de la función para mostrar la gráfica
+% # Construya una función que gráfique funciones de
+% $f:R\rightarrow R^2$ en el formato de su elección y pruebe
+% su código mostrando la gráfica de la transformada de Fourier $F(w)$ en
+% $[-10,10]$ de la función $f(t)=e^{-2t}u(t)$, puede utilizar una función
+% anonima para este fin, no debe incluir el código, solo el uso de la 
+% función para mostrarla gráfica. Reporte la gráfica de $f(t)$ de 
+% $[-1,5]$ (recuerde que ya tiene una función para esto). Reporte 
+% del espectro de magnitud y del espectro de fase en $[-10,10]$ (puedes con
+% sultar con help la descripción de _abs_, _angle_, _atan2_). Solo
+% reporte las graficas.
+% # Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
+%  que se encuentra al final del capítulo 1 y antes de la sección de
+%  problemas, cambie los _inline_ por funciones anonimas
+% # Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
+% # Escriba una función que se llame _energia_ que reciba como argumento
+% una función (anonima o simbolica) y que regrese el calculo de la energía,
+% para esto puede resultar útil investigar las instrucciones _int_ , _integral_
+% Se presupone utilizar el código solo con funciones de energia. Muestre
+% el código sin ejecutar, y posteriormente resuelva el problema 1.1.3
+% # Escriba una función que se llame _potencia_ que reciba como argumento
+% una función (anonima o simbolica) y que regrese el calculo de la potencia
+% para esto puede resultar útil investigar las instrucciones _int_ , _integral_
+% Se presupone utilizar el código solo con funciones de potencia. Muestre
+% el código sin ejecutar, y posteriormente resuelva el problema 1.1.4
+%
+% No es necesario incluir conclusiones en esta práctica, si lo considera
+% necesario puede incluir apéndices, no olvide incluir sus referencias. 
+%%
+% El código de esta publicación lo puedes encontrar en el siguiente
+% <https://www.dropbox.com/s/krv0lj76yy17qbn/P03SyS20201.m?dl=0 enlace>
+
+
+
+##### SOURCE END #####
+--></body></html>
