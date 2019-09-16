@@ -10,4 +10,4 @@ Leguizamo Lara Daniela Denisse
 
 Rojas Solis Juan Carlos
 
-Grupo: 2TV1
+Grupo: 2TV11
