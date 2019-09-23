@@ -97,7 +97,7 @@
 %
 % Crea una función que se llame _fun1_ y reciba dos parametros $\omega$ y 
 % $a$ la función debe regresar la evaluación $F(\omega)=a/(a^2+\omega^2)$,
-% esta función debe trabajar con $a\in R$ y $t\in  R^n$. Debe
+% esta función debe trabajar con $a\in R$ y $\omega\in  R^n$. Debe
 % mostrar su código en el reporte (sin ejecutar).
 %
 %% Problema 2
@@ -137,4 +137,7 @@
 % para esto puede resultar útil investigar las instrucciones _int_ , 
 % _integral_. Se presupone utilizar el código solo con funciones de potencia. Muestre
 % el código sin ejecutar, y posteriormente resuelva el problema 1.1.4
+%
+%% Referencias
+%
 %
