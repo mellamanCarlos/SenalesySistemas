@@ -7,3 +7,5 @@ resultadofun1 = fun1(w,a);
 
 fprintf('\n El resultado de la evaluacion de la funcion fun1 es: %f', resultadofun1);
 fprintf('\n');
+
+%hola como estas
