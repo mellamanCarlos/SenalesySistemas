@@ -1,5 +1,3 @@
-clear all;
-close all;
 syms t;
 f=input("Introduce la función a la que se le va a calcular la potencia: ");
 T=input("Introduce el periodo de la señal: ");
