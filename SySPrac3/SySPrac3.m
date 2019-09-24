@@ -89,7 +89,7 @@
 % 
 % SageMath está disponible bajo una licencia GPL, y su código fuente se 
 % puede encontrar en el sitio web del proyecto.
-% <hhttps://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/ [2]>
+% <https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/ [2]>
 %% Desarrollo
 % A continuación se presentan los problemas resueltos.
 %
@@ -100,6 +100,22 @@
 % esta función debe trabajar con $a\in R$ y $\omega\in  R^n$. Debe
 % mostrar su código en el reporte (sin ejecutar).
 %
+%   clear all;
+%
+%   close all;
+%
+%   w=input("Introduce el valor de w: ");
+%
+%   a=input("Introduce el valor de a: ");
+%
+%   fun1=@(w,a) (a)./(a^(2)+w.^(2));
+%
+%   resultadofun1 = fun1(w,a);
+% 
+%   fprintf('\n El resultado de la evaluacion de la funcion fun1 es: %f', resultadofun1);
+%
+%   fprintf('\n');
+%
 %% Problema 2
 %
 % Construya una función que gráfique funciones de
@@ -108,6 +124,17 @@
 % $[-2,2]$ para $a=1$, no debe
 % incluir el código, solo el uso de la función para mostrar la gráfica.
 %
+w=[-2:0.01:2];
+a=1;
+fun1=@(w,a) (a)./(a^(2)+w.^(2));
+plot(w,fun1(w,a))
+grid on;
+xlabel('\omega');
+ylabel('F(\omega)');
+title('Gráfica de la señal F(\omega) vs \omega');
+ax = gca;
+ax.XAxisLocation = 'origin';
+ax.YAxisLocation = 'origin';
 %% Problema 3
 %
 % Este problema no se hace.
@@ -118,10 +145,214 @@
 % que se encuentra al final del capítulo 1 y antes de la sección de
 % problemas, cambie los _inline_ por funciones anonimas.
 %
+%%
+%Problema M1.1
+    %Ejercicio 1
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=0;
+    f(t);
+    fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));
+    fprintf('\n');
+
+%%   
+    %Ejercicio 2
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=[-2:2];
+    f(t);
+    fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));
+    fprintf('\n');
+    plot(t,f(t));
+    xlabel('t');
+    ylabel('f(t)');
+    grid on;
+
+%%
+    %Ejercicio 3
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=[-2:0.01:2];
+    f(t);
+    %fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));
+    %fprintf('\n');
+    plot(t,f(t));
+    xlabel('t');
+    ylabel('f(t)');
+    grid on;
+   
+%%    
+%Problema M1.2
+    %Ejercicio 1
+    u=@(t) (t>=0);
+    t=[-2:2];
+    u(t);
+    plot(t,u(t));
+    xlabel('t');
+    ylabel('u(t)');
+    grid on;
+    
+%%    
+    %Ejercicio 2
+    u=@(t) (t>=0);
+    t=[-2:0.01:2];
+    u(t);
+    plot(t,u(t));
+    xlabel('t');
+    ylabel('u(t)');
+    grid on;
+    axis([-2 2 -0.1 1.1]);
+    
+%%    
+    %Ejercicio 3
+    p=@(t) ((t>=0)&(t<1));
+    t=[-1:0.01:2];
+    p(t);
+    plot(t,p(t));
+    xlabel('t');
+    ylabel('p(t)= u(t)-u(t-1)');
+    grid on;
+    axis([-1 2 -0.1 1.1]);
+    
+%%
+%Problema M1.3
+    %Ejercicio 1
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.01:2];
+    g(2*t+1);
+    plot(t,g(2*t+1));
+    xlabel('t');
+    ylabel('g(2*t+1)');
+    grid on;
+    
+%% 
+    %Ejercicio 2
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.01:2];
+    g(-t+1);
+    plot(t,g(-t+1));
+    xlabel('t');
+    ylabel('g(-t+1)');
+    grid on;
+    
+ %%   
+    %Ejercicio 3
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.01:2];
+    h=g(2*t+1) + g(-t+1);
+    plot(t,h);
+    xlabel('t');
+    ylabel('h(t)');
+    grid on;
+    
+%%
+%Problema M1.4
+    %Ejercicio 1
+    x=@(t) (exp(-t).*((t>=0)&(t<1)));
+    t=[0:0.01:1];
+    E_x=sum(x(t).*x(t)*0.01)
+    
+%%    
+    %Ejercicio 2
+    x=@(t) (exp(-t).*((t>=0)&(t<1)));
+    t=[0:0.001:1];
+    E_x=sum(x(t).*x(t)*0.001)
+    
+%%   
+    %Ejercicio 3
+    x_cuadrada=@(t) (exp(-2*t).*((t>=0)&(t<1)));
+    E_x=quad(x_cuadrada,0,1)
+    
+%%   
+    %Ejercicio 4
+    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
+    t=[0:0.001:100];
+    E_g=sum(g_cuadrada(t)*0.001)
+    
+%%    
+    %Ejercicio 5
+    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
+    E_g=quad(g_cuadrada,0,100)
+    
+%%  
+    %Ejercicio 6
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.001:2];
+    h_cuadrada=(g(2*t+1)+g(-t+1)).^2;
+    E_h=sum(h_cuadrada*0.001)
+    
+ %%   
+    %Ejercicio 7
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    h_cuadrada=@(t) (g(2*t+1)+g(-t+1)).^2;
+    E_h=quad(h_cuadrada,-2,2)
+    
 %% Problema 5
 %
 % Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
 %
+ %Ejercicio 1.2.2
+    %Señal x(t)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(t);
+    plot(t,x(t));
+    xlabel('t');
+    ylabel('x(t)');
+    axis([-5 3 -1 5]);
+    grid on;
+    
+%%    
+    %Inciso a) Señal x(t-4)
+     
+    t=[-10:0.0001:10];
+    x(t-4);
+    plot(t,x(t-4));
+    xlabel('t');
+    ylabel('x(t-4)');
+    axis([-1 7 -1 5]);
+    grid on;
+    
+%%   
+    %Inciso b) Señal x(t/1.5)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(t/1.5);
+    plot(t,x(t/1.5));
+    xlabel('t');
+    ylabel('x(t/1.5)');
+    axis([-7 4 -1 5]);
+    grid on;
+    
+%%    
+    %Inciso c) Señal x(-t)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(-t);
+    plot(t,x(-t));
+    xlabel('t');
+    ylabel('x(-t)');
+    axis([-3 5 -1 5]);
+    grid on;
+    
+%% 
+    %Inciso d) Señal x(2t-4)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(2*t-4);
+    plot(t,x(2*t-4));
+    xlabel('t');
+    ylabel('x(2t-4)');
+    axis([-1 4 -1 5]);
+    grid on;
+    
+%%  
+    %Inciso e) Señal x(2-t)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(2-t);
+    plot(t,x(2-t));
+    xlabel('t');
+    ylabel('x(2-t)');
+    axis([-0.5 6.5 -1 5]);
+    grid on;
 %% Problema 6
 %
 % Escriba una función que se llame _energia_ que reciba como argumento
@@ -130,6 +361,215 @@
 % _integral_. Se presupone utilizar el código solo con funciones de energia. Muestre
 % el código sin ejecutar, y posteriormente resuelva el problema 1.1.3
 %
+
+%   syms t;
+%
+%   f=input("Introduce la función a la que se le va a calcular la energia: ");
+%
+%   a=input("Introduce el limite de integración inferior: ");
+%
+%   b=input("Introduce el limite de integración superior: ");
+%
+%   energia=@(f) int(f.^2,t,a,b);
+%
+%   energia(f);
+%
+%   fprintf('\n La energia de la función es: %f', energia(f));
+%
+%   fprintf('\n');
+%
+
+%%
+% Problema 1.1.3
+    % Inciso a)
+    % Instrucciones del problema:
+    % Encuentre las energías del par de señales x (t) e y (t) representadas en las 
+    % figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energías de las 
+    % señales x (t) + y (t) yx (t) - y (t).
+    
+        %Primer par de funciones
+            %Calculando la energia de x(t)
+            t=[-4:0.01:4];
+            x=@(t) ((1).*((t>=0)&(t<=2)));
+            x(t);
+            x_cuadrada=@(t) ((1).*((t>=0)&(t<=2))).^2;
+            energia_x = integral(x_cuadrada,0,2);
+            fprintf('\n La energia de la función x(t) es: %f', energia_x);
+            fprintf('\n');
+            plot(t,x(t));
+            xlabel('t');
+            ylabel('x(t)');
+            grid on;
+            axis([-1 3 -1 2]);
+            
+%%
+            %Calculando la energia de y(t)
+            t=[-4:0.01:4];
+            y=@(t) ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2)));
+            y(t);
+            y_cuadrada=@(t) ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>1)&(t<=2))) ).^2;
+            energia_y = integral(y_cuadrada,0,2);
+            fprintf('\n La energia de la función y(t) es: %f', energia_y);
+            fprintf('\n');
+            plot(t,y(t));
+            xlabel('t');
+            ylabel('y(t)');
+            grid on;
+            axis([-1 3 -2 2]);
+            
+%% 
+            %Calculando la energia de x(t) + y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((1).*((t>=0)&(t<=2))) + ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ;
+            f(t);
+            f_cuadrada=@(t) ( ((1).*((t>=0)&(t<=2))) + ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) + y(t) es: %f', energia_suma);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) + y(t)');
+            grid on;
+            axis([-0.5 1.5 -0.5 2.5]);
+            
+%%            
+            %Calculando la energia de x(t) - y(t)
+            t=[-10:0.001:10];
+            f=@(t) ((1).*((t>=0)&(t<=2))) - ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) );
+            f(t);
+            f_cuadrada=@(t) ( ((1).*((t>=0)&(t<=2))) - ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) - y(t) es: %f', energia_resta);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) - y(t)');
+            grid on;
+            axis([0.8 2.2 -0.5 2.5]);
+            
+ %%           
+        %Segundo par de funciones
+            %Calculando la energia de x(t)
+            t=[-10:0.01:10];
+            x=@(t) ((sin(t)).*((t>=0)&(t<=2*pi)));
+            x(t);
+            x_cuadrada=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))).^2;
+            energia_x = integral(x_cuadrada,0,2*pi);
+            fprintf('\n La energia de la función x(t) es: %f', energia_x);
+            fprintf('\n');
+            plot(t,x(t));
+            xlabel('t');
+            ylabel('x(t)');
+            grid on;
+            axis([0 2*pi -2 2]);
+            
+%%
+            %Calculando la energia de y(t)
+            t=[-10:0.01:10];
+            y=@(t) ((1).*((t>=0)&(t<=2*pi)));
+            y(t);
+            y_cuadrada=@(t) ((1).*((t>=0)&(t<=2*pi))).^2;
+            energia_y = integral(y_cuadrada,0,2*pi);
+            fprintf('\n La energia de la función y(t) es: %f', energia_y);
+            fprintf('\n');
+            plot(t,y(t));
+            xlabel('t');
+            ylabel('y(t)');
+            grid on;
+            axis([-1 2.5*pi -2 2]);
+            
+%%          
+            %Calculando la energia de x(t) + y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) +  ((1).*((t>=0)&(t<=2*pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=2*pi))) +  ((1).*((t>=0)&(t<=2*pi))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) + y(t) es: %f', energia_suma);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) + y(t)');
+            grid on;
+            axis([-1 7 -0.5 2.5]);
+            
+%%       
+            %Calculando la energia de x(t) - y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) -  ((1).*((t>=0)&(t<=2*pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=2*pi))) -  ((1).*((t>=0)&(t<=2*pi))) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) - y(t) es: %f', energia_resta);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) - y(t)');
+            grid on;
+            axis([-1 7 -2.5 0.5]);
+            
+%%      
+    %Inciso b)
+    %Tercer par de funciones
+            %Calculando la energia de x(t)
+            t=[-10:0.01:10];
+            x=@(t) ((sin(t)).*((t>=0)&(t<=pi)));
+            x(t);
+            x_cuadrada=@(t) ((sin(t)).*((t>=0)&(t<=pi))).^2;
+            energia_x = integral(x_cuadrada,0,pi);
+            fprintf('\n La energia de la función x(t) es: %f', energia_x);
+            fprintf('\n');
+            plot(t,x(t));
+            xlabel('t');
+            ylabel('x(t)');
+            grid on;
+            axis([-0.5 3.5 -0.5 1.5]);
+            
+%%
+            %Calculando la energia de y(t)
+            t=[-10:0.01:10];
+            y=@(t) ((1).*((t>=0)&(t<=pi)));
+            y(t);
+            y_cuadrada=@(t) ((1).*((t>=0)&(t<=pi))).^2;
+            energia_y = integral(y_cuadrada,0,pi);
+            fprintf('\n La energia de la función x(t) es: %f', energia_y);
+            fprintf('\n');
+            plot(t,y(t));
+            xlabel('t');
+            ylabel('y(t)');
+            grid on;
+            axis([-0.5 3.5 -0.5 1.5]);
+            
+%%          
+            %Calculando la energia de x(t) + y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) +  ((1).*((t>=0)&(t<=pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=pi))) +  ((1).*((t>=0)&(t<=pi))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) + y(t) es: %f', energia_suma);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) + y(t)');
+            grid on;
+            axis([-1 4 -0.5 2.5]);
+            
+%%          
+            %Calculando la energia de x(t) - y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) -  ((1).*((t>=0)&(t<=pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=pi))) -  ((1).*((t>=0)&(t<=pi))) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) - y(t) es: %f', energia_resta);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) - y(t)');
+            grid on;
+            axis([-0.5 3.5 -1.5 0.5]);
+
 %% Problema 7
 %
 % Escriba una función que se llame _potencia_ que reciba como argumento
@@ -139,5 +579,7 @@
 % el código sin ejecutar, y posteriormente resuelva el problema 1.1.4
 %
 %% Referencias
+% 
+% [1]  "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].
 %
-%
+% [2]  "3 Alternativas de código abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].
