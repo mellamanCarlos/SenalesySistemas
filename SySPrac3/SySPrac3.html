@@ -68,42 +68,23 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
   </style></head><body><div class="content"><h1>Pr&aacute;ctica 3: Se&ntilde;ales continuas</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#3">Introducci&oacute;n</a></li><li><a href="#4">Desarrollo</a></li><li><a href="#5">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#7">Problema 3</a></li><li><a href="#8">Problema 4</a></li><li><a href="#25">Problema 5</a></li><li><a href="#31">Problema 6</a></li><li><a href="#44">Problema 7</a></li><li><a href="#51">Referencias</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas continuas</li><li>Transformaci&oacute;n de se&ntilde;ales continuas (escalamientos y traslaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales continuas</li></ul></div><h2 id="3">Introducci&oacute;n</h2><p><b>&iquest;Qu&eacute; es MATLAB?</b></p><p>MATLAB (abreviatura de MATrix LABoratory, &laquo;laboratorio de matrices&raquo;) es un sistema de c&oacute;mputo num&eacute;rico que ofrece un entorno de desarrollo integrado (IDE) con un lenguaje de programaci&oacute;n propio (lenguaje M). Est&aacute; disponible para las plataformas Unix, Windows, Mac OS X y GNU/Linux.</p><p>Entre sus prestaciones b&aacute;sicas se hallan la manipulaci&oacute;n de matrices, la representaci&oacute;n de datos y funciones, la implementaci&oacute;n de algoritmos, la creaci&oacute;n de interfaces de usuario (GUI) y la comunicaci&oacute;n con programas en otros lenguajes y con otros dispositivos hardware. El paquete MATLAB dispone de dos herramientas adicionales que expanden sus prestaciones, a saber, Simulink (plataforma de simulaci&oacute;n multidominio) y GUIDE (editor de interfaces de usuario - GUI). Adem&aacute;s, se pueden ampliar las capacidades de MATLAB con las cajas de herramientas (toolboxes); y las de Simulink con los paquetes de bloques (blocksets).</p><p>Es un software muy usado en universidades y centros de investigaci&oacute;n y desarrollo. En los &uacute;ltimos a&ntilde;os ha aumentado el n&uacute;mero de prestaciones, como la de programar directamente procesadores digitales de se&ntilde;al o crear c&oacute;digo VHDL.</p><p>En 2004, se estimaba que MATLAB era empleado por m&aacute;s de un mill&oacute;n de personas en &aacute;mbitos acad&eacute;micos y empresariales. <a href="https://es.wikipedia.org/wiki/MATLAB">[1]</a></p><p><b>Alternativas a MATLAB</b></p><div><ul><li>GNU Octave</li></ul></div><p>GNU Octave puede ser la alternativa m&aacute;s conocida a MATLAB. En desarrollo activo durante casi tres d&eacute;cadas, Octave se ejecuta en Windows, Mac y Linux, y est&aacute; empaquetado para la mayor&iacute;a de las distribuciones principales. Si est&aacute; buscando un proyecto que sea lo m&aacute;s parecido posible al lenguaje MATLAB real, Octave puede ser una buena opci&oacute;n para usted; se esfuerza por una compatibilidad exacta, por lo que muchos de sus proyectos desarrollados para MATLAB pueden ejecutarse en Octave sin necesidad de modificaciones.</p><p>Octave tiene licencia GPL, y su c&oacute;digo fuente se puede encontrar en el sitio FTP de GNU.</p><div><ul><li>Scilab</li></ul></div><p>Scilab es otra opci&oacute;n de c&oacute;digo abierto para computaci&oacute;n num&eacute;rica que se ejecuta en todas las plataformas principales: Windows, Mac y Linux incluidos. Scilab es quiz&aacute;s la alternativa m&aacute;s conocida fuera de Octave, y (como Octave) es muy similar a MATLAB en su implementaci&oacute;n, aunque la compatibilidad exacta no es un objetivo de los desarrolladores del proyecto.</p><p>Scilab se distribuye como fuente abierta bajo la licencia CeCILL compatible con GPL, y su c&oacute;digo fuente est&aacute; disponible en su p&aacute;gina oficial.</p><div><ul><li>Sage</li></ul></div><p>SageMath es otro sistema de software de matem&aacute;ticas de c&oacute;digo abierto que podr&iacute;a ser una buena opci&oacute;n para aquellos que buscan una alternativa de MATLAB. Est&aacute; construido sobre una variedad de conocidas bibliotecas de computaci&oacute;n cient&iacute;fica basadas en Python, y su propio lenguaje es sint&aacute;cticamente similar a Python. Tiene muchas caracter&iacute;sticas que incluyen una interfaz de l&iacute;nea de comandos, cuadernos basados en navegador, herramientas para incrustar f&oacute;rmulas en otros documentos y, por supuesto, muchas bibliotecas matem&aacute;ticas.</p><p>SageMath est&aacute; disponible bajo una licencia GPL, y su c&oacute;digo fuente se puede encontrar en el sitio web del proyecto. <a href="https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/">[2]</a></p><h2 id="4">Desarrollo</h2><p>A continuaci&oacute;n se presentan los problemas resueltos.</p><h2 id="5">Problema 1</h2><p>Crea una funci&oacute;n que se llame <i>fun1</i> y reciba dos parametros <img src="SySPrac3_eq08589834809570054062.png" alt="$\omega$"> y <img src="SySPrac3_eq05508344529756732484.png" alt="$a$"> la funci&oacute;n debe regresar la evaluaci&oacute;n <img src="SySPrac3_eq01407365636722940873.png" alt="$F(\omega)=a/(a^2+\omega^2)$">, esta funci&oacute;n debe trabajar con <img src="SySPrac3_eq16064389548595522758.png" alt="$a\in R$"> y <img src="SySPrac3_eq07809445175869582595.png" alt="$\omega\in  R^n$">. Debe mostrar su c&oacute;digo en el reporte (sin ejecutar).</p><pre class="language-matlab">clear <span class="string">all</span>;
 </pre><pre class="language-matlab">close <span class="string">all</span>;
-</pre><pre class="language-matlab">w=input(<span class="string">"Introduce el valor de w: "</span>);
 </pre><pre class="language-matlab">a=input(<span class="string">"Introduce el valor de a: "</span>);
-</pre><pre class="language-matlab">fun1=@(w,a) (a)./(a^(2)+w.^(2));
-</pre><pre class="language-matlab">resultadofun1 = fun1(w,a);
-</pre><pre class="language-matlab">fprintf(<span class="string">'\n El resultado de la evaluacion de la funcion fun1 es: %f'</span>, resultadofun1);
-</pre><pre class="language-matlab">fprintf(<span class="string">'\n'</span>);
-</pre><h2 id="6">Problema 2</h2><pre class="language-matlab">Construya <span class="string">una</span> <span class="string">funci&oacute;n</span> <span class="string">que</span> <span class="string">gr&aacute;fique</span> <span class="string">funciones</span> <span class="string">de</span>
-$f:R\rightarrow R$ en <span class="string">el</span> <span class="string">formato</span> <span class="string">de</span> <span class="string">su</span> <span class="string">elecci&oacute;n</span> <span class="string">y</span> <span class="string">pruebe</span>
-su <span class="string">c&oacute;digo</span> <span class="string">mostrando</span> <span class="string">la</span> <span class="string">gr&aacute;fica</span> <span class="string">de</span> <span class="string">$F(\omega)$</span> <span class="string">vs</span> <span class="string">$\omega$</span> <span class="string">en</span> <span class="string">el</span> <span class="string">intervalo</span>
-$[-2,2]$ para <span class="string">$a=1$</span>, no <span class="string">debe</span>
-incluir <span class="string">el</span> <span class="string">c&oacute;digo</span>, solo <span class="string">el</span> <span class="string">uso</span> <span class="string">de</span> <span class="string">la</span> <span class="string">funci&oacute;n</span> <span class="string">para</span> <span class="string">mostrar</span> <span class="string">la</span> <span class="string">gr&aacute;fica.</span>
-</pre><pre class="codeinput">w=[-2:0.01:2];
-a=1;
-fun1=@(w,a) (a)./(a^(2)+w.^(2));
-plot(w,fun1(w,a))
-grid <span class="string">on</span>;
-xlabel(<span class="string">'\omega'</span>);
-ylabel(<span class="string">'F(\omega)'</span>);
-title(<span class="string">'Gr&aacute;fica de la se&ntilde;al F(\omega) vs \omega'</span>);
-ax = gca;
-ax.XAxisLocation = <span class="string">'origin'</span>;
-ax.YAxisLocation = <span class="string">'origin'</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_01.png" alt=""> <h2 id="7">Problema 3</h2><p>Este problema no se hace.</p><h2 id="8">Problema 4</h2><pre class="language-matlab">Realiza <span class="string">las</span> <span class="string">mismas</span> <span class="string">operaciones</span> <span class="string">que</span> <span class="string">Lathi</span> <span class="string">en</span> <span class="string">las</span> <span class="string">secciones</span> <span class="string">M1.1</span> <span class="string">a</span> <span class="string">M1.4</span>
-que <span class="string">se</span> <span class="string">encuentra</span> <span class="string">al</span> <span class="string">final</span> <span class="string">del</span> <span class="string">cap&iacute;tulo</span> <span class="string">1</span> <span class="string">y</span> <span class="string">antes</span> <span class="string">de</span> <span class="string">la</span> <span class="string">secci&oacute;n</span> <span class="string">de</span>
-problemas, cambie <span class="string">los</span> <span class="string">_inline_</span> <span class="string">por</span> <span class="string">funciones</span> <span class="string">anonimas.</span>
-</pre><pre class="language-matlab">Problema <span class="string">M1.1</span>
-Ejercicio <span class="string">1</span>
-</pre><pre class="codeinput">    f=@(t) (exp(-t).*cos(2*pi*t));
+</pre><pre class="language-matlab">w=input(<span class="string">"Introduce el valor de w: "</span>);
+</pre><pre class="language-matlab">fun1(a,w);
+</pre><p>El contenido de fun1 es el siguiente:</p><pre class="language-matlab"><span class="keyword">function</span>[resultado]= fun1(a, w)
+</pre><pre class="language-matlab">resultado=(a)./(a.^(2)+w.^(2));
+</pre><pre class="language-matlab"><span class="keyword">end</span>
+</pre><h2 id="6">Problema 2</h2><p>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="SySPrac3_eq02145986785580767623.png" alt="$f:R\rightarrow R$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de <img src="SySPrac3_eq04634431881849194213.png" alt="$F(\omega)$"> vs <img src="SySPrac3_eq08589834809570054062.png" alt="$\omega$"> en el intervalo <img src="SySPrac3_eq01169792831847459841.png" alt="$[-2,2]$"> para <img src="SySPrac3_eq13016372792947090052.png" alt="$a=1$">, no debe incluir el c&oacute;digo, solo el uso de la funci&oacute;n para mostrar la gr&aacute;fica.</p><pre class="codeinput">a=1;
+w=[-2:0.01:2];
+mifigura(w,fun1(a,w));
+</pre><img vspace="5" hspace="5" src="SySPrac3_01.png" alt=""> <h2 id="7">Problema 3</h2><p>Este problema no se hace.</p><h2 id="8">Problema 4</h2><p>Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4 que se encuentra al final del cap&iacute;tulo 1 y antes de la secci&oacute;n de problemas, cambie los <i>inline</i> por funciones anonimas.</p><p>Problema M1.1 Ejercicio 1</p><pre class="codeinput">    f=@(t) (exp(-t).*cos(2*pi*t));
     t=0;
     f(t);
     fprintf(<span class="string">'\n El resultado de la evaluacion de la funcion f es: %f'</span>, f(t));
     fprintf(<span class="string">'\n'</span>);
 </pre><pre class="codeoutput">
  El resultado de la evaluacion de la funcion f es: 1.000000
-</pre><pre class="language-matlab">Ejercicio <span class="string">2</span>
-</pre><pre class="codeinput">    f=@(t) (exp(-t).*cos(2*pi*t));
+</pre><p>Ejercicio 2</p><pre class="codeinput">    f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:2];
     f(t);
     fprintf(<span class="string">'\n El resultado de la evaluacion de la funcion f es: %f'</span>, f(t));
@@ -118,8 +99,7 @@ Ejercicio <span class="string">1</span>
  El resultado de la evaluacion de la funcion f es: 1.000000
  El resultado de la evaluacion de la funcion f es: 0.367879
  El resultado de la evaluacion de la funcion f es: 0.135335
-</pre><img vspace="5" hspace="5" src="SySPrac3_02.png" alt=""> <pre class="language-matlab">Ejercicio <span class="string">3</span>
-</pre><pre class="codeinput">    f=@(t) (exp(-t).*cos(2*pi*t));
+</pre><img vspace="5" hspace="5" src="SySPrac3_02.png" alt=""> <p>Ejercicio 3</p><pre class="codeinput">    f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:0.01:2];
     f(t);
     <span class="comment">%fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));</span>
@@ -128,17 +108,14 @@ Ejercicio <span class="string">1</span>
     xlabel(<span class="string">'t'</span>);
     ylabel(<span class="string">'f(t)'</span>);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_03.png" alt=""> <pre class="language-matlab">Problema <span class="string">M1.2</span>
-Ejercicio <span class="string">1</span>
-</pre><pre class="codeinput">    u=@(t) (t&gt;=0);
+</pre><img vspace="5" hspace="5" src="SySPrac3_03.png" alt=""> <p>Problema M1.2 Ejercicio 1</p><pre class="codeinput">    u=@(t) (t&gt;=0);
     t=[-2:2];
     u(t);
     plot(t,u(t));
     xlabel(<span class="string">'t'</span>);
     ylabel(<span class="string">'u(t)'</span>);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_04.png" alt=""> <pre class="language-matlab">Ejercicio <span class="string">2</span>
-</pre><pre class="codeinput">    u=@(t) (t&gt;=0);
+</pre><img vspace="5" hspace="5" src="SySPrac3_04.png" alt=""> <p>Ejercicio 2</p><pre class="codeinput">    u=@(t) (t&gt;=0);
     t=[-2:0.01:2];
     u(t);
     plot(t,u(t));
@@ -146,8 +123,7 @@ Ejercicio <span class="string">1</span>
     ylabel(<span class="string">'u(t)'</span>);
     grid <span class="string">on</span>;
     axis([-2 2 -0.1 1.1]);
-</pre><img vspace="5" hspace="5" src="SySPrac3_05.png" alt=""> <pre class="language-matlab">Ejercicio <span class="string">3</span>
-</pre><pre class="codeinput">    p=@(t) ((t&gt;=0)&amp;(t&lt;1));
+</pre><img vspace="5" hspace="5" src="SySPrac3_05.png" alt=""> <p>Ejercicio 3</p><pre class="codeinput">    p=@(t) ((t&gt;=0)&amp;(t&lt;1));
     t=[-1:0.01:2];
     p(t);
     plot(t,p(t));
@@ -155,34 +131,28 @@ Ejercicio <span class="string">1</span>
     ylabel(<span class="string">'p(t)= u(t)-u(t-1)'</span>);
     grid <span class="string">on</span>;
     axis([-1 2 -0.1 1.1]);
-</pre><img vspace="5" hspace="5" src="SySPrac3_06.png" alt=""> <pre class="language-matlab">Problema <span class="string">M1.3</span>
-Ejercicio <span class="string">1</span>
-</pre><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+</pre><img vspace="5" hspace="5" src="SySPrac3_06.png" alt=""> <p>Problema M1.3 Ejercicio 1</p><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
     t=[-2:0.01:2];
     g(2*t+1);
     plot(t,g(2*t+1));
     xlabel(<span class="string">'t'</span>);
     ylabel(<span class="string">'g(2*t+1)'</span>);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_07.png" alt=""> <pre class="language-matlab">Ejercicio <span class="string">2</span>
-</pre><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+</pre><img vspace="5" hspace="5" src="SySPrac3_07.png" alt=""> <p>Ejercicio 2</p><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
     t=[-2:0.01:2];
     g(-t+1);
     plot(t,g(-t+1));
     xlabel(<span class="string">'t'</span>);
     ylabel(<span class="string">'g(-t+1)'</span>);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_08.png" alt=""> <pre class="language-matlab">Ejercicio <span class="string">3</span>
-</pre><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+</pre><img vspace="5" hspace="5" src="SySPrac3_08.png" alt=""> <p>Ejercicio 3</p><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
     t=[-2:0.01:2];
     h=g(2*t+1) + g(-t+1);
     plot(t,h);
     xlabel(<span class="string">'t'</span>);
     ylabel(<span class="string">'h(t)'</span>);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_09.png" alt=""> <pre class="language-matlab">Problema <span class="string">M1.4</span>
-Ejercicio <span class="string">1</span>
-</pre><pre class="codeinput">    x=@(t) (exp(-t).*((t&gt;=0)&amp;(t&lt;1)));
+</pre><img vspace="5" hspace="5" src="SySPrac3_09.png" alt=""> <p>Problema M1.4 Ejercicio 1</p><pre class="codeinput">    x=@(t) (exp(-t).*((t&gt;=0)&amp;(t&lt;1)));
     t=[0:0.01:1];
     E_x=sum(x(t).*x(t)*0.01)
 </pre><pre class="codeoutput">
@@ -190,8 +160,7 @@ E_x =
 
     0.4367
 
-</pre><pre class="language-matlab">Ejercicio <span class="string">2</span>
-</pre><pre class="codeinput">    x=@(t) (exp(-t).*((t&gt;=0)&amp;(t&lt;1)));
+</pre><p>Ejercicio 2</p><pre class="codeinput">    x=@(t) (exp(-t).*((t&gt;=0)&amp;(t&lt;1)));
     t=[0:0.001:1];
     E_x=sum(x(t).*x(t)*0.001)
 </pre><pre class="codeoutput">
@@ -199,16 +168,14 @@ E_x =
 
     0.4328
 
-</pre><pre class="language-matlab">Ejercicio <span class="string">3</span>
-</pre><pre class="codeinput">    x_cuadrada=@(t) (exp(-2*t).*((t&gt;=0)&amp;(t&lt;1)));
+</pre><p>Ejercicio 3</p><pre class="codeinput">    x_cuadrada=@(t) (exp(-2*t).*((t&gt;=0)&amp;(t&lt;1)));
     E_x=quad(x_cuadrada,0,1)
 </pre><pre class="codeoutput">
 E_x =
 
     0.4323
 
-</pre><pre class="language-matlab">Ejercicio <span class="string">4</span>
-</pre><pre class="codeinput">    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t&gt;=0));
+</pre><p>Ejercicio 4</p><pre class="codeinput">    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t&gt;=0));
     t=[0:0.001:100];
     E_g=sum(g_cuadrada(t)*0.001)
 </pre><pre class="codeoutput">
@@ -216,16 +183,14 @@ E_g =
 
     0.2567
 
-</pre><pre class="language-matlab">Ejercicio <span class="string">5</span>
-</pre><pre class="codeinput">    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t&gt;=0));
+</pre><p>Ejercicio 5</p><pre class="codeinput">    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t&gt;=0));
     E_g=quad(g_cuadrada,0,100)
 </pre><pre class="codeoutput">
 E_g =
 
     0.2562
 
-</pre><pre class="language-matlab">Ejercicio <span class="string">6</span>
-</pre><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+</pre><p>Ejercicio 6</p><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
     t=[-2:0.001:2];
     h_cuadrada=(g(2*t+1)+g(-t+1)).^2;
     E_h=sum(h_cuadrada*0.001)
@@ -234,8 +199,7 @@ E_h =
 
     0.3769
 
-</pre><pre class="language-matlab">Ejercicio <span class="string">7</span>
-</pre><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+</pre><p>Ejercicio 7</p><pre class="codeinput">    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
     h_cuadrada=@(t) (g(2*t+1)+g(-t+1)).^2;
     E_h=quad(h_cuadrada,-2,2)
 </pre><pre class="codeoutput">
@@ -243,9 +207,7 @@ E_h =
 
     0.3761
 
-</pre><h2 id="25">Problema 5</h2><pre class="language-matlab">Resuelve <span class="string">el</span> <span class="string">problema</span> <span class="string">1.2.2</span> <span class="string">usando</span> <span class="string">las</span> <span class="string">herramientas</span> <span class="string">del</span> <span class="string">paso</span> <span class="string">anterior.</span>
-</pre><pre>Ejercicio 1.2.2
- Se&ntilde;al x(t)</pre><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+</pre><h2 id="25">Problema 5</h2><p>Resuelve el problema 1.2.2 usando las herramientas del paso anterior.</p><p>Ejercicio 1.2.2 Se&ntilde;al x(t)</p><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
     t=[-10:0.0001:10];
     x(t);
     plot(t,x(t));
@@ -253,16 +215,14 @@ E_h =
     ylabel(<span class="string">'x(t)'</span>);
     axis([-5 3 -1 5]);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_10.png" alt=""> <pre class="language-matlab">Inciso <span class="string">a) Se&ntilde;al x(t-4)</span>
-</pre><pre class="codeinput">    t=[-10:0.0001:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_10.png" alt=""> <p>Inciso a) Se&ntilde;al x(t-4)</p><pre class="codeinput">    t=[-10:0.0001:10];
     x(t-4);
     plot(t,x(t-4));
     xlabel(<span class="string">'t'</span>);
     ylabel(<span class="string">'x(t-4)'</span>);
     axis([-1 7 -1 5]);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_11.png" alt=""> <pre class="language-matlab">Inciso <span class="string">b) Se&ntilde;al x(t/1.5)</span>
-</pre><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+</pre><img vspace="5" hspace="5" src="SySPrac3_11.png" alt=""> <p>Inciso b) Se&ntilde;al x(t/1.5)</p><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
     t=[-10:0.0001:10];
     x(t/1.5);
     plot(t,x(t/1.5));
@@ -270,8 +230,7 @@ E_h =
     ylabel(<span class="string">'x(t/1.5)'</span>);
     axis([-7 4 -1 5]);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_12.png" alt=""> <pre class="language-matlab">Inciso <span class="string">c) Se&ntilde;al x(-t)</span>
-</pre><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+</pre><img vspace="5" hspace="5" src="SySPrac3_12.png" alt=""> <p>Inciso c) Se&ntilde;al x(-t)</p><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
     t=[-10:0.0001:10];
     x(-t);
     plot(t,x(-t));
@@ -279,8 +238,7 @@ E_h =
     ylabel(<span class="string">'x(-t)'</span>);
     axis([-3 5 -1 5]);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_13.png" alt=""> <pre class="language-matlab">Inciso <span class="string">d) Se&ntilde;al x(2t-4)</span>
-</pre><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+</pre><img vspace="5" hspace="5" src="SySPrac3_13.png" alt=""> <p>Inciso d) Se&ntilde;al x(2t-4)</p><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
     t=[-10:0.0001:10];
     x(2*t-4);
     plot(t,x(2*t-4));
@@ -288,8 +246,7 @@ E_h =
     ylabel(<span class="string">'x(2t-4)'</span>);
     axis([-1 4 -1 5]);
     grid <span class="string">on</span>;
-</pre><img vspace="5" hspace="5" src="SySPrac3_14.png" alt=""> <pre class="language-matlab">Inciso <span class="string">e) Se&ntilde;al x(2-t)</span>
-</pre><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+</pre><img vspace="5" hspace="5" src="SySPrac3_14.png" alt=""> <p>Inciso e) Se&ntilde;al x(2-t)</p><pre class="codeinput">    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
     t=[-10:0.0001:10];
     x(2-t);
     plot(t,x(2-t));
@@ -305,15 +262,7 @@ E_h =
 </pre><pre class="language-matlab">energia(f);
 </pre><pre class="language-matlab">fprintf(<span class="string">'\n La energia de la funci&oacute;n es: %f'</span>, energia(f));
 </pre><pre class="language-matlab">fprintf(<span class="string">'\n'</span>);
-</pre><pre class="language-matlab">Problema <span class="string">1.1.3</span>
-Inciso <span class="string">a)</span>
-Instrucciones <span class="string">del</span> <span class="string">problema:</span>
-</pre><pre class="language-matlab">Encuentre <span class="string">las</span> <span class="string">energ&iacute;as</span> <span class="string">del</span> <span class="string">par</span> <span class="string">de</span> <span class="string">se&ntilde;ales</span> <span class="string">x</span> <span class="string">(t)</span> <span class="string">e</span> <span class="string">y</span> <span class="string">(t)</span> <span class="string">representadas</span> <span class="string">en</span> <span class="string">las</span>
-figuras <span class="string">P1.1-3a</span> <span class="string">y</span> <span class="string">P1.1-3b.</span> <span class="string">Dibuja</span> <span class="string">y</span> <span class="string">encuentra</span> <span class="string">las</span> <span class="string">energ&iacute;as</span> <span class="string">de</span> <span class="string">las</span>
-se&ntilde;ales x (t) + y (t) yx (t) - y (t).
-</pre><pre class="language-matlab">Primer <span class="string">par</span> <span class="string">de</span> <span class="string">funciones</span>
-Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span>
-</pre><pre class="codeinput">            t=[-4:0.01:4];
+</pre><p>Problema 1.1.3 Inciso a) Instrucciones del problema:</p><p>Encuentre las energ&iacute;as del par de se&ntilde;ales x (t) e y (t) representadas en las figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energ&iacute;as de las se&ntilde;ales x (t) + y (t) yx (t) - y (t).</p><p>Primer par de funciones Calculando la energia de x(t)</p><pre class="codeinput">            t=[-4:0.01:4];
             x=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2)));
             x(t);
             x_cuadrada=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2))).^2;
@@ -327,8 +276,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-1 3 -1 2]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) es: 2.000000
-</pre><img vspace="5" hspace="5" src="SySPrac3_16.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-4:0.01:4];
+</pre><img vspace="5" hspace="5" src="SySPrac3_16.png" alt=""> <p>Calculando la energia de y(t)</p><pre class="codeinput">            t=[-4:0.01:4];
             y=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2)));
             y(t);
             y_cuadrada=@(t) ( ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;1)&amp;(t&lt;=2))) ).^2;
@@ -342,8 +290,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-1 3 -2 2]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n y(t) es: 2.000000
-</pre><img vspace="5" hspace="5" src="SySPrac3_17.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span> <span class="string">+</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_17.png" alt=""> <p>Calculando la energia de x(t) + y(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             f=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2))) + ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) ;
             f(t);
             f_cuadrada=@(t) ( ((1).*((t&gt;=0)&amp;(t&lt;=2))) + ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) ).^2 ;
@@ -357,8 +304,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-0.5 1.5 -0.5 2.5]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) + y(t) es: 3.999999
-</pre><img vspace="5" hspace="5" src="SySPrac3_18.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span> <span class="string">-</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.001:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_18.png" alt=""> <p>Calculando la energia de x(t) - y(t)</p><pre class="codeinput">            t=[-10:0.001:10];
             f=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2))) - ( ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) );
             f(t);
             f_cuadrada=@(t) ( ((1).*((t&gt;=0)&amp;(t&lt;=2))) - ( ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) ) ).^2 ;
@@ -372,9 +318,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([0.8 2.2 -0.5 2.5]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) - y(t) es: 3.999999
-</pre><img vspace="5" hspace="5" src="SySPrac3_19.png" alt=""> <pre class="language-matlab">Segundo <span class="string">par</span> <span class="string">de</span> <span class="string">funciones</span>
-Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_19.png" alt=""> <p>Segundo par de funciones Calculando la energia de x(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             x=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi)));
             x(t);
             x_cuadrada=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))).^2;
@@ -388,8 +332,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([0 2*pi -2 2]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) es: 3.141593
-</pre><img vspace="5" hspace="5" src="SySPrac3_20.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_20.png" alt=""> <p>Calculando la energia de y(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             y=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2*pi)));
             y(t);
             y_cuadrada=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2*pi))).^2;
@@ -403,8 +346,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-1 2.5*pi -2 2]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n y(t) es: 6.283185
-</pre><img vspace="5" hspace="5" src="SySPrac3_21.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span> <span class="string">+</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_21.png" alt=""> <p>Calculando la energia de x(t) + y(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi)));
             f(t);
             f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi))) ).^2 ;
@@ -418,8 +360,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-1 7 -0.5 2.5]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) + y(t) es: 9.424792
-</pre><img vspace="5" hspace="5" src="SySPrac3_22.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span> <span class="string">-</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_22.png" alt=""> <p>Calculando la energia de x(t) - y(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi)));
             f(t);
             f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi))) ).^2 ;
@@ -433,10 +374,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-1 7 -2.5 0.5]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) - y(t) es: 9.424792
-</pre><img vspace="5" hspace="5" src="SySPrac3_23.png" alt=""> <pre class="language-matlab">Inciso <span class="string">b)</span>
-Tercer <span class="string">par</span> <span class="string">de</span> <span class="string">funciones</span>
-Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_23.png" alt=""> <p>Inciso b) Tercer par de funciones Calculando la energia de x(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             x=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi)));
             x(t);
             x_cuadrada=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))).^2;
@@ -450,8 +388,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-0.5 3.5 -0.5 1.5]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) es: 1.570796
-</pre><img vspace="5" hspace="5" src="SySPrac3_24.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_24.png" alt=""> <p>Calculando la energia de y(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             y=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=pi)));
             y(t);
             y_cuadrada=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=pi))).^2;
@@ -465,8 +402,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-0.5 3.5 -0.5 1.5]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) es: 3.141593
-</pre><img vspace="5" hspace="5" src="SySPrac3_25.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span> <span class="string">+</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_25.png" alt=""> <p>Calculando la energia de x(t) + y(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=pi)));
             f(t);
             f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=pi))) ).^2 ;
@@ -480,8 +416,7 @@ Calculando <span class="string">la</span> <span class="string">energia</span> <s
             axis([-1 4 -0.5 2.5]);
 </pre><pre class="codeoutput">
  La energia de la funci&oacute;n x(t) + y(t) es: 8.712393
-</pre><img vspace="5" hspace="5" src="SySPrac3_26.png" alt=""> <pre class="language-matlab">Calculando <span class="string">la</span> <span class="string">energia</span> <span class="string">de</span> <span class="string">x(t)</span> <span class="string">-</span> <span class="string">y(t)</span>
-</pre><pre class="codeinput">            t=[-10:0.01:10];
+</pre><img vspace="5" hspace="5" src="SySPrac3_26.png" alt=""> <p>Calculando la energia de x(t) - y(t)</p><pre class="codeinput">            t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=pi)));
             f(t);
             f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=pi))) ).^2 ;
@@ -502,10 +437,7 @@ potencia=@(f) (1/T)*int(f.^2,t,(-T/2),(T/2));
 potencia(f);
 fprintf(<span class="string">'\n La potencia de la funci&oacute;n es: %f'</span>, potencia(f));
 fprintf(<span class="string">'\n'</span>);
-</pre><p>Problema 1.1.4   Encuentre la potencia de la se&ntilde;al peri&oacute;dica x (t) que se muestra en la   figura P1.1-4. Encuentre tambi&eacute;n las potencias y los valores rms de:</p><pre class="language-matlab">a. -x(t)
-</pre><pre class="language-matlab">b. 2x(t)
-</pre><pre class="language-matlab">c. cx(t)
-</pre><pre class="codeinput">    t=[-2:0.01:2];
+</pre><p>Problema 1.1.4 Encuentre la potencia de la se&ntilde;al peri&oacute;dica x (t) que se muestra en la figura P1.1-4. Encuentre tambi&eacute;n las potencias y los valores rms de:</p><p>a. -x(t)</p><p>b. 2x(t)</p><p>c. cx(t)</p><pre class="codeinput">    t=[-2:0.01:2];
     x=@(t) ((t.^3).*((t&gt;=-2)&amp;(t&lt;=2)));
     x(t);
     plot(t,x(t));
@@ -513,8 +445,7 @@ fprintf(<span class="string">'\n'</span>);
     ylabel(<span class="string">'x(t)'</span>);
     grid <span class="string">on</span>;
     axis([-2 2 -8 8]);
-</pre><img vspace="5" hspace="5" src="SySPrac3_28.png" alt=""> <pre class="language-matlab">Potencia <span class="string">y</span> <span class="string">valor</span> <span class="string">rms</span> <span class="string">de</span> <span class="string">la</span> <span class="string">se&ntilde;al</span> <span class="string">original</span>
-</pre><pre class="codeinput">    syms <span class="string">t</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_28.png" alt=""> <p>Potencia y valor rms de la se&ntilde;al original</p><pre class="codeinput">    syms <span class="string">t</span>;
     x_original=t.^3;
     potencia=@(x_original) (1/4)*int(x_original.^2,t,(-4/2),(4/2));
     valor_potencia=potencia(x_original);
@@ -528,8 +459,7 @@ fprintf(<span class="string">'\n'</span>);
  La potencia de la funci&oacute;n x(t) es: 9.142857
 
  El valor rms de la funci&oacute;n x(t) es: 3.023716
-</pre><pre class="language-matlab">Potencia <span class="string">y</span> <span class="string">valor</span> <span class="string">rms</span> <span class="string">de</span> <span class="string">-x(t)</span>
-</pre><pre class="codeinput">    syms <span class="string">t</span>;
+</pre><p>Potencia y valor rms de -x(t)</p><pre class="codeinput">    syms <span class="string">t</span>;
     x_original=t.^3;
     x_cambiada=-(x_original);
     potencia=@(x_cambiada) (1/4)*int(x_cambiada.^2,t,(-4/2),(4/2));
@@ -544,8 +474,7 @@ fprintf(<span class="string">'\n'</span>);
  La potencia de la funci&oacute;n -x(t) es: 9.142857
 
  El valor rms de la funci&oacute;n -x(t) es: 3.023716
-</pre><pre class="language-matlab">Potencia <span class="string">y</span> <span class="string">valor</span> <span class="string">rms</span> <span class="string">de</span> <span class="string">2x(t)</span>
-</pre><pre class="codeinput">    syms <span class="string">t</span>;
+</pre><p>Potencia y valor rms de 2x(t)</p><pre class="codeinput">    syms <span class="string">t</span>;
     x_original=t.^3;
     x_cambiada= 2.*(x_original);
     potencia=@(x_cambiada) (1/4)*int(x_cambiada.^2,t,(-4/2),(4/2));
@@ -560,8 +489,7 @@ fprintf(<span class="string">'\n'</span>);
  La potencia de la funci&oacute;n 2x(t) es: 36.571429
 
  El valor rms de la funci&oacute;n 2x(t) es: 6.047432
-</pre><pre class="language-matlab">Potencia <span class="string">y</span> <span class="string">valor</span> <span class="string">rms</span> <span class="string">de</span> <span class="string">cx(t)</span>
-</pre><pre class="codeinput">    syms <span class="string">t</span> <span class="string">c</span>;
+</pre><p>Potencia y valor rms de cx(t)</p><pre class="codeinput">    syms <span class="string">t</span> <span class="string">c</span>;
     x_original=t.^3;
     x_cambiada= c.*(x_original);
     potencia=@(x_cambiada) (1/4)*int(x_cambiada.^2,t,(-4/2),(4/2));
@@ -576,7 +504,7 @@ fprintf(<span class="string">'\n'</span>);
  La potencia de la funci&oacute;n cx(t) es: (64*c^2)/7
 
  El valor rms de la funci&oacute;n cx(t) es: ((64*c^2)/7)^(1/2)
-</pre><h2 id="51">Referencias</h2><p>[1]  "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].</p><p>[2]  "3 Alternativas de c&oacute;digo abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+</pre><h2 id="51">Referencias</h2><p>[1] "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].</p><p>[2] "3 Alternativas de c&oacute;digo abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 3: Señales continuas
 %
@@ -684,50 +612,44 @@ fprintf(<span class="string">'\n'</span>);
 %
 %   close all;
 %
-%   w=input("Introduce el valor de w: ");
-%
 %   a=input("Introduce el valor de a: ");
 %
-%   fun1=@(w,a) (a)./(a^(2)+w.^(2));
+%   w=input("Introduce el valor de w: ");
 %
-%   resultadofun1 = fun1(w,a);
-% 
-%   fprintf('\n El resultado de la evaluacion de la funcion fun1 es: %f', resultadofun1);
+%   fun1(a,w);
 %
-%   fprintf('\n');
+% El contenido de fun1 es el siguiente:
+%
+%   function[resultado]= fun1(a, w)
+%
+%   resultado=(a)./(a.^(2)+w.^(2));
+%
+%   end
 %
 %% Problema 2
 %
-%   Construya una función que gráfique funciones de
-%   $f:R\rightarrow R$ en el formato de su elección y pruebe
-%   su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
-%   $[-2,2]$ para $a=1$, no debe
-%   incluir el código, solo el uso de la función para mostrar la gráfica.
+% Construya una función que gráfique funciones de
+% $f:R\rightarrow R$ en el formato de su elección y pruebe
+% su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
+% $[-2,2]$ para $a=1$, no debe
+% incluir el código, solo el uso de la función para mostrar la gráfica.
 %
-w=[-2:0.01:2];
 a=1;
-fun1=@(w,a) (a)./(a^(2)+w.^(2));
-plot(w,fun1(w,a))
-grid on;
-xlabel('\omega');
-ylabel('F(\omega)');
-title('Gráfica de la señal F(\omega) vs \omega');
-ax = gca;
-ax.XAxisLocation = 'origin';
-ax.YAxisLocation = 'origin';
+w=[-2:0.01:2];
+mifigura(w,fun1(a,w));                    
 %% Problema 3
 %
 % Este problema no se hace.
 %
 %% Problema 4
 %
-%   Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
-%   que se encuentra al final del capítulo 1 y antes de la sección de
-%   problemas, cambie los _inline_ por funciones anonimas.
+% Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
+% que se encuentra al final del capítulo 1 y antes de la sección de
+% problemas, cambie los _inline_ por funciones anonimas.
 %
 %%
-%   Problema M1.1
-    %   Ejercicio 1
+% Problema M1.1
+    % Ejercicio 1
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=0;
     f(t);
@@ -735,7 +657,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
 
 %%   
-    %   Ejercicio 2
+    % Ejercicio 2
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:2];
     f(t);
@@ -747,7 +669,7 @@ ax.YAxisLocation = 'origin';
     grid on;
 
 %%
-    %   Ejercicio 3
+    % Ejercicio 3
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:0.01:2];
     f(t);
@@ -759,8 +681,8 @@ ax.YAxisLocation = 'origin';
     grid on;
    
 %%    
-%   Problema M1.2
-    %   Ejercicio 1
+% Problema M1.2
+    % Ejercicio 1
     u=@(t) (t>=0);
     t=[-2:2];
     u(t);
@@ -770,7 +692,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Ejercicio 2
+    % Ejercicio 2
     u=@(t) (t>=0);
     t=[-2:0.01:2];
     u(t);
@@ -781,7 +703,7 @@ ax.YAxisLocation = 'origin';
     axis([-2 2 -0.1 1.1]);
     
 %%    
-    %   Ejercicio 3
+    % Ejercicio 3
     p=@(t) ((t>=0)&(t<1));
     t=[-1:0.01:2];
     p(t);
@@ -792,8 +714,8 @@ ax.YAxisLocation = 'origin';
     axis([-1 2 -0.1 1.1]);
     
 %%
-%   Problema M1.3
-    %   Ejercicio 1
+% Problema M1.3
+    % Ejercicio 1
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     g(2*t+1);
@@ -803,7 +725,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %% 
-    %   Ejercicio 2
+    % Ejercicio 2
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     g(-t+1);
@@ -813,7 +735,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
  %%   
-    %   Ejercicio 3
+    % Ejercicio 3
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     h=g(2*t+1) + g(-t+1);
@@ -823,53 +745,53 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%
-%   Problema M1.4
-    %   Ejercicio 1
+% Problema M1.4
+    % Ejercicio 1
     x=@(t) (exp(-t).*((t>=0)&(t<1)));
     t=[0:0.01:1];
     E_x=sum(x(t).*x(t)*0.01)
     
 %%    
-    %   Ejercicio 2
+    % Ejercicio 2
     x=@(t) (exp(-t).*((t>=0)&(t<1)));
     t=[0:0.001:1];
     E_x=sum(x(t).*x(t)*0.001)
     
 %%   
-    %   Ejercicio 3
+    % Ejercicio 3
     x_cuadrada=@(t) (exp(-2*t).*((t>=0)&(t<1)));
     E_x=quad(x_cuadrada,0,1)
     
 %%   
-    %   Ejercicio 4
+    % Ejercicio 4
     g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
     t=[0:0.001:100];
     E_g=sum(g_cuadrada(t)*0.001)
     
 %%    
-    %   Ejercicio 5
+    % Ejercicio 5
     g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
     E_g=quad(g_cuadrada,0,100)
     
 %%  
-    %   Ejercicio 6
+    % Ejercicio 6
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.001:2];
     h_cuadrada=(g(2*t+1)+g(-t+1)).^2;
     E_h=sum(h_cuadrada*0.001)
     
  %%   
-    %   Ejercicio 7
+    % Ejercicio 7
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     h_cuadrada=@(t) (g(2*t+1)+g(-t+1)).^2;
     E_h=quad(h_cuadrada,-2,2)
     
-%%  Problema 5
+%% Problema 5
 %
-%   Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
+% Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
 %
- %  Ejercicio 1.2.2
-    %   Señal x(t)
+ % Ejercicio 1.2.2
+    % Señal x(t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(t);
@@ -880,7 +802,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Inciso a) Señal x(t-4)
+    % Inciso a) Señal x(t-4)
      
     t=[-10:0.0001:10];
     x(t-4);
@@ -891,7 +813,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%   
-    %   Inciso b) Señal x(t/1.5)
+    % Inciso b) Señal x(t/1.5)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(t/1.5);
@@ -902,7 +824,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Inciso c) Señal x(-t)
+    % Inciso c) Señal x(-t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(-t);
@@ -913,7 +835,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %% 
-    %   Inciso d) Señal x(2t-4)
+    % Inciso d) Señal x(2t-4)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(2*t-4);
@@ -924,7 +846,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%  
-    %   Inciso e) Señal x(2-t)
+    % Inciso e) Señal x(2-t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(2-t);
@@ -959,16 +881,16 @@ ax.YAxisLocation = 'origin';
 %   fprintf('\n');
 %
 %%
-%   Problema 1.1.3
+% Problema 1.1.3
     % Inciso a)
-    %   Instrucciones del problema:
+    % Instrucciones del problema:
     %
-    %   Encuentre las energías del par de señales x (t) e y (t) representadas en las 
-    %   figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energías de las 
-    %   señales x (t) + y (t) yx (t) - y (t).
+    % Encuentre las energías del par de señales x (t) e y (t) representadas en las 
+    % figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energías de las 
+    % señales x (t) + y (t) yx (t) - y (t).
     %
-        %   Primer par de funciones
-            %   Calculando la energia de x(t)
+        % Primer par de funciones
+            % Calculando la energia de x(t)
             t=[-4:0.01:4];
             x=@(t) ((1).*((t>=0)&(t<=2)));
             x(t);
@@ -983,7 +905,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 3 -1 2]);
             
 %%
-            %   Calculando la energia de y(t)
+            % Calculando la energia de y(t)
             t=[-4:0.01:4];
             y=@(t) ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2)));
             y(t);
@@ -998,7 +920,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 3 -2 2]);
             
 %% 
-            %   Calculando la energia de x(t) + y(t)
+            % Calculando la energia de x(t) + y(t)
             t=[-10:0.01:10];
             f=@(t) ((1).*((t>=0)&(t<=2))) + ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ;
             f(t);
@@ -1013,7 +935,7 @@ ax.YAxisLocation = 'origin';
             axis([-0.5 1.5 -0.5 2.5]);
             
 %%            
-            %   Calculando la energia de x(t) - y(t)
+            % Calculando la energia de x(t) - y(t)
             t=[-10:0.001:10];
             f=@(t) ((1).*((t>=0)&(t<=2))) - ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) );
             f(t);
@@ -1028,8 +950,8 @@ ax.YAxisLocation = 'origin';
             axis([0.8 2.2 -0.5 2.5]);
             
  %%           
-        %   Segundo par de funciones
-            %   Calculando la energia de x(t)
+        % Segundo par de funciones
+            % Calculando la energia de x(t)
             t=[-10:0.01:10];
             x=@(t) ((sin(t)).*((t>=0)&(t<=2*pi)));
             x(t);
@@ -1044,7 +966,7 @@ ax.YAxisLocation = 'origin';
             axis([0 2*pi -2 2]);
             
 %%
-            %   Calculando la energia de y(t)
+            % Calculando la energia de y(t)
             t=[-10:0.01:10];
             y=@(t) ((1).*((t>=0)&(t<=2*pi)));
             y(t);
@@ -1059,7 +981,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 2.5*pi -2 2]);
             
 %%          
-            %   Calculando la energia de x(t) + y(t)
+            % Calculando la energia de x(t) + y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) +  ((1).*((t>=0)&(t<=2*pi)));
             f(t);
@@ -1074,7 +996,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 7 -0.5 2.5]);
             
 %%       
-            %   Calculando la energia de x(t) - y(t)
+            % Calculando la energia de x(t) - y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) -  ((1).*((t>=0)&(t<=2*pi)));
             f(t);
@@ -1089,9 +1011,9 @@ ax.YAxisLocation = 'origin';
             axis([-1 7 -2.5 0.5]);
             
 %%      
-    %   Inciso b)
-    %   Tercer par de funciones
-            %   Calculando la energia de x(t)
+    % Inciso b)
+    % Tercer par de funciones
+            % Calculando la energia de x(t)
             t=[-10:0.01:10];
             x=@(t) ((sin(t)).*((t>=0)&(t<=pi)));
             x(t);
@@ -1106,7 +1028,7 @@ ax.YAxisLocation = 'origin';
             axis([-0.5 3.5 -0.5 1.5]);
             
 %%
-            %   Calculando la energia de y(t)
+            % Calculando la energia de y(t)
             t=[-10:0.01:10];
             y=@(t) ((1).*((t>=0)&(t<=pi)));
             y(t);
@@ -1121,7 +1043,7 @@ ax.YAxisLocation = 'origin';
             axis([-0.5 3.5 -0.5 1.5]);
             
 %%          
-            %   Calculando la energia de x(t) + y(t)
+            % Calculando la energia de x(t) + y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) +  ((1).*((t>=0)&(t<=pi)));
             f(t);
@@ -1136,7 +1058,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 4 -0.5 2.5]);
             
 %%          
-            %   Calculando la energia de x(t) - y(t)
+            % Calculando la energia de x(t) - y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) -  ((1).*((t>=0)&(t<=pi)));
             f(t);
@@ -1170,14 +1092,14 @@ ax.YAxisLocation = 'origin';
 %
 %%
 % Problema 1.1.4
-    %   Encuentre la potencia de la señal periódica x (t) que se muestra en la
-    %   figura P1.1-4. Encuentre también las potencias y los valores rms de:
+    % Encuentre la potencia de la señal periódica x (t) que se muestra en la
+    % figura P1.1-4. Encuentre también las potencias y los valores rms de:
     %
-    %   a. -x(t)
+    % a. -x(t)
     %
-    %   b. 2x(t)
+    % b. 2x(t)
     %
-    %   c. cx(t)
+    % c. cx(t)
     %
     t=[-2:0.01:2];
     x=@(t) ((t.^3).*((t>=-2)&(t<=2)));
@@ -1189,7 +1111,7 @@ ax.YAxisLocation = 'origin';
     axis([-2 2 -8 8]);
     
 %%    
-    %   Potencia y valor rms de la señal original
+    % Potencia y valor rms de la señal original
     syms t;
     x_original=t.^3;
     potencia=@(x_original) (1/4)*int(x_original.^2,t,(-4/2),(4/2));
@@ -1202,7 +1124,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
     
 %%   
-    %   Potencia y valor rms de -x(t)
+    % Potencia y valor rms de -x(t)
     syms t;
     x_original=t.^3;
     x_cambiada=-(x_original);
@@ -1216,7 +1138,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
     
  %%   
-    %   Potencia y valor rms de 2x(t)
+    % Potencia y valor rms de 2x(t)
     syms t;
     x_original=t.^3;
     x_cambiada= 2.*(x_original);
@@ -1230,7 +1152,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
     
 %%    
-    %   Potencia y valor rms de cx(t)
+    % Potencia y valor rms de cx(t)
     syms t c;
     x_original=t.^3;
     x_cambiada= c.*(x_original);
@@ -1244,8 +1166,8 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
 %% Referencias
 % 
-% [1]  "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].
+% [1] "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].
 %
-% [2]  "3 Alternativas de código abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].
+% [2] "3 Alternativas de código abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].
 ##### SOURCE END #####
 --></body></html>

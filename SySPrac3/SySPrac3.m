@@ -104,50 +104,44 @@
 %
 %   close all;
 %
-%   w=input("Introduce el valor de w: ");
-%
 %   a=input("Introduce el valor de a: ");
 %
-%   fun1=@(w,a) (a)./(a^(2)+w.^(2));
+%   w=input("Introduce el valor de w: ");
 %
-%   resultadofun1 = fun1(w,a);
-% 
-%   fprintf('\n El resultado de la evaluacion de la funcion fun1 es: %f', resultadofun1);
+%   fun1(a,w);
 %
-%   fprintf('\n');
+% El contenido de fun1 es el siguiente:
+%
+%   function[resultado]= fun1(a, w)
+%
+%   resultado=(a)./(a.^(2)+w.^(2));
+%
+%   end
 %
 %% Problema 2
 %
-%   Construya una función que gráfique funciones de
-%   $f:R\rightarrow R$ en el formato de su elección y pruebe
-%   su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
-%   $[-2,2]$ para $a=1$, no debe
-%   incluir el código, solo el uso de la función para mostrar la gráfica.
+% Construya una función que gráfique funciones de
+% $f:R\rightarrow R$ en el formato de su elección y pruebe
+% su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
+% $[-2,2]$ para $a=1$, no debe
+% incluir el código, solo el uso de la función para mostrar la gráfica.
 %
-w=[-2:0.01:2];
 a=1;
-fun1=@(w,a) (a)./(a^(2)+w.^(2));
-plot(w,fun1(w,a))
-grid on;
-xlabel('\omega');
-ylabel('F(\omega)');
-title('Gráfica de la señal F(\omega) vs \omega');
-ax = gca;
-ax.XAxisLocation = 'origin';
-ax.YAxisLocation = 'origin';
+w=[-2:0.01:2];
+mifigura(w,fun1(a,w));                    
 %% Problema 3
 %
 % Este problema no se hace.
 %
 %% Problema 4
 %
-%   Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
-%   que se encuentra al final del capítulo 1 y antes de la sección de
-%   problemas, cambie los _inline_ por funciones anonimas.
+% Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
+% que se encuentra al final del capítulo 1 y antes de la sección de
+% problemas, cambie los _inline_ por funciones anonimas.
 %
 %%
-%   Problema M1.1
-    %   Ejercicio 1
+% Problema M1.1
+    % Ejercicio 1
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=0;
     f(t);
@@ -155,7 +149,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
 
 %%   
-    %   Ejercicio 2
+    % Ejercicio 2
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:2];
     f(t);
@@ -167,7 +161,7 @@ ax.YAxisLocation = 'origin';
     grid on;
 
 %%
-    %   Ejercicio 3
+    % Ejercicio 3
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:0.01:2];
     f(t);
@@ -179,8 +173,8 @@ ax.YAxisLocation = 'origin';
     grid on;
    
 %%    
-%   Problema M1.2
-    %   Ejercicio 1
+% Problema M1.2
+    % Ejercicio 1
     u=@(t) (t>=0);
     t=[-2:2];
     u(t);
@@ -190,7 +184,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Ejercicio 2
+    % Ejercicio 2
     u=@(t) (t>=0);
     t=[-2:0.01:2];
     u(t);
@@ -201,7 +195,7 @@ ax.YAxisLocation = 'origin';
     axis([-2 2 -0.1 1.1]);
     
 %%    
-    %   Ejercicio 3
+    % Ejercicio 3
     p=@(t) ((t>=0)&(t<1));
     t=[-1:0.01:2];
     p(t);
@@ -212,8 +206,8 @@ ax.YAxisLocation = 'origin';
     axis([-1 2 -0.1 1.1]);
     
 %%
-%   Problema M1.3
-    %   Ejercicio 1
+% Problema M1.3
+    % Ejercicio 1
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     g(2*t+1);
@@ -223,7 +217,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %% 
-    %   Ejercicio 2
+    % Ejercicio 2
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     g(-t+1);
@@ -233,7 +227,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
  %%   
-    %   Ejercicio 3
+    % Ejercicio 3
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     h=g(2*t+1) + g(-t+1);
@@ -243,53 +237,53 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%
-%   Problema M1.4
-    %   Ejercicio 1
+% Problema M1.4
+    % Ejercicio 1
     x=@(t) (exp(-t).*((t>=0)&(t<1)));
     t=[0:0.01:1];
     E_x=sum(x(t).*x(t)*0.01)
     
 %%    
-    %   Ejercicio 2
+    % Ejercicio 2
     x=@(t) (exp(-t).*((t>=0)&(t<1)));
     t=[0:0.001:1];
     E_x=sum(x(t).*x(t)*0.001)
     
 %%   
-    %   Ejercicio 3
+    % Ejercicio 3
     x_cuadrada=@(t) (exp(-2*t).*((t>=0)&(t<1)));
     E_x=quad(x_cuadrada,0,1)
     
 %%   
-    %   Ejercicio 4
+    % Ejercicio 4
     g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
     t=[0:0.001:100];
     E_g=sum(g_cuadrada(t)*0.001)
     
 %%    
-    %   Ejercicio 5
+    % Ejercicio 5
     g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
     E_g=quad(g_cuadrada,0,100)
     
 %%  
-    %   Ejercicio 6
+    % Ejercicio 6
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.001:2];
     h_cuadrada=(g(2*t+1)+g(-t+1)).^2;
     E_h=sum(h_cuadrada*0.001)
     
  %%   
-    %   Ejercicio 7
+    % Ejercicio 7
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     h_cuadrada=@(t) (g(2*t+1)+g(-t+1)).^2;
     E_h=quad(h_cuadrada,-2,2)
     
-%%  Problema 5
+%% Problema 5
 %
-%   Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
+% Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
 %
- %  Ejercicio 1.2.2
-    %   Señal x(t)
+ % Ejercicio 1.2.2
+    % Señal x(t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(t);
@@ -300,7 +294,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Inciso a) Señal x(t-4)
+    % Inciso a) Señal x(t-4)
      
     t=[-10:0.0001:10];
     x(t-4);
@@ -311,7 +305,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%   
-    %   Inciso b) Señal x(t/1.5)
+    % Inciso b) Señal x(t/1.5)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(t/1.5);
@@ -322,7 +316,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Inciso c) Señal x(-t)
+    % Inciso c) Señal x(-t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(-t);
@@ -333,7 +327,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %% 
-    %   Inciso d) Señal x(2t-4)
+    % Inciso d) Señal x(2t-4)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(2*t-4);
@@ -344,7 +338,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%  
-    %   Inciso e) Señal x(2-t)
+    % Inciso e) Señal x(2-t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(2-t);
@@ -379,16 +373,16 @@ ax.YAxisLocation = 'origin';
 %   fprintf('\n');
 %
 %%
-%   Problema 1.1.3
+% Problema 1.1.3
     % Inciso a)
-    %   Instrucciones del problema:
+    % Instrucciones del problema:
     %
-    %   Encuentre las energías del par de señales x (t) e y (t) representadas en las 
-    %   figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energías de las 
-    %   señales x (t) + y (t) yx (t) - y (t).
+    % Encuentre las energías del par de señales x (t) e y (t) representadas en las 
+    % figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energías de las 
+    % señales x (t) + y (t) yx (t) - y (t).
     %
-        %   Primer par de funciones
-            %   Calculando la energia de x(t)
+        % Primer par de funciones
+            % Calculando la energia de x(t)
             t=[-4:0.01:4];
             x=@(t) ((1).*((t>=0)&(t<=2)));
             x(t);
@@ -403,7 +397,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 3 -1 2]);
             
 %%
-            %   Calculando la energia de y(t)
+            % Calculando la energia de y(t)
             t=[-4:0.01:4];
             y=@(t) ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2)));
             y(t);
@@ -418,7 +412,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 3 -2 2]);
             
 %% 
-            %   Calculando la energia de x(t) + y(t)
+            % Calculando la energia de x(t) + y(t)
             t=[-10:0.01:10];
             f=@(t) ((1).*((t>=0)&(t<=2))) + ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ;
             f(t);
@@ -433,7 +427,7 @@ ax.YAxisLocation = 'origin';
             axis([-0.5 1.5 -0.5 2.5]);
             
 %%            
-            %   Calculando la energia de x(t) - y(t)
+            % Calculando la energia de x(t) - y(t)
             t=[-10:0.001:10];
             f=@(t) ((1).*((t>=0)&(t<=2))) - ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) );
             f(t);
@@ -448,8 +442,8 @@ ax.YAxisLocation = 'origin';
             axis([0.8 2.2 -0.5 2.5]);
             
  %%           
-        %   Segundo par de funciones
-            %   Calculando la energia de x(t)
+        % Segundo par de funciones
+            % Calculando la energia de x(t)
             t=[-10:0.01:10];
             x=@(t) ((sin(t)).*((t>=0)&(t<=2*pi)));
             x(t);
@@ -464,7 +458,7 @@ ax.YAxisLocation = 'origin';
             axis([0 2*pi -2 2]);
             
 %%
-            %   Calculando la energia de y(t)
+            % Calculando la energia de y(t)
             t=[-10:0.01:10];
             y=@(t) ((1).*((t>=0)&(t<=2*pi)));
             y(t);
@@ -479,7 +473,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 2.5*pi -2 2]);
             
 %%          
-            %   Calculando la energia de x(t) + y(t)
+            % Calculando la energia de x(t) + y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) +  ((1).*((t>=0)&(t<=2*pi)));
             f(t);
@@ -494,7 +488,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 7 -0.5 2.5]);
             
 %%       
-            %   Calculando la energia de x(t) - y(t)
+            % Calculando la energia de x(t) - y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) -  ((1).*((t>=0)&(t<=2*pi)));
             f(t);
@@ -509,9 +503,9 @@ ax.YAxisLocation = 'origin';
             axis([-1 7 -2.5 0.5]);
             
 %%      
-    %   Inciso b)
-    %   Tercer par de funciones
-            %   Calculando la energia de x(t)
+    % Inciso b)
+    % Tercer par de funciones
+            % Calculando la energia de x(t)
             t=[-10:0.01:10];
             x=@(t) ((sin(t)).*((t>=0)&(t<=pi)));
             x(t);
@@ -526,7 +520,7 @@ ax.YAxisLocation = 'origin';
             axis([-0.5 3.5 -0.5 1.5]);
             
 %%
-            %   Calculando la energia de y(t)
+            % Calculando la energia de y(t)
             t=[-10:0.01:10];
             y=@(t) ((1).*((t>=0)&(t<=pi)));
             y(t);
@@ -541,7 +535,7 @@ ax.YAxisLocation = 'origin';
             axis([-0.5 3.5 -0.5 1.5]);
             
 %%          
-            %   Calculando la energia de x(t) + y(t)
+            % Calculando la energia de x(t) + y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) +  ((1).*((t>=0)&(t<=pi)));
             f(t);
@@ -556,7 +550,7 @@ ax.YAxisLocation = 'origin';
             axis([-1 4 -0.5 2.5]);
             
 %%          
-            %   Calculando la energia de x(t) - y(t)
+            % Calculando la energia de x(t) - y(t)
             t=[-10:0.01:10];
             f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) -  ((1).*((t>=0)&(t<=pi)));
             f(t);
@@ -590,14 +584,14 @@ ax.YAxisLocation = 'origin';
 %
 %%
 % Problema 1.1.4
-    %   Encuentre la potencia de la señal periódica x (t) que se muestra en la
-    %   figura P1.1-4. Encuentre también las potencias y los valores rms de:
+    % Encuentre la potencia de la señal periódica x (t) que se muestra en la
+    % figura P1.1-4. Encuentre también las potencias y los valores rms de:
     %
-    %   a. -x(t)
+    % a. -x(t)
     %
-    %   b. 2x(t)
+    % b. 2x(t)
     %
-    %   c. cx(t)
+    % c. cx(t)
     %
     t=[-2:0.01:2];
     x=@(t) ((t.^3).*((t>=-2)&(t<=2)));
@@ -609,7 +603,7 @@ ax.YAxisLocation = 'origin';
     axis([-2 2 -8 8]);
     
 %%    
-    %   Potencia y valor rms de la señal original
+    % Potencia y valor rms de la señal original
     syms t;
     x_original=t.^3;
     potencia=@(x_original) (1/4)*int(x_original.^2,t,(-4/2),(4/2));
@@ -622,7 +616,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
     
 %%   
-    %   Potencia y valor rms de -x(t)
+    % Potencia y valor rms de -x(t)
     syms t;
     x_original=t.^3;
     x_cambiada=-(x_original);
@@ -636,7 +630,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
     
  %%   
-    %   Potencia y valor rms de 2x(t)
+    % Potencia y valor rms de 2x(t)
     syms t;
     x_original=t.^3;
     x_cambiada= 2.*(x_original);
@@ -650,7 +644,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
     
 %%    
-    %   Potencia y valor rms de cx(t)
+    % Potencia y valor rms de cx(t)
     syms t c;
     x_original=t.^3;
     x_cambiada= c.*(x_original);
@@ -664,6 +658,6 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
 %% Referencias
 % 
-% [1]  "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].
+% [1] "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].
 %
-% [2]  "3 Alternativas de código abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].
+% [2] "3 Alternativas de código abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].
