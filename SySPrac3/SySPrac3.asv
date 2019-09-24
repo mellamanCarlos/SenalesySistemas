@@ -118,11 +118,11 @@
 %
 %% Problema 2
 %
-%   Construya una función que gráfique funciones de
-%   $f:R\rightarrow R$ en el formato de su elección y pruebe
-%   su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
-%   $[-2,2]$ para $a=1$, no debe
-%   incluir el código, solo el uso de la función para mostrar la gráfica.
+% Construya una función que gráfique funciones de
+% $f:R\rightarrow R$ en el formato de su elección y pruebe
+% su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
+% $[-2,2]$ para $a=1$, no debe
+% incluir el código, solo el uso de la función para mostrar la gráfica.
 %
 w=[-2:0.01:2];
 a=1;
@@ -141,13 +141,13 @@ ax.YAxisLocation = 'origin';
 %
 %% Problema 4
 %
-%   Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
-%   que se encuentra al final del capítulo 1 y antes de la sección de
-%   problemas, cambie los _inline_ por funciones anonimas.
+% Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
+% que se encuentra al final del capítulo 1 y antes de la sección de
+% problemas, cambie los _inline_ por funciones anonimas.
 %
 %%
-%   Problema M1.1
-    %   Ejercicio 1
+%Problema M1.1
+    %Ejercicio 1
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=0;
     f(t);
@@ -155,7 +155,7 @@ ax.YAxisLocation = 'origin';
     fprintf('\n');
 
 %%   
-    %   Ejercicio 2
+    %Ejercicio 2
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:2];
     f(t);
@@ -167,7 +167,7 @@ ax.YAxisLocation = 'origin';
     grid on;
 
 %%
-    %   Ejercicio 3
+    %Ejercicio 3
     f=@(t) (exp(-t).*cos(2*pi*t));
     t=[-2:0.01:2];
     f(t);
@@ -179,8 +179,8 @@ ax.YAxisLocation = 'origin';
     grid on;
    
 %%    
-%   Problema M1.2
-    %   Ejercicio 1
+%Problema M1.2
+    %Ejercicio 1
     u=@(t) (t>=0);
     t=[-2:2];
     u(t);
@@ -190,7 +190,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Ejercicio 2
+    %Ejercicio 2
     u=@(t) (t>=0);
     t=[-2:0.01:2];
     u(t);
@@ -201,7 +201,7 @@ ax.YAxisLocation = 'origin';
     axis([-2 2 -0.1 1.1]);
     
 %%    
-    %   Ejercicio 3
+    %Ejercicio 3
     p=@(t) ((t>=0)&(t<1));
     t=[-1:0.01:2];
     p(t);
@@ -212,8 +212,8 @@ ax.YAxisLocation = 'origin';
     axis([-1 2 -0.1 1.1]);
     
 %%
-%   Problema M1.3
-    %   Ejercicio 1
+%Problema M1.3
+    %Ejercicio 1
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     g(2*t+1);
@@ -223,7 +223,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %% 
-    %   Ejercicio 2
+    %Ejercicio 2
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     g(-t+1);
@@ -233,7 +233,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
  %%   
-    %   Ejercicio 3
+    %Ejercicio 3
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.01:2];
     h=g(2*t+1) + g(-t+1);
@@ -243,53 +243,53 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%
-%   Problema M1.4
-    %   Ejercicio 1
+%Problema M1.4
+    %Ejercicio 1
     x=@(t) (exp(-t).*((t>=0)&(t<1)));
     t=[0:0.01:1];
     E_x=sum(x(t).*x(t)*0.01)
     
 %%    
-    %   Ejercicio 2
+    %Ejercicio 2
     x=@(t) (exp(-t).*((t>=0)&(t<1)));
     t=[0:0.001:1];
     E_x=sum(x(t).*x(t)*0.001)
     
 %%   
-    %   Ejercicio 3
+    %Ejercicio 3
     x_cuadrada=@(t) (exp(-2*t).*((t>=0)&(t<1)));
     E_x=quad(x_cuadrada,0,1)
     
 %%   
-    %   Ejercicio 4
+    %Ejercicio 4
     g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
     t=[0:0.001:100];
     E_g=sum(g_cuadrada(t)*0.001)
     
 %%    
-    %   Ejercicio 5
+    %Ejercicio 5
     g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
     E_g=quad(g_cuadrada,0,100)
     
 %%  
-    %   Ejercicio 6
+    %Ejercicio 6
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     t=[-2:0.001:2];
     h_cuadrada=(g(2*t+1)+g(-t+1)).^2;
     E_h=sum(h_cuadrada*0.001)
     
  %%   
-    %   Ejercicio 7
+    %Ejercicio 7
     g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
     h_cuadrada=@(t) (g(2*t+1)+g(-t+1)).^2;
     E_h=quad(h_cuadrada,-2,2)
     
-%%  Problema 5
+%% Problema 5
 %
-%   Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
+% Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
 %
- %  Ejercicio 1.2.2
-    %   Señal x(t)
+ %Ejercicio 1.2.2
+    %Señal x(t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(t);
@@ -300,7 +300,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Inciso a) Señal x(t-4)
+    %Inciso a) Señal x(t-4)
      
     t=[-10:0.0001:10];
     x(t-4);
@@ -311,7 +311,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%   
-    %   Inciso b) Señal x(t/1.5)
+    %Inciso b) Señal x(t/1.5)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(t/1.5);
@@ -322,7 +322,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %%    
-    %   Inciso c) Señal x(-t)
+    %Inciso c) Señal x(-t)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(-t);
@@ -333,7 +333,7 @@ ax.YAxisLocation = 'origin';
     grid on;
     
 %% 
-    %   Inciso d) Señal x(2t-4)
+    %Inciso d) Señal x(2t-4)
     x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
     t=[-10:0.0001:10];
     x(2*t-4);
