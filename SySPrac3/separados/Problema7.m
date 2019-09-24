@@ -1,0 +1,10 @@
+clear all;
+close all;
+syms t;
+f=input("Introduce la función a la que se le va a calcular la energia: ");
+a=input("Introduce el limite de integración inferior: ");
+b=input("Introduce el limite de integración superior: ");
+energia=@(f) int(f.^2,t,a,b);
+energia(f);
+fprintf('\n La energia de la función es: %f', energia(f));
+fprintf('\n');

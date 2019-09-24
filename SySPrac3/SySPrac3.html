@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Pr&aacute;ctica 3: Se&ntilde;ales continuas</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-09-16"><meta name="DC.source" content="SySPrac3.m"><style type="text/css">
+      --><title>Pr&aacute;ctica 3: Se&ntilde;ales continuas</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-09-24"><meta name="DC.source" content="SySPrac3.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,431 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Pr&aacute;ctica 3: Se&ntilde;ales continuas</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#3">Introducci&oacute;n</a></li><li><a href="#4">Desarrollo</a></li><li><a href="#5">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#7">Problema 3</a></li><li><a href="#8">Problema 4</a></li><li><a href="#9">Problema 5</a></li><li><a href="#10">Problema 6</a></li><li><a href="#11">Problema 7</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas continuas</li><li>Transformaci&oacute;n de se&ntilde;ales continuas (escalamientos y traslaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales continuas</li></ul></div><h2 id="3">Introducci&oacute;n</h2><p><b>&iquest;Qu&eacute; es MATLAB?</b></p><p>MATLAB (abreviatura de MATrix LABoratory, &laquo;laboratorio de matrices&raquo;) es un sistema de c&oacute;mputo num&eacute;rico que ofrece un entorno de desarrollo integrado (IDE) con un lenguaje de programaci&oacute;n propio (lenguaje M). Est&aacute; disponible para las plataformas Unix, Windows, Mac OS X y GNU/Linux.</p><p>Entre sus prestaciones b&aacute;sicas se hallan la manipulaci&oacute;n de matrices, la representaci&oacute;n de datos y funciones, la implementaci&oacute;n de algoritmos, la creaci&oacute;n de interfaces de usuario (GUI) y la comunicaci&oacute;n con programas en otros lenguajes y con otros dispositivos hardware. El paquete MATLAB dispone de dos herramientas adicionales que expanden sus prestaciones, a saber, Simulink (plataforma de simulaci&oacute;n multidominio) y GUIDE (editor de interfaces de usuario - GUI). Adem&aacute;s, se pueden ampliar las capacidades de MATLAB con las cajas de herramientas (toolboxes); y las de Simulink con los paquetes de bloques (blocksets).</p><p>Es un software muy usado en universidades y centros de investigaci&oacute;n y desarrollo. En los &uacute;ltimos a&ntilde;os ha aumentado el n&uacute;mero de prestaciones, como la de programar directamente procesadores digitales de se&ntilde;al o crear c&oacute;digo VHDL.</p><p>En 2004, se estimaba que MATLAB era empleado por m&aacute;s de un mill&oacute;n de personas en &aacute;mbitos acad&eacute;micos y empresariales. <a href="https://es.wikipedia.org/wiki/MATLAB">[1]</a></p><p><b>Alternativas a MATLAB</b></p><div><ul><li>GNU Octave</li></ul></div><p>GNU Octave puede ser la alternativa m&aacute;s conocida a MATLAB. En desarrollo activo durante casi tres d&eacute;cadas, Octave se ejecuta en Windows, Mac y Linux, y est&aacute; empaquetado para la mayor&iacute;a de las distribuciones principales. Si est&aacute; buscando un proyecto que sea lo m&aacute;s parecido posible al lenguaje MATLAB real, Octave puede ser una buena opci&oacute;n para usted; se esfuerza por una compatibilidad exacta, por lo que muchos de sus proyectos desarrollados para MATLAB pueden ejecutarse en Octave sin necesidad de modificaciones.</p><p>Octave tiene licencia GPL, y su c&oacute;digo fuente se puede encontrar en el sitio FTP de GNU.</p><div><ul><li>Scilab</li></ul></div><p>Scilab es otra opci&oacute;n de c&oacute;digo abierto para computaci&oacute;n num&eacute;rica que se ejecuta en todas las plataformas principales: Windows, Mac y Linux incluidos. Scilab es quiz&aacute;s la alternativa m&aacute;s conocida fuera de Octave, y (como Octave) es muy similar a MATLAB en su implementaci&oacute;n, aunque la compatibilidad exacta no es un objetivo de los desarrolladores del proyecto.</p><p>Scilab se distribuye como fuente abierta bajo la licencia CeCILL compatible con GPL, y su c&oacute;digo fuente est&aacute; disponible en su p&aacute;gina oficial.</p><div><ul><li>Sage</li></ul></div><p>SageMath es otro sistema de software de matem&aacute;ticas de c&oacute;digo abierto que podr&iacute;a ser una buena opci&oacute;n para aquellos que buscan una alternativa de MATLAB. Est&aacute; construido sobre una variedad de conocidas bibliotecas de computaci&oacute;n cient&iacute;fica basadas en Python, y su propio lenguaje es sint&aacute;cticamente similar a Python. Tiene muchas caracter&iacute;sticas que incluyen una interfaz de l&iacute;nea de comandos, cuadernos basados en navegador, herramientas para incrustar f&oacute;rmulas en otros documentos y, por supuesto, muchas bibliotecas matem&aacute;ticas.</p><p>SageMath est&aacute; disponible bajo una licencia GPL, y su c&oacute;digo fuente se puede encontrar en el sitio web del proyecto. <a href="hhttps://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/">[2]</a></p><h2 id="4">Desarrollo</h2><p>A continuaci&oacute;n se presentan los problemas resueltos.</p><h2 id="5">Problema 1</h2><p>Crea una funci&oacute;n que se llame <i>fun1</i> y reciba dos parametros <img src="SySPrac3_eq08589834809570054062.png" alt="$\omega$"> y <img src="SySPrac3_eq05508344529756732484.png" alt="$a$"> la funci&oacute;n debe regresar la evaluaci&oacute;n <img src="SySPrac3_eq01407365636722940873.png" alt="$F(\omega)=a/(a^2+\omega^2)$">, esta funci&oacute;n debe trabajar con <img src="SySPrac3_eq16064389548595522758.png" alt="$a\in R$"> y <img src="SySPrac3_eq02576817051637404792.png" alt="$t\in  R^n$">. Debe mostrar su c&oacute;digo en el reporte (sin ejecutar).</p><h2 id="6">Problema 2</h2><p>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="SySPrac3_eq02145986785580767623.png" alt="$f:R\rightarrow R$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de <img src="SySPrac3_eq04634431881849194213.png" alt="$F(\omega)$"> vs <img src="SySPrac3_eq08589834809570054062.png" alt="$\omega$"> en el intervalo <img src="SySPrac3_eq01169792831847459841.png" alt="$[-2,2]$"> para <img src="SySPrac3_eq13016372792947090052.png" alt="$a=1$">, no debe incluir el c&oacute;digo, solo el uso de la funci&oacute;n para mostrar la gr&aacute;fica.</p><h2 id="7">Problema 3</h2><p>Este problema no se hace.</p><h2 id="8">Problema 4</h2><p>Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4 que se encuentra al final del cap&iacute;tulo 1 y antes de la secci&oacute;n de problemas, cambie los <i>inline</i> por funciones anonimas.</p><h2 id="9">Problema 5</h2><p>Resuelve el problema 1.2.2 usando las herramientas del paso anterior.</p><h2 id="10">Problema 6</h2><p>Escriba una funci&oacute;n que se llame <i>energia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la energ&iacute;a, para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i>. Se presupone utilizar el c&oacute;digo solo con funciones de energia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.3</p><h2 id="11">Problema 7</h2><p>Escriba una funci&oacute;n que se llame <i>potencia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la potencia para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i>. Se presupone utilizar el c&oacute;digo solo con funciones de potencia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.4</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 3: Se&ntilde;ales continuas</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#3">Introducci&oacute;n</a></li><li><a href="#4">Desarrollo</a></li><li><a href="#5">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#7">Problema 3</a></li><li><a href="#8">Problema 4</a></li><li><a href="#25">Problema 5</a></li><li><a href="#31">Problema 6</a></li><li><a href="#44">Problema 7</a></li><li><a href="#45">Referencias</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas continuas</li><li>Transformaci&oacute;n de se&ntilde;ales continuas (escalamientos y traslaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales continuas</li></ul></div><h2 id="3">Introducci&oacute;n</h2><p><b>&iquest;Qu&eacute; es MATLAB?</b></p><p>MATLAB (abreviatura de MATrix LABoratory, &laquo;laboratorio de matrices&raquo;) es un sistema de c&oacute;mputo num&eacute;rico que ofrece un entorno de desarrollo integrado (IDE) con un lenguaje de programaci&oacute;n propio (lenguaje M). Est&aacute; disponible para las plataformas Unix, Windows, Mac OS X y GNU/Linux.</p><p>Entre sus prestaciones b&aacute;sicas se hallan la manipulaci&oacute;n de matrices, la representaci&oacute;n de datos y funciones, la implementaci&oacute;n de algoritmos, la creaci&oacute;n de interfaces de usuario (GUI) y la comunicaci&oacute;n con programas en otros lenguajes y con otros dispositivos hardware. El paquete MATLAB dispone de dos herramientas adicionales que expanden sus prestaciones, a saber, Simulink (plataforma de simulaci&oacute;n multidominio) y GUIDE (editor de interfaces de usuario - GUI). Adem&aacute;s, se pueden ampliar las capacidades de MATLAB con las cajas de herramientas (toolboxes); y las de Simulink con los paquetes de bloques (blocksets).</p><p>Es un software muy usado en universidades y centros de investigaci&oacute;n y desarrollo. En los &uacute;ltimos a&ntilde;os ha aumentado el n&uacute;mero de prestaciones, como la de programar directamente procesadores digitales de se&ntilde;al o crear c&oacute;digo VHDL.</p><p>En 2004, se estimaba que MATLAB era empleado por m&aacute;s de un mill&oacute;n de personas en &aacute;mbitos acad&eacute;micos y empresariales. <a href="https://es.wikipedia.org/wiki/MATLAB">[1]</a></p><p><b>Alternativas a MATLAB</b></p><div><ul><li>GNU Octave</li></ul></div><p>GNU Octave puede ser la alternativa m&aacute;s conocida a MATLAB. En desarrollo activo durante casi tres d&eacute;cadas, Octave se ejecuta en Windows, Mac y Linux, y est&aacute; empaquetado para la mayor&iacute;a de las distribuciones principales. Si est&aacute; buscando un proyecto que sea lo m&aacute;s parecido posible al lenguaje MATLAB real, Octave puede ser una buena opci&oacute;n para usted; se esfuerza por una compatibilidad exacta, por lo que muchos de sus proyectos desarrollados para MATLAB pueden ejecutarse en Octave sin necesidad de modificaciones.</p><p>Octave tiene licencia GPL, y su c&oacute;digo fuente se puede encontrar en el sitio FTP de GNU.</p><div><ul><li>Scilab</li></ul></div><p>Scilab es otra opci&oacute;n de c&oacute;digo abierto para computaci&oacute;n num&eacute;rica que se ejecuta en todas las plataformas principales: Windows, Mac y Linux incluidos. Scilab es quiz&aacute;s la alternativa m&aacute;s conocida fuera de Octave, y (como Octave) es muy similar a MATLAB en su implementaci&oacute;n, aunque la compatibilidad exacta no es un objetivo de los desarrolladores del proyecto.</p><p>Scilab se distribuye como fuente abierta bajo la licencia CeCILL compatible con GPL, y su c&oacute;digo fuente est&aacute; disponible en su p&aacute;gina oficial.</p><div><ul><li>Sage</li></ul></div><p>SageMath es otro sistema de software de matem&aacute;ticas de c&oacute;digo abierto que podr&iacute;a ser una buena opci&oacute;n para aquellos que buscan una alternativa de MATLAB. Est&aacute; construido sobre una variedad de conocidas bibliotecas de computaci&oacute;n cient&iacute;fica basadas en Python, y su propio lenguaje es sint&aacute;cticamente similar a Python. Tiene muchas caracter&iacute;sticas que incluyen una interfaz de l&iacute;nea de comandos, cuadernos basados en navegador, herramientas para incrustar f&oacute;rmulas en otros documentos y, por supuesto, muchas bibliotecas matem&aacute;ticas.</p><p>SageMath est&aacute; disponible bajo una licencia GPL, y su c&oacute;digo fuente se puede encontrar en el sitio web del proyecto. <a href="https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/">[2]</a></p><h2 id="4">Desarrollo</h2><p>A continuaci&oacute;n se presentan los problemas resueltos.</p><h2 id="5">Problema 1</h2><p>Crea una funci&oacute;n que se llame <i>fun1</i> y reciba dos parametros <img src="SySPrac3_eq08589834809570054062.png" alt="$\omega$"> y <img src="SySPrac3_eq05508344529756732484.png" alt="$a$"> la funci&oacute;n debe regresar la evaluaci&oacute;n <img src="SySPrac3_eq01407365636722940873.png" alt="$F(\omega)=a/(a^2+\omega^2)$">, esta funci&oacute;n debe trabajar con <img src="SySPrac3_eq16064389548595522758.png" alt="$a\in R$"> y <img src="SySPrac3_eq07809445175869582595.png" alt="$\omega\in  R^n$">. Debe mostrar su c&oacute;digo en el reporte (sin ejecutar).</p><pre class="language-matlab">clear <span class="string">all</span>;
+</pre><pre class="language-matlab">close <span class="string">all</span>;
+</pre><pre class="language-matlab">w=input(<span class="string">"Introduce el valor de w: "</span>);
+</pre><pre class="language-matlab">a=input(<span class="string">"Introduce el valor de a: "</span>);
+</pre><pre class="language-matlab">fun1=@(w,a) (a)./(a^(2)+w.^(2));
+</pre><pre class="language-matlab">resultadofun1 = fun1(w,a);
+</pre><pre class="language-matlab">fprintf(<span class="string">'\n El resultado de la evaluacion de la funcion fun1 es: %f'</span>, resultadofun1);
+</pre><pre class="language-matlab">fprintf(<span class="string">'\n'</span>);
+</pre><h2 id="6">Problema 2</h2><p>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="SySPrac3_eq02145986785580767623.png" alt="$f:R\rightarrow R$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de <img src="SySPrac3_eq04634431881849194213.png" alt="$F(\omega)$"> vs <img src="SySPrac3_eq08589834809570054062.png" alt="$\omega$"> en el intervalo <img src="SySPrac3_eq01169792831847459841.png" alt="$[-2,2]$"> para <img src="SySPrac3_eq13016372792947090052.png" alt="$a=1$">, no debe incluir el c&oacute;digo, solo el uso de la funci&oacute;n para mostrar la gr&aacute;fica.</p><pre class="codeinput">w=[-2:0.01:2];
+a=1;
+fun1=@(w,a) (a)./(a^(2)+w.^(2));
+plot(w,fun1(w,a))
+grid <span class="string">on</span>;
+xlabel(<span class="string">'\omega'</span>);
+ylabel(<span class="string">'F(\omega)'</span>);
+title(<span class="string">'Gr&aacute;fica de la se&ntilde;al F(\omega) vs \omega'</span>);
+ax = gca;
+ax.XAxisLocation = <span class="string">'origin'</span>;
+ax.YAxisLocation = <span class="string">'origin'</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_01.png" alt=""> <h2 id="7">Problema 3</h2><p>Este problema no se hace.</p><h2 id="8">Problema 4</h2><p>Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4 que se encuentra al final del cap&iacute;tulo 1 y antes de la secci&oacute;n de problemas, cambie los <i>inline</i> por funciones anonimas.</p><pre class="codeinput"><span class="comment">%Problema M1.1</span>
+    <span class="comment">%Ejercicio 1</span>
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=0;
+    f(t);
+    fprintf(<span class="string">'\n El resultado de la evaluacion de la funcion f es: %f'</span>, f(t));
+    fprintf(<span class="string">'\n'</span>);
+</pre><pre class="codeoutput">
+ El resultado de la evaluacion de la funcion f es: 1.000000
+</pre><pre class="codeinput">    <span class="comment">%Ejercicio 2</span>
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=[-2:2];
+    f(t);
+    fprintf(<span class="string">'\n El resultado de la evaluacion de la funcion f es: %f'</span>, f(t));
+    fprintf(<span class="string">'\n'</span>);
+    plot(t,f(t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'f(t)'</span>);
+    grid <span class="string">on</span>;
+</pre><pre class="codeoutput">
+ El resultado de la evaluacion de la funcion f es: 7.389056
+ El resultado de la evaluacion de la funcion f es: 2.718282
+ El resultado de la evaluacion de la funcion f es: 1.000000
+ El resultado de la evaluacion de la funcion f es: 0.367879
+ El resultado de la evaluacion de la funcion f es: 0.135335
+</pre><img vspace="5" hspace="5" src="SySPrac3_02.png" alt=""> <pre class="codeinput">    <span class="comment">%Ejercicio 3</span>
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=[-2:0.01:2];
+    f(t);
+    <span class="comment">%fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));</span>
+    <span class="comment">%fprintf('\n');</span>
+    plot(t,f(t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'f(t)'</span>);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_03.png" alt=""> <pre class="codeinput"><span class="comment">%Problema M1.2</span>
+    <span class="comment">%Ejercicio 1</span>
+    u=@(t) (t&gt;=0);
+    t=[-2:2];
+    u(t);
+    plot(t,u(t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'u(t)'</span>);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_04.png" alt=""> <pre class="codeinput">    <span class="comment">%Ejercicio 2</span>
+    u=@(t) (t&gt;=0);
+    t=[-2:0.01:2];
+    u(t);
+    plot(t,u(t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'u(t)'</span>);
+    grid <span class="string">on</span>;
+    axis([-2 2 -0.1 1.1]);
+</pre><img vspace="5" hspace="5" src="SySPrac3_05.png" alt=""> <pre class="codeinput">    <span class="comment">%Ejercicio 3</span>
+    p=@(t) ((t&gt;=0)&amp;(t&lt;1));
+    t=[-1:0.01:2];
+    p(t);
+    plot(t,p(t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'p(t)= u(t)-u(t-1)'</span>);
+    grid <span class="string">on</span>;
+    axis([-1 2 -0.1 1.1]);
+</pre><img vspace="5" hspace="5" src="SySPrac3_06.png" alt=""> <pre class="codeinput"><span class="comment">%Problema M1.3</span>
+    <span class="comment">%Ejercicio 1</span>
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+    t=[-2:0.01:2];
+    g(2*t+1);
+    plot(t,g(2*t+1));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'g(2*t+1)'</span>);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_07.png" alt=""> <pre class="codeinput">    <span class="comment">%Ejercicio 2</span>
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+    t=[-2:0.01:2];
+    g(-t+1);
+    plot(t,g(-t+1));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'g(-t+1)'</span>);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_08.png" alt=""> <pre class="codeinput">    <span class="comment">%Ejercicio 3</span>
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+    t=[-2:0.01:2];
+    h=g(2*t+1) + g(-t+1);
+    plot(t,h);
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'h(t)'</span>);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_09.png" alt=""> <pre class="codeinput"><span class="comment">%Problema M1.4</span>
+    <span class="comment">%Ejercicio 1</span>
+    x=@(t) (exp(-t).*((t&gt;=0)&amp;(t&lt;1)));
+    t=[0:0.01:1];
+    E_x=sum(x(t).*x(t)*0.01)
+</pre><pre class="codeoutput">
+E_x =
+
+    0.4367
+
+</pre><pre class="codeinput">    <span class="comment">%Ejercicio 2</span>
+    x=@(t) (exp(-t).*((t&gt;=0)&amp;(t&lt;1)));
+    t=[0:0.001:1];
+    E_x=sum(x(t).*x(t)*0.001)
+</pre><pre class="codeoutput">
+E_x =
+
+    0.4328
+
+</pre><pre class="codeinput">    <span class="comment">%Ejercicio 3</span>
+    x_cuadrada=@(t) (exp(-2*t).*((t&gt;=0)&amp;(t&lt;1)));
+    E_x=quad(x_cuadrada,0,1)
+</pre><pre class="codeoutput">
+E_x =
+
+    0.4323
+
+</pre><pre class="codeinput">    <span class="comment">%Ejercicio 4</span>
+    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t&gt;=0));
+    t=[0:0.001:100];
+    E_g=sum(g_cuadrada(t)*0.001)
+</pre><pre class="codeoutput">
+E_g =
+
+    0.2567
+
+</pre><pre class="codeinput">    <span class="comment">%Ejercicio 5</span>
+    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t&gt;=0));
+    E_g=quad(g_cuadrada,0,100)
+</pre><pre class="codeoutput">
+E_g =
+
+    0.2562
+
+</pre><pre class="codeinput">    <span class="comment">%Ejercicio 6</span>
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+    t=[-2:0.001:2];
+    h_cuadrada=(g(2*t+1)+g(-t+1)).^2;
+    E_h=sum(h_cuadrada*0.001)
+</pre><pre class="codeoutput">
+E_h =
+
+    0.3769
+
+</pre><pre class="codeinput">    <span class="comment">%Ejercicio 7</span>
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+    h_cuadrada=@(t) (g(2*t+1)+g(-t+1)).^2;
+    E_h=quad(h_cuadrada,-2,2)
+</pre><pre class="codeoutput">
+E_h =
+
+    0.3761
+
+</pre><h2 id="25">Problema 5</h2><p>Resuelve el problema 1.2.2 usando las herramientas del paso anterior.</p><pre class="codeinput"> <span class="comment">%Ejercicio 1.2.2</span>
+    <span class="comment">%Se&ntilde;al x(t)</span>
+    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+    t=[-10:0.0001:10];
+    x(t);
+    plot(t,x(t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'x(t)'</span>);
+    axis([-5 3 -1 5]);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_10.png" alt=""> <pre class="codeinput">    <span class="comment">%Inciso a) Se&ntilde;al x(t-4)</span>
+
+    t=[-10:0.0001:10];
+    x(t-4);
+    plot(t,x(t-4));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'x(t-4)'</span>);
+    axis([-1 7 -1 5]);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_11.png" alt=""> <pre class="codeinput">    <span class="comment">%Inciso b) Se&ntilde;al x(t/1.5)</span>
+    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+    t=[-10:0.0001:10];
+    x(t/1.5);
+    plot(t,x(t/1.5));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'x(t/1.5)'</span>);
+    axis([-7 4 -1 5]);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_12.png" alt=""> <pre class="codeinput">    <span class="comment">%Inciso c) Se&ntilde;al x(-t)</span>
+    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+    t=[-10:0.0001:10];
+    x(-t);
+    plot(t,x(-t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'x(-t)'</span>);
+    axis([-3 5 -1 5]);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_13.png" alt=""> <pre class="codeinput">    <span class="comment">%Inciso d) Se&ntilde;al x(2t-4)</span>
+    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+    t=[-10:0.0001:10];
+    x(2*t-4);
+    plot(t,x(2*t-4));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'x(2t-4)'</span>);
+    axis([-1 4 -1 5]);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_14.png" alt=""> <pre class="codeinput">    <span class="comment">%Inciso e) Se&ntilde;al x(2-t)</span>
+    x=@(t) ((-t).*((t&lt;0)&amp;(t&gt;-4))) +((t).*((t&gt;0)&amp;(t&lt;2)));
+    t=[-10:0.0001:10];
+    x(2-t);
+    plot(t,x(2-t));
+    xlabel(<span class="string">'t'</span>);
+    ylabel(<span class="string">'x(2-t)'</span>);
+    axis([-0.5 6.5 -1 5]);
+    grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac3_15.png" alt=""> <h2 id="31">Problema 6</h2><p>Escriba una funci&oacute;n que se llame <i>energia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la energ&iacute;a, para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i>. Se presupone utilizar el c&oacute;digo solo con funciones de energia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.3</p><pre class="codeinput"><span class="comment">%   syms t;</span>
+<span class="comment">%</span>
+<span class="comment">%   f=input("Introduce la funci&oacute;n a la que se le va a calcular la energia: ");</span>
+<span class="comment">%</span>
+<span class="comment">%   a=input("Introduce el limite de integraci&oacute;n inferior: ");</span>
+<span class="comment">%</span>
+<span class="comment">%   b=input("Introduce el limite de integraci&oacute;n superior: ");</span>
+<span class="comment">%</span>
+<span class="comment">%   energia=@(f) int(f.^2,t,a,b);</span>
+<span class="comment">%</span>
+<span class="comment">%   energia(f);</span>
+<span class="comment">%</span>
+<span class="comment">%   fprintf('\n La energia de la funci&oacute;n es: %f', energia(f));</span>
+<span class="comment">%</span>
+<span class="comment">%   fprintf('\n');</span>
+<span class="comment">%</span>
+</pre><p>Problema 1.1.3 Inciso a) Instrucciones del problema: Encuentre las energ&iacute;as del par de se&ntilde;ales x (t) e y (t) representadas en las figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energ&iacute;as de las se&ntilde;ales x (t) + y (t) yx (t) - y (t).</p><pre class="codeinput">        <span class="comment">%Primer par de funciones</span>
+            <span class="comment">%Calculando la energia de x(t)</span>
+            t=[-4:0.01:4];
+            x=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2)));
+            x(t);
+            x_cuadrada=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2))).^2;
+            energia_x = integral(x_cuadrada,0,2);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) es: %f'</span>, energia_x);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,x(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-1 3 -1 2]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) es: 2.000000
+</pre><img vspace="5" hspace="5" src="SySPrac3_16.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de y(t)</span>
+            t=[-4:0.01:4];
+            y=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2)));
+            y(t);
+            y_cuadrada=@(t) ( ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;1)&amp;(t&lt;=2))) ).^2;
+            energia_y = integral(y_cuadrada,0,2);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n y(t) es: %f'</span>, energia_y);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,y(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-1 3 -2 2]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n y(t) es: 2.000000
+</pre><img vspace="5" hspace="5" src="SySPrac3_17.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de x(t) + y(t)</span>
+            t=[-10:0.01:10];
+            f=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2))) + ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) ;
+            f(t);
+            f_cuadrada=@(t) ( ((1).*((t&gt;=0)&amp;(t&lt;=2))) + ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) + y(t) es: %f'</span>, energia_suma);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,f(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t) + y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-0.5 1.5 -0.5 2.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) + y(t) es: 3.999999
+</pre><img vspace="5" hspace="5" src="SySPrac3_18.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de x(t) - y(t)</span>
+            t=[-10:0.001:10];
+            f=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2))) - ( ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) );
+            f(t);
+            f_cuadrada=@(t) ( ((1).*((t&gt;=0)&amp;(t&lt;=2))) - ( ((1).*((t&gt;=0)&amp;(t&lt;=1))) + ((-1).*((t&gt;=1)&amp;(t&lt;=2))) ) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) - y(t) es: %f'</span>, energia_resta);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,f(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t) - y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([0.8 2.2 -0.5 2.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) - y(t) es: 3.999999
+</pre><img vspace="5" hspace="5" src="SySPrac3_19.png" alt=""> <pre class="codeinput">        <span class="comment">%Segundo par de funciones</span>
+            <span class="comment">%Calculando la energia de x(t)</span>
+            t=[-10:0.01:10];
+            x=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi)));
+            x(t);
+            x_cuadrada=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))).^2;
+            energia_x = integral(x_cuadrada,0,2*pi);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) es: %f'</span>, energia_x);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,x(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([0 2*pi -2 2]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) es: 3.141593
+</pre><img vspace="5" hspace="5" src="SySPrac3_20.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de y(t)</span>
+            t=[-10:0.01:10];
+            y=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2*pi)));
+            y(t);
+            y_cuadrada=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=2*pi))).^2;
+            energia_y = integral(y_cuadrada,0,2*pi);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n y(t) es: %f'</span>, energia_y);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,y(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-1 2.5*pi -2 2]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n y(t) es: 6.283185
+</pre><img vspace="5" hspace="5" src="SySPrac3_21.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de x(t) + y(t)</span>
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) + y(t) es: %f'</span>, energia_suma);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,f(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t) + y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-1 7 -0.5 2.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) + y(t) es: 9.424792
+</pre><img vspace="5" hspace="5" src="SySPrac3_22.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de x(t) - y(t)</span>
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=2*pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=2*pi))) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) - y(t) es: %f'</span>, energia_resta);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,f(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t) - y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-1 7 -2.5 0.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) - y(t) es: 9.424792
+</pre><img vspace="5" hspace="5" src="SySPrac3_23.png" alt=""> <pre class="codeinput">    <span class="comment">%Inciso b)</span>
+    <span class="comment">%Tercer par de funciones</span>
+            <span class="comment">%Calculando la energia de x(t)</span>
+            t=[-10:0.01:10];
+            x=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi)));
+            x(t);
+            x_cuadrada=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))).^2;
+            energia_x = integral(x_cuadrada,0,pi);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) es: %f'</span>, energia_x);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,x(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-0.5 3.5 -0.5 1.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) es: 1.570796
+</pre><img vspace="5" hspace="5" src="SySPrac3_24.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de y(t)</span>
+            t=[-10:0.01:10];
+            y=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=pi)));
+            y(t);
+            y_cuadrada=@(t) ((1).*((t&gt;=0)&amp;(t&lt;=pi))).^2;
+            energia_y = integral(y_cuadrada,0,pi);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) es: %f'</span>, energia_y);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,y(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-0.5 3.5 -0.5 1.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) es: 3.141593
+</pre><img vspace="5" hspace="5" src="SySPrac3_25.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de x(t) + y(t)</span>
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) +  ((1).*((t&gt;=0)&amp;(t&lt;=pi))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) + y(t) es: %f'</span>, energia_suma);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,f(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t) + y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-1 4 -0.5 2.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) + y(t) es: 8.712393
+</pre><img vspace="5" hspace="5" src="SySPrac3_26.png" alt=""> <pre class="codeinput">            <span class="comment">%Calculando la energia de x(t) - y(t)</span>
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t&gt;=0)&amp;(t&lt;=pi))) -  ((1).*((t&gt;=0)&amp;(t&lt;=pi))) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf(<span class="string">'\n La energia de la funci&oacute;n x(t) - y(t) es: %f'</span>, energia_resta);
+            fprintf(<span class="string">'\n'</span>);
+            plot(t,f(t));
+            xlabel(<span class="string">'t'</span>);
+            ylabel(<span class="string">'x(t) - y(t)'</span>);
+            grid <span class="string">on</span>;
+            axis([-0.5 3.5 -1.5 0.5]);
+</pre><pre class="codeoutput">
+ La energia de la funci&oacute;n x(t) - y(t) es: 0.712389
+</pre><img vspace="5" hspace="5" src="SySPrac3_27.png" alt=""> <h2 id="44">Problema 7</h2><p>Escriba una funci&oacute;n que se llame <i>potencia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la potencia para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i>. Se presupone utilizar el c&oacute;digo solo con funciones de potencia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.4</p><h2 id="45">Referencias</h2><p>[1]  "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].</p><p>[2]  "3 Alternativas de c&oacute;digo abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 3: Señales continuas
 %
@@ -159,7 +583,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % 
 % SageMath está disponible bajo una licencia GPL, y su código fuente se 
 % puede encontrar en el sitio web del proyecto.
-% <hhttps://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/ [2]>
+% <https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/ [2]>
 %% Desarrollo
 % A continuación se presentan los problemas resueltos.
 %
@@ -167,8 +591,24 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 %
 % Crea una función que se llame _fun1_ y reciba dos parametros $\omega$ y 
 % $a$ la función debe regresar la evaluación $F(\omega)=a/(a^2+\omega^2)$,
-% esta función debe trabajar con $a\in R$ y $t\in  R^n$. Debe
+% esta función debe trabajar con $a\in R$ y $\omega\in  R^n$. Debe
 % mostrar su código en el reporte (sin ejecutar).
+%
+%   clear all;
+%
+%   close all;
+%
+%   w=input("Introduce el valor de w: ");
+%
+%   a=input("Introduce el valor de a: ");
+%
+%   fun1=@(w,a) (a)./(a^(2)+w.^(2));
+%
+%   resultadofun1 = fun1(w,a);
+% 
+%   fprintf('\n El resultado de la evaluacion de la funcion fun1 es: %f', resultadofun1);
+%
+%   fprintf('\n');
 %
 %% Problema 2
 %
@@ -178,6 +618,17 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % $[-2,2]$ para $a=1$, no debe
 % incluir el código, solo el uso de la función para mostrar la gráfica.
 %
+w=[-2:0.01:2];
+a=1;
+fun1=@(w,a) (a)./(a^(2)+w.^(2));
+plot(w,fun1(w,a))
+grid on;
+xlabel('\omega');
+ylabel('F(\omega)');
+title('Gráfica de la señal F(\omega) vs \omega');
+ax = gca;
+ax.XAxisLocation = 'origin';
+ax.YAxisLocation = 'origin';
 %% Problema 3
 %
 % Este problema no se hace.
@@ -188,10 +639,214 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % que se encuentra al final del capítulo 1 y antes de la sección de
 % problemas, cambie los _inline_ por funciones anonimas.
 %
+%%
+%Problema M1.1
+    %Ejercicio 1
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=0;
+    f(t);
+    fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));
+    fprintf('\n');
+
+%%   
+    %Ejercicio 2
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=[-2:2];
+    f(t);
+    fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));
+    fprintf('\n');
+    plot(t,f(t));
+    xlabel('t');
+    ylabel('f(t)');
+    grid on;
+
+%%
+    %Ejercicio 3
+    f=@(t) (exp(-t).*cos(2*pi*t));
+    t=[-2:0.01:2];
+    f(t);
+    %fprintf('\n El resultado de la evaluacion de la funcion f es: %f', f(t));
+    %fprintf('\n');
+    plot(t,f(t));
+    xlabel('t');
+    ylabel('f(t)');
+    grid on;
+   
+%%    
+%Problema M1.2
+    %Ejercicio 1
+    u=@(t) (t>=0);
+    t=[-2:2];
+    u(t);
+    plot(t,u(t));
+    xlabel('t');
+    ylabel('u(t)');
+    grid on;
+    
+%%    
+    %Ejercicio 2
+    u=@(t) (t>=0);
+    t=[-2:0.01:2];
+    u(t);
+    plot(t,u(t));
+    xlabel('t');
+    ylabel('u(t)');
+    grid on;
+    axis([-2 2 -0.1 1.1]);
+    
+%%    
+    %Ejercicio 3
+    p=@(t) ((t>=0)&(t<1));
+    t=[-1:0.01:2];
+    p(t);
+    plot(t,p(t));
+    xlabel('t');
+    ylabel('p(t)= u(t)-u(t-1)');
+    grid on;
+    axis([-1 2 -0.1 1.1]);
+    
+%%
+%Problema M1.3
+    %Ejercicio 1
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.01:2];
+    g(2*t+1);
+    plot(t,g(2*t+1));
+    xlabel('t');
+    ylabel('g(2*t+1)');
+    grid on;
+    
+%% 
+    %Ejercicio 2
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.01:2];
+    g(-t+1);
+    plot(t,g(-t+1));
+    xlabel('t');
+    ylabel('g(-t+1)');
+    grid on;
+    
+ %%   
+    %Ejercicio 3
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.01:2];
+    h=g(2*t+1) + g(-t+1);
+    plot(t,h);
+    xlabel('t');
+    ylabel('h(t)');
+    grid on;
+    
+%%
+%Problema M1.4
+    %Ejercicio 1
+    x=@(t) (exp(-t).*((t>=0)&(t<1)));
+    t=[0:0.01:1];
+    E_x=sum(x(t).*x(t)*0.01)
+    
+%%    
+    %Ejercicio 2
+    x=@(t) (exp(-t).*((t>=0)&(t<1)));
+    t=[0:0.001:1];
+    E_x=sum(x(t).*x(t)*0.001)
+    
+%%   
+    %Ejercicio 3
+    x_cuadrada=@(t) (exp(-2*t).*((t>=0)&(t<1)));
+    E_x=quad(x_cuadrada,0,1)
+    
+%%   
+    %Ejercicio 4
+    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
+    t=[0:0.001:100];
+    E_g=sum(g_cuadrada(t)*0.001)
+    
+%%    
+    %Ejercicio 5
+    g_cuadrada=@(t) (exp(-2*t).*(cos(2*pi*t).^2).*(t>=0));
+    E_g=quad(g_cuadrada,0,100)
+    
+%%  
+    %Ejercicio 6
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    t=[-2:0.001:2];
+    h_cuadrada=(g(2*t+1)+g(-t+1)).^2;
+    E_h=sum(h_cuadrada*0.001)
+    
+ %%   
+    %Ejercicio 7
+    g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+    h_cuadrada=@(t) (g(2*t+1)+g(-t+1)).^2;
+    E_h=quad(h_cuadrada,-2,2)
+    
 %% Problema 5
 %
 % Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
 %
+ %Ejercicio 1.2.2
+    %Señal x(t)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(t);
+    plot(t,x(t));
+    xlabel('t');
+    ylabel('x(t)');
+    axis([-5 3 -1 5]);
+    grid on;
+    
+%%    
+    %Inciso a) Señal x(t-4)
+     
+    t=[-10:0.0001:10];
+    x(t-4);
+    plot(t,x(t-4));
+    xlabel('t');
+    ylabel('x(t-4)');
+    axis([-1 7 -1 5]);
+    grid on;
+    
+%%   
+    %Inciso b) Señal x(t/1.5)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(t/1.5);
+    plot(t,x(t/1.5));
+    xlabel('t');
+    ylabel('x(t/1.5)');
+    axis([-7 4 -1 5]);
+    grid on;
+    
+%%    
+    %Inciso c) Señal x(-t)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(-t);
+    plot(t,x(-t));
+    xlabel('t');
+    ylabel('x(-t)');
+    axis([-3 5 -1 5]);
+    grid on;
+    
+%% 
+    %Inciso d) Señal x(2t-4)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(2*t-4);
+    plot(t,x(2*t-4));
+    xlabel('t');
+    ylabel('x(2t-4)');
+    axis([-1 4 -1 5]);
+    grid on;
+    
+%%  
+    %Inciso e) Señal x(2-t)
+    x=@(t) ((-t).*((t<0)&(t>-4))) +((t).*((t>0)&(t<2)));
+    t=[-10:0.0001:10];
+    x(2-t);
+    plot(t,x(2-t));
+    xlabel('t');
+    ylabel('x(2-t)');
+    axis([-0.5 6.5 -1 5]);
+    grid on;
 %% Problema 6
 %
 % Escriba una función que se llame _energia_ que reciba como argumento
@@ -200,6 +855,215 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % _integral_. Se presupone utilizar el código solo con funciones de energia. Muestre
 % el código sin ejecutar, y posteriormente resuelva el problema 1.1.3
 %
+
+%   syms t;
+%
+%   f=input("Introduce la función a la que se le va a calcular la energia: ");
+%
+%   a=input("Introduce el limite de integración inferior: ");
+%
+%   b=input("Introduce el limite de integración superior: ");
+%
+%   energia=@(f) int(f.^2,t,a,b);
+%
+%   energia(f);
+%
+%   fprintf('\n La energia de la función es: %f', energia(f));
+%
+%   fprintf('\n');
+%
+
+%%
+% Problema 1.1.3
+    % Inciso a)
+    % Instrucciones del problema:
+    % Encuentre las energías del par de señales x (t) e y (t) representadas en las 
+    % figuras P1.1-3a y P1.1-3b. Dibuja y encuentra las energías de las 
+    % señales x (t) + y (t) yx (t) - y (t).
+    
+        %Primer par de funciones
+            %Calculando la energia de x(t)
+            t=[-4:0.01:4];
+            x=@(t) ((1).*((t>=0)&(t<=2)));
+            x(t);
+            x_cuadrada=@(t) ((1).*((t>=0)&(t<=2))).^2;
+            energia_x = integral(x_cuadrada,0,2);
+            fprintf('\n La energia de la función x(t) es: %f', energia_x);
+            fprintf('\n');
+            plot(t,x(t));
+            xlabel('t');
+            ylabel('x(t)');
+            grid on;
+            axis([-1 3 -1 2]);
+            
+%%
+            %Calculando la energia de y(t)
+            t=[-4:0.01:4];
+            y=@(t) ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2)));
+            y(t);
+            y_cuadrada=@(t) ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>1)&(t<=2))) ).^2;
+            energia_y = integral(y_cuadrada,0,2);
+            fprintf('\n La energia de la función y(t) es: %f', energia_y);
+            fprintf('\n');
+            plot(t,y(t));
+            xlabel('t');
+            ylabel('y(t)');
+            grid on;
+            axis([-1 3 -2 2]);
+            
+%% 
+            %Calculando la energia de x(t) + y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((1).*((t>=0)&(t<=2))) + ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ;
+            f(t);
+            f_cuadrada=@(t) ( ((1).*((t>=0)&(t<=2))) + ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) + y(t) es: %f', energia_suma);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) + y(t)');
+            grid on;
+            axis([-0.5 1.5 -0.5 2.5]);
+            
+%%            
+            %Calculando la energia de x(t) - y(t)
+            t=[-10:0.001:10];
+            f=@(t) ((1).*((t>=0)&(t<=2))) - ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) );
+            f(t);
+            f_cuadrada=@(t) ( ((1).*((t>=0)&(t<=2))) - ( ((1).*((t>=0)&(t<=1))) + ((-1).*((t>=1)&(t<=2))) ) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) - y(t) es: %f', energia_resta);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) - y(t)');
+            grid on;
+            axis([0.8 2.2 -0.5 2.5]);
+            
+ %%           
+        %Segundo par de funciones
+            %Calculando la energia de x(t)
+            t=[-10:0.01:10];
+            x=@(t) ((sin(t)).*((t>=0)&(t<=2*pi)));
+            x(t);
+            x_cuadrada=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))).^2;
+            energia_x = integral(x_cuadrada,0,2*pi);
+            fprintf('\n La energia de la función x(t) es: %f', energia_x);
+            fprintf('\n');
+            plot(t,x(t));
+            xlabel('t');
+            ylabel('x(t)');
+            grid on;
+            axis([0 2*pi -2 2]);
+            
+%%
+            %Calculando la energia de y(t)
+            t=[-10:0.01:10];
+            y=@(t) ((1).*((t>=0)&(t<=2*pi)));
+            y(t);
+            y_cuadrada=@(t) ((1).*((t>=0)&(t<=2*pi))).^2;
+            energia_y = integral(y_cuadrada,0,2*pi);
+            fprintf('\n La energia de la función y(t) es: %f', energia_y);
+            fprintf('\n');
+            plot(t,y(t));
+            xlabel('t');
+            ylabel('y(t)');
+            grid on;
+            axis([-1 2.5*pi -2 2]);
+            
+%%          
+            %Calculando la energia de x(t) + y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) +  ((1).*((t>=0)&(t<=2*pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=2*pi))) +  ((1).*((t>=0)&(t<=2*pi))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) + y(t) es: %f', energia_suma);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) + y(t)');
+            grid on;
+            axis([-1 7 -0.5 2.5]);
+            
+%%       
+            %Calculando la energia de x(t) - y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=2*pi))) -  ((1).*((t>=0)&(t<=2*pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=2*pi))) -  ((1).*((t>=0)&(t<=2*pi))) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) - y(t) es: %f', energia_resta);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) - y(t)');
+            grid on;
+            axis([-1 7 -2.5 0.5]);
+            
+%%      
+    %Inciso b)
+    %Tercer par de funciones
+            %Calculando la energia de x(t)
+            t=[-10:0.01:10];
+            x=@(t) ((sin(t)).*((t>=0)&(t<=pi)));
+            x(t);
+            x_cuadrada=@(t) ((sin(t)).*((t>=0)&(t<=pi))).^2;
+            energia_x = integral(x_cuadrada,0,pi);
+            fprintf('\n La energia de la función x(t) es: %f', energia_x);
+            fprintf('\n');
+            plot(t,x(t));
+            xlabel('t');
+            ylabel('x(t)');
+            grid on;
+            axis([-0.5 3.5 -0.5 1.5]);
+            
+%%
+            %Calculando la energia de y(t)
+            t=[-10:0.01:10];
+            y=@(t) ((1).*((t>=0)&(t<=pi)));
+            y(t);
+            y_cuadrada=@(t) ((1).*((t>=0)&(t<=pi))).^2;
+            energia_y = integral(y_cuadrada,0,pi);
+            fprintf('\n La energia de la función x(t) es: %f', energia_y);
+            fprintf('\n');
+            plot(t,y(t));
+            xlabel('t');
+            ylabel('y(t)');
+            grid on;
+            axis([-0.5 3.5 -0.5 1.5]);
+            
+%%          
+            %Calculando la energia de x(t) + y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) +  ((1).*((t>=0)&(t<=pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=pi))) +  ((1).*((t>=0)&(t<=pi))) ).^2 ;
+            energia_suma = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) + y(t) es: %f', energia_suma);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) + y(t)');
+            grid on;
+            axis([-1 4 -0.5 2.5]);
+            
+%%          
+            %Calculando la energia de x(t) - y(t)
+            t=[-10:0.01:10];
+            f=@(t) ((sin(t)).*((t>=0)&(t<=pi))) -  ((1).*((t>=0)&(t<=pi)));
+            f(t);
+            f_cuadrada=@(t) ( ((sin(t)).*((t>=0)&(t<=pi))) -  ((1).*((t>=0)&(t<=pi))) ).^2 ;
+            energia_resta = integral(f_cuadrada,-Inf,Inf);
+            fprintf('\n La energia de la función x(t) - y(t) es: %f', energia_resta);
+            fprintf('\n');
+            plot(t,f(t));
+            xlabel('t');
+            ylabel('x(t) - y(t)');
+            grid on;
+            axis([-0.5 3.5 -1.5 0.5]);
+
 %% Problema 7
 %
 % Escriba una función que se llame _potencia_ que reciba como argumento
@@ -208,5 +1072,10 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % _integral_. Se presupone utilizar el código solo con funciones de potencia. Muestre
 % el código sin ejecutar, y posteriormente resuelva el problema 1.1.4
 %
+%% Referencias
+% 
+% [1]  "MATLAB", Es.wikipedia.org, 2019. [Online]. Available: https://es.wikipedia.org/wiki/MATLAB. [Accessed: 24- Sep- 2019].
+%
+% [2]  "3 Alternativas de código abierto a MATLAB", Maslinux.es, 2019. [Online]. Available: https://maslinux.es/3-alternativas-de-codigo-abierto-a-matlab/. [Accessed: 24- Sep- 2019].
 ##### SOURCE END #####
 --></body></html>
