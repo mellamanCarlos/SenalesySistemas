@@ -1,0 +1,286 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Pr&aacute;ctica 4: Convoluci&oacute;n y Correlaci&oacute;n de se&ntilde;ales en tiempo continuo</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-09-28"><meta name="DC.source" content="P04SyS20201.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 4: Convoluci&oacute;n y Correlaci&oacute;n de se&ntilde;ales en tiempo continuo</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Simulaci&oacute;n num&eacute;rica de convoluci&oacute;n</a></li><li><a href="#6">Correlaci&oacute;n n&uacute;merica</a></li><li><a href="#8">Entregables</a></li></ul></div><h2 id="1">Simulaci&oacute;n num&eacute;rica de convoluci&oacute;n</h2><p>Existen diferentes formas de implementar simulaciones num&eacute;ricas de convoluciones. De acuerdo a la definici&oacute;n matem&aacute;tica de convoluci&oacute;n necesitamos resolver una integral de una multiplicaci&oacute;n de se&ntilde;ales, entonces implementar una simulaci&oacute;n de convoluci&oacute;n se subdivide en entender que significa integrar num&eacute;ricamente y posteriormente elegir un algoritmo que resuelva el problema de integraci&oacute;n.</p><p>La siguiente <a href="https://www.youtube.com/playlist?list=PLSC7gO5dTNPewJkJ5Zh3Y7xHfy_fnDKqD">lista de reproducci&oacute;n</a> explica sobre la simulaci&oacute;n num&eacute;rica de integrales, no se explican todos los algoritmos exitentes (hay bastantes) pero sirve para tener una idea de lo que se busca en general cuando se realizan simulaciones numericas</p><p>Para la implementaci&oacute;n n&uacute;merica es importante tener en cuenta la duraci&oacute;n de cada se&ntilde;al, recuerde que es imposible hacer simulaciones n&uacute;mericas que involucren cantidades infinitas. Si una se&ntilde;al tiene duraci&oacute;n <img src="P04SyS20201_eq11780850217377245873.png" alt="$T_1$"> y otra se&ntilde;al <img src="P04SyS20201_eq14319407345469525172.png" alt="$T_2$"> la convoluci&oacute;n tendr&aacute; duraci&oacute;n <img src="P04SyS20201_eq09278466199576068343.png" alt="$T_1+T_2$">; donde la duraci&oacute;n se refiere al intervalo para el cual la se&ntilde;al no es totalmente cero.</p><p><img vspace="5" hspace="5" src="duracion.png" alt=""> </p><p>Cabe se&ntilde;alar que si las se&ntilde;ales involucradas tienen duraci&oacute;n infinita podr&iacute;a elegirse <img src="P04SyS20201_eq11780850217377245873.png" alt="$T_1$"> y <img src="P04SyS20201_eq14319407345469525172.png" alt="$T_2$"> lo suficientemente grande para tener una idea de lo que sucede con el resultado de su convoluci&oacute;n</p><p>Por ejemplo si queremos realizar la convoluci&oacute;n de las siguientes se&ntilde;ales</p><p><img src="P04SyS20201_eq16347255092192571131.png" alt="$$x(t)=1.5sen(\pi t)(u(t)-u(t-1))$$"></p><p><img src="P04SyS20201_eq14797787274395841391.png" alt="$$h(t)=1.5((u(t)-u(t-1))-(u(t-2)-u(t-2.5)))$$"></p><p>la se&ntilde;al resultante tendr&aacute; longitud de 3.5.</p><p><img vspace="5" hspace="5" src="convoecu.png" alt=""> </p><p>Ahora se pueden implementar la grafica en MATLAB,</p><pre class="codeinput">figure
+subplot(1,3,1)
+syms <span class="string">t</span>
+x=piecewise(t&lt;0,0,0&lt;t&lt;1,1.5*sin(pi*t),t&gt;1,0);
+fplot(x,[-0.25,1.25],<span class="string">'r'</span>)
+grid <span class="string">on</span>
+title(<span class="string">'x(t)'</span>)
+axis([-1 3.6 -2 2]);
+subplot(1,3,2)
+h=piecewise(t&lt;0,0,0&lt;t&lt;1,1.5,1&lt;t&lt;2,0,2&lt;t&lt;2.5,-1.5,t&gt;2.5,0);
+fplot(h,[-0.25,2.75],<span class="string">'r'</span>)
+grid <span class="string">on</span>
+title(<span class="string">'h(t)'</span>)
+axis([-1 3.6 -2 2]);
+t1=0:0.01:1;
+t2=1:0.01:2;
+t3=2:0.01:2.5;
+t4=2.5:0.01:3;
+t5=3:0.01:3.5;
+subplot(1,3,3)
+plot(t1,(1.5^2/pi)*(1-cos(pi*t1)))
+hold <span class="string">on</span>
+plot(t2,(1.5^2/pi)*(1-cos(pi*t2)))
+plot(t3,(1.5/pi)*(cos(pi*t3)-1))
+plot(t4,(1.5/pi)*(cos(pi*t4)-sin(pi*t4)))
+plot(t5, (-1.5/pi)*(1+sin(pi*t5)))
+grid <span class="string">on</span>
+title(<span class="string">'x(t)*h(t)'</span>)
+axis([-1 3.6 -2 2]);
+</pre><img vspace="5" hspace="5" src="P04SyS20201_01.png" alt=""> <p>El siguiente c&oacute;digo es una modificaci&oacute;n del c&oacute;digo de Lathi (C&oacute;digo del cap&iacute;tulo 2, M2.4 p&aacute;g 161), ejemplo de convoluciones continuas</p><pre class="error">File 'convconm.m' not found.</pre><p>Si ejecutamos las siguientes instrucciones en el Command Window y el directorio de trabajo es el mismo donde se encuentra la funci&oacute;n <i>convconm</i> tendr&eacute;mos el siguiente resultado</p><pre class="codeinput">x = @(t) 1.5*sin(pi*t).*(t&gt;=0 &amp; t&lt;1);
+h = @(t) 1.5*((t&gt;=0&amp;t&lt;1.0) - (t&gt;=2&amp;t&lt;2.5));
+convconm(x,h)
+</pre><pre class="codeoutput error">Undefined function 'convconm' for input arguments of type 'function_handle'.
+
+Error in P04SyS20201 (line 91)
+convconm(x,h)
+</pre><p>El cual puede compararse con la gr&aacute;fica del resultado an&aacute;litico y observar que la soluci&oacute;n n&uacute;merica es una buena aproximaci&oacute;n de la exacta.</p><h2 id="6">Correlaci&oacute;n n&uacute;merica</h2><p>Una manera de abordar este problema es recordando una equivalencia de la correlaci&oacute;n</p><p><img src="P04SyS20201_eq03660967546680735704.png" alt="$$r_{fg}(t)=f(t)*g(-t)$$"></p><p>Entonces por ejemplo si se quisiera realizar la correlaci&oacute;n de las se&ntilde;ales</p><p><img src="P04SyS20201_eq12295607967705056527.png" alt="$$g(t)=u(t+0.25)-u(t)$$"></p><p><img src="P04SyS20201_eq00107529108949416216.png" alt="$$f(t)=u(t)-u(t-2)$$"></p><p>El c&oacute;digo de convoluci&oacute;n podr&iacute;a ocuparse de la siguiente manera</p><pre class="codeinput">g = @(t) (t&gt;=0 &amp; t&lt;0.25);
+f = @(t) (t&gt;=0&amp;t&lt;2);
+convconm(g,f)
+</pre><h2 id="8">Entregables</h2><p>Se revisa una publicaci&oacute;n (html) de la pr&aacute;ctica. En este caso inicie indicando el nombre de la pr&aacute;ctica y sus datos personales, equipos de dos o tres personas (Portada). El &iacute;ndice del contenido lo genera Publish (&Iacute;ndice). Los objetivos son los sigueintes:</p><div><ul><li>Conocer m&eacute;todos b&aacute;sicos de integraci&oacute;n num&eacute;rica</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Simular convoluciones y correlaciones de se&ntilde;ales continuas</li></ul></div><p>Como introducci&oacute;n elabore un reporte de los m&eacute;todos descritos en la lista de reproducci&oacute;n que incluya el desarrollo de los ejemplos expuestos.</p><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><p>Para cada problema se tendr&aacute;n que hacer las mod&iacute;ficaciones necesarias al c&oacute;digo de ejemplo, convendr&iacute;a entonces pensar en realizar una modificaci&oacute;n general de tal manera que el programa funcione para cualesquiera dos funciones, pero esto es opcional.</p><div><ol><li>Para el PR04 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la convoluci&oacute;n y compare con el resultado an&aacute;litico que obtuvo para el problema 1, esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales invlucradas como el resultado de la convoluci&oacute;n, y en esta &uacute;ltima gr&aacute;ficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico.  Investigue como crear un giff e inserte la animaci&oacute;n.</li><li>Para el PR04 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la convoluci&oacute;n y compare con el resultado an&aacute;litico que obtuvo para el problema 3, esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales invlucradas como el resultado de la convoluci&oacute;n, y en esta &uacute;ltima gr&aacute;ficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un giff e inserte la animaci&oacute;n.</li><li>Para el PR06 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la correalci&oacute;n y compare con el resultado an&aacute;litico que obtuvo para el problema e), esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de su correlaci&oacute;n, y en esta &uacute;ltima graficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un giff e inserte la animaci&oacute;n.</li><li>Para el PR06 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la correalci&oacute;n y compare con el resultado an&aacute;litico que obtuvo para el problema f), esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de su correlaci&oacute;n, y en esta &uacute;ltima graficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un giff e inserte la animaci&oacute;n.</li></ol></div><p>El c&oacute;digo de esta publicaci&oacute;n lo puedes encontrar en el siguiente <a href="https://www.dropbox.com/s/px6ne3mko1wj6d1/P04SyS20201.m?dl=0">enlace</a></p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Práctica 4: Convolución y Correlación de señales en tiempo continuo
+%
+%% Simulación numérica de convolución
+%
+% Existen diferentes formas de implementar simulaciones numéricas de
+% convoluciones. De acuerdo a la definición matemática de convolución
+% necesitamos resolver una integral de una multiplicación de señales,
+% entonces implementar una simulación de convolución se subdivide en entender
+% que significa integrar numéricamente y posteriormente elegir un algoritmo
+% que resuelva el problema de integración.
+% 
+% La siguiente
+% <https://www.youtube.com/playlist?list=PLSC7gO5dTNPewJkJ5Zh3Y7xHfy_fnDKqD lista de reproducción> 
+% explica sobre la simulación numérica de integrales, no se explican todos
+% los algoritmos exitentes (hay bastantes) pero sirve para tener una idea
+% de lo que se busca en general cuando se realizan simulaciones numericas
+%
+% Para la implementación númerica es importante tener en cuenta 
+% la duración de cada señal,
+% recuerde que es imposible hacer simulaciones númericas que involucren
+% cantidades infinitas. Si una señal tiene duración $T_1$ y otra señal 
+% $T_2$ la convolución tendrá duración $T_1+T_2$; donde la duración se
+% refiere al intervalo para el cual la señal no es totalmente cero. 
+% 
+% 
+% <<duracion.png>>
+% 
+% 
+%%
+% Cabe señalar que si las señales involucradas tienen duración infinita
+% podría elegirse $T_1$ y $T_2$ lo suficientemente grande para tener una
+% idea de lo que sucede con el resultado de su convolución
+%
+% Por ejemplo si queremos realizar la convolución de las siguientes
+% señales 
+% 
+% $$x(t)=1.5sen(\pi t)(u(t)-u(t-1))$$
+% 
+% 
+% $$h(t)=1.5((u(t)-u(t-1))-(u(t-2)-u(t-2.5)))$$
+% 
+% la señal resultante tendrá longitud de 3.5. 
+%
+% <<convoecu.png>>
+% 
+% Ahora se pueden implementar la grafica en MATLAB, 
+%
+figure
+subplot(1,3,1)
+syms t
+x=piecewise(t<0,0,0<t<1,1.5*sin(pi*t),t>1,0);
+fplot(x,[-0.25,1.25],'r')
+grid on
+title('x(t)')
+axis([-1 3.6 -2 2]);
+subplot(1,3,2)
+h=piecewise(t<0,0,0<t<1,1.5,1<t<2,0,2<t<2.5,-1.5,t>2.5,0);
+fplot(h,[-0.25,2.75],'r')
+grid on
+title('h(t)')
+axis([-1 3.6 -2 2]);
+t1=0:0.01:1;
+t2=1:0.01:2;
+t3=2:0.01:2.5;
+t4=2.5:0.01:3;
+t5=3:0.01:3.5;
+subplot(1,3,3)
+plot(t1,(1.5^2/pi)*(1-cos(pi*t1)))
+hold on
+plot(t2,(1.5^2/pi)*(1-cos(pi*t2)))
+plot(t3,(1.5/pi)*(cos(pi*t3)-1))
+plot(t4,(1.5/pi)*(cos(pi*t4)-sin(pi*t4)))
+plot(t5, (-1.5/pi)*(1+sin(pi*t5)))
+grid on
+title('x(t)*h(t)')
+axis([-1 3.6 -2 2]);
+%%
+% El siguiente código es una modificación del código de Lathi 
+% (Código del capítulo 2, M2.4 pág 161), ejemplo de convoluciones 
+% continuas
+%
+% <include>convconm.m</include>
+%
+%%
+% Si ejecutamos las siguientes instrucciones en el Command Window y el
+% directorio de trabajo es el mismo donde se encuentra la función _convconm_
+% tendrémos el siguiente resultado
+% 
+x = @(t) 1.5*sin(pi*t).*(t>=0 & t<1);
+h = @(t) 1.5*((t>=0&t<1.0) - (t>=2&t<2.5));
+convconm(x,h)
+%% 
+% El cual puede compararse con la gráfica del resultado análitico y
+% observar que la solución númerica es una buena aproximación de la exacta. 
+% 
+
+%% Correlación númerica 
+% Una manera de abordar este problema es recordando una equivalencia de la
+% correlación 
+%%
+% 
+% $$r_{fg}(t)=f(t)*g(-t)$$
+% 
+% Entonces por ejemplo si se quisiera realizar la correlación de las 
+% señales
+%
+% $$g(t)=u(t+0.25)-u(t)$$
+% 
+% 
+% $$f(t)=u(t)-u(t-2)$$
+%
+% El código de convolución podría ocuparse de la siguiente manera 
+g = @(t) (t>=0 & t<0.25);
+f = @(t) (t>=0&t<2);
+convconm(g,f)
+%% Entregables
+% Se revisa una publicación (html) de la práctica. En este caso inicie
+% indicando el nombre de la práctica y sus datos personales,
+% equipos de dos o tres personas
+% (Portada). El índice del contenido lo genera Publish (Índice). Los
+% objetivos son los sigueintes:
+%
+% * Conocer métodos básicos de integración numérica 
+% * Manipulación de instrucciones en MATLAB
+% * Simular convoluciones y correlaciones de señales continuas
+%
+% Como introducción elabore un reporte de los métodos descritos en la lista
+% de reproducción que incluya el desarrollo de los ejemplos expuestos. 
+%
+% Para el desarrollo se tienen que resolver cada uno de los siguientes
+% problemas comenzando una nueva sección (para la publicación) en cada uno de ellos.
+% 
+% Para cada problema se tendrán que hacer las modíficaciones necesarias al
+% código de ejemplo, convendría entonces pensar en realizar una modificación
+% general de tal manera que el programa funcione para cualesquiera dos
+% funciones, pero esto es opcional.
+%
+% # Para el PR04 reporte la grafica de la simulación númerica
+% de la convolución y compare con el resultado análitico que obtuvo para el problema 1, esto
+% es, su práctica tendrá que incluir una llamada a la funciónn
+% _convconm_ y posteriormente se tendrá que mostrar (mediante el
+% Publish) la gráfica tanto de las señales invlucradas como el resultado de
+% la convolución, y en esta última gráficara su resultado analitico, se
+% tendrá que incluir el resultado analitico.  Investigue como crear un giff
+% e inserte la animación. 
+% # Para el PR04 reporte la grafica de la simulación númerica
+% de la convolución y compare con el resultado análitico que obtuvo para el problema 3, esto
+% es, su práctica tendrá que incluir una llamada a la funciónn
+% _convconm_ y posteriormente se tendrá que mostrar (mediante el
+% Publish) la gráfica tanto de las señales invlucradas como el resultado de
+% la convolución, y en esta última gráficara su resultado analitico, se
+% tendrá que incluir el resultado analitico. Investigue como crear un giff
+% e inserte la animación. 
+% # Para el PR06 reporte la grafica de la simulación númerica
+% de la correalción y compare con el resultado análitico que obtuvo para el problema e), esto
+% es, su práctica tendrá que incluir una llamada a la funciónn
+% _convconm_ y posteriormente se tendrá que mostrar (mediante el
+% Publish) la gráfica tanto de las señales involucradas como el resultado de
+% su correlación, y en esta última graficara su resultado analitico, se
+% tendrá que incluir el resultado analitico. Investigue como crear un giff
+% e inserte la animación. 
+% # Para el PR06 reporte la grafica de la simulación númerica
+% de la correalción y compare con el resultado análitico que obtuvo para el problema f), esto
+% es, su práctica tendrá que incluir una llamada a la funciónn
+% _convconm_ y posteriormente se tendrá que mostrar (mediante el
+% Publish) la gráfica tanto de las señales involucradas como el resultado de
+% su correlación, y en esta última graficara su resultado analitico, se
+% tendrá que incluir el resultado analitico. Investigue como crear un giff
+% e inserte la animación. 
+
+
+
+%%
+% El código de esta publicación lo puedes encontrar en el siguiente 
+% <https://www.dropbox.com/s/px6ne3mko1wj6d1/P04SyS20201.m?dl=0 enlace>
+##### SOURCE END #####
+--></body></html>
