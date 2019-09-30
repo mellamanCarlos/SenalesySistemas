@@ -107,14 +107,14 @@ x = @(t) (t).*(t>=0 & t<=1) + (1).*(t>1 & t<=2);
 h = @(t) (1).*(t>=1 & t<=3);
 a=-1;
 b=6;
-nombregif= 'problema3.gif';
+nombregif= 'problema2.gif';
 convconm(x,h,a,b,nombregif) %%El codigo de esta función se encuentra en el apéndice
 %%
-% <<problema3.png>>
+% <<problema2.png>>
 figure(1);
-problema3(); %El codigo de esta funcion se encuentra en el apéndice
+problema2(); %El codigo de esta funcion se encuentra en el apéndice
 %%
-% <<problema3.gif>>
+% <<problema2.gif>>
 %% Problema 3
 % Para el PR06 reporte la grafica de la simulación númerica
 % de la correlación y compare con el resultado analítico que obtuvo para el problema e), esto
@@ -146,7 +146,7 @@ problema3(); %El codigo de esta funcion se encuentra en el apéndice
 %% Apendice
 %
 % A continuación se muestran los codigos de la funcion convconm, de la 
-% funcion problema1 y de la funcion problema3 respectivamente:
+% funcion problema1 y de la funcion problema2 respectivamente:
 %
 %
 % Codigo de la funcion convconm
@@ -210,9 +210,9 @@ problema3(); %El codigo de esta funcion se encuentra en el apéndice
 %   grid on
 %   end
 %
-% Codigo de la funcion problema3
+% Codigo de la funcion problema2
 %
-%   function problema3()
+%   function problema2()
 %   hold on
 %   syms t
 %   t1=1:0.01:2;
