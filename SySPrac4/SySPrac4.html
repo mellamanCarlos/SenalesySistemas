@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Pr&aacute;ctica 4: Convoluci&oacute;n y Correlaci&oacute;n de se&ntilde;ales en tiempo continuo</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-09-29"><meta name="DC.source" content="SySPrac4.m"><style type="text/css">
+      --><title>Pr&aacute;ctica 4: Convoluci&oacute;n y Correlaci&oacute;n de se&ntilde;ales en tiempo continuo</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-10-01"><meta name="DC.source" content="SySPrac4.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Pr&aacute;ctica 4: Convoluci&oacute;n y Correlaci&oacute;n de se&ntilde;ales en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#3">Desarrollo</a></li><li><a href="#4">Problema 1</a></li><li><a href="#7">Problema 2</a></li><li><a href="#10">Problema 3</a></li><li><a href="#11">Problema 4</a></li><li><a href="#12">Referencias</a></li><li><a href="#13">Apendice</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Conocer m&eacute;todos b&aacute;sicos de integraci&oacute;n num&eacute;rica</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Simular convoluciones y correlaciones de se&ntilde;ales continuas</li></ul></div><h2 id="2">Introducci&oacute;n</h2><p><b>&iquest;Qu&eacute; es MATLAB?</b></p><p>MATLAB (abreviatura de MATrix LABoratory, &laquo;laboratorio de matrices&raquo;) es un sistema de c&oacute;mputo num&eacute;rico que ofrece un entorno de desarrollo integrado (IDE) con un lenguaje de programaci&oacute;n propio (lenguaje M). Est&aacute; disponible para las plataformas Unix, Windows, Mac OS X y GNU/Linux.</p><p>Entre sus prestaciones b&aacute;sicas se hallan la manipulaci&oacute;n de matrices, la representaci&oacute;n de datos y funciones, la implementaci&oacute;n de algoritmos, la creaci&oacute;n de interfaces de usuario (GUI) y la comunicaci&oacute;n con programas en otros lenguajes y con otros dispositivos hardware. El paquete MATLAB dispone de dos herramientas adicionales que expanden sus prestaciones, a saber, Simulink (plataforma de simulaci&oacute;n multidominio) y GUIDE (editor de interfaces de usuario - GUI). Adem&aacute;s, se pueden ampliar las capacidades de MATLAB con las cajas de herramientas (toolboxes); y las de Simulink con los paquetes de bloques (blocksets).</p><p>Es un software muy usado en universidades y centros de investigaci&oacute;n y desarrollo. En los &uacute;ltimos a&ntilde;os ha aumentado el n&uacute;mero de prestaciones, como la de programar directamente procesadores digitales de se&ntilde;al o crear c&oacute;digo VHDL.</p><p>En 2004, se estimaba que MATLAB era empleado por m&aacute;s de un mill&oacute;n de personas en &aacute;mbitos acad&eacute;micos y empresariales. <a href="https://es.wikipedia.org/wiki/MATLAB">[1]</a></p><h2 id="3">Desarrollo</h2><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><p>Para cada problema se tendr&aacute;n que hacer las mod&iacute;ficaciones necesarias al c&oacute;digo de ejemplo, convendr&iacute;a entonces pensar en realizar una modificaci&oacute;n general de tal manera que el programa funcione para cualesquiera dos funciones, pero esto es opcional.</p><h2 id="4">Problema 1</h2><p>Para el PR04 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la convoluci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema 1, esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;n <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de la convoluci&oacute;n, y en esta &uacute;ltima gr&aacute;ficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico.  Investigue como crear un gif e inserte la animaci&oacute;n.</p><p>Se va a realizar la convoluci&oacute;n de las siguientes se&ntilde;ales:</p><p><img src="SySPrac4_eq17103689506197816552.png" alt="$$x(t)=(-t+1)(u(t)-u(t-1)) + (t-1)(u(t-1)-u(t-2))$$"></p><p><img src="SySPrac4_eq03326896216262112382.png" alt="$$h(t)=(1)(u(t)-u(t-1))$$"></p><pre class="codeinput">clear <span class="string">all</span>;
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 4: Convoluci&oacute;n y Correlaci&oacute;n de se&ntilde;ales en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#15">Desarrollo</a></li><li><a href="#16">Problema 1</a></li><li><a href="#19">Problema 2</a></li><li><a href="#22">Problema 3</a></li><li><a href="#25">Problema 4</a></li><li><a href="#28">Referencias</a></li><li><a href="#29">Apendice</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Conocer m&eacute;todos b&aacute;sicos de integraci&oacute;n num&eacute;rica</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Simular convoluciones y correlaciones de se&ntilde;ales continuas</li></ul></div><h2 id="2">Introducci&oacute;n</h2><p><img vspace="5" hspace="5" src="1.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="2.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="3.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="4.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="5.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="6.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="7.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="8.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="9.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="10.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="11.jpeg" alt=""> </p><p><img vspace="5" hspace="5" src="12.jpeg" alt=""> </p><h2 id="15">Desarrollo</h2><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><p>Para cada problema se tendr&aacute;n que hacer las mod&iacute;ficaciones necesarias al c&oacute;digo de ejemplo, convendr&iacute;a entonces pensar en realizar una modificaci&oacute;n general de tal manera que el programa funcione para cualesquiera dos funciones, pero esto es opcional.</p><h2 id="16">Problema 1</h2><p>Para el PR04 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la convoluci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema 1, esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;n <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de la convoluci&oacute;n, y en esta &uacute;ltima gr&aacute;ficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico.  Investigue como crear un gif e inserte la animaci&oacute;n.</p><p>Se va a realizar la convoluci&oacute;n de las siguientes se&ntilde;ales:</p><p><img src="SySPrac4_eq17103689506197816552.png" alt="$$x(t)=(-t+1)(u(t)-u(t-1)) + (t-1)(u(t-1)-u(t-2))$$"></p><p><img src="SySPrac4_eq03326896216262112382.png" alt="$$h(t)=(1)(u(t)-u(t-1))$$"></p><pre class="codeinput">clear <span class="string">all</span>;
 close <span class="string">all</span>;
 x = @(t) (-t+1).*(t&gt;=0 &amp; t&lt;=1) + (t-1).*(t&gt;=1 &amp; t&lt;=2);
 h = @(t) (1).*(t&gt;=0 &amp; t&lt;=1);
@@ -76,7 +76,7 @@ nombregif= <span class="string">'problema1.gif'</span>;
 convconm(x,h,a,b,nombregif) <span class="comment">%El codigo de esta funci&oacute;n se encuentra en el ap&eacute;ndice</span>
 </pre><img vspace="5" hspace="5" src="SySPrac4_01.png" alt=""> <p><img vspace="5" hspace="5" src="problema1.png" alt=""> </p><pre class="codeinput">figure(1);
 problema1(); <span class="comment">%El codigo de esta funcion se encuentra en el ap&eacute;ndice</span>
-</pre><img vspace="5" hspace="5" src="SySPrac4_02.png" alt=""> <p><img vspace="5" hspace="5" src="problema1.gif" alt=""> </p><h2 id="7">Problema 2</h2><p>Para el PR04 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la convoluci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema 3, esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de la convoluci&oacute;n, y en esta &uacute;ltima gr&aacute;ficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un gif e inserte la animaci&oacute;n.</p><p>Se va a realizar la convoluci&oacute;n de las siguientes se&ntilde;ales:</p><p><img src="SySPrac4_eq10361666721162996353.png" alt="$$x(t)=(t)(u(t)-u(t-1)) + (1)(u(t-1)-u(t-2))$$"></p><p><img src="SySPrac4_eq14438692239168475765.png" alt="$$h(t)=(1)(u(t-1)-u(t-3))$$"></p><pre class="codeinput">clear <span class="string">all</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac4_02.png" alt=""> <p><img vspace="5" hspace="5" src="problema1.gif" alt=""> </p><h2 id="19">Problema 2</h2><p>Para el PR04 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la convoluci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema 3, esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de la convoluci&oacute;n, y en esta &uacute;ltima gr&aacute;ficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un gif e inserte la animaci&oacute;n.</p><p>Se va a realizar la convoluci&oacute;n de las siguientes se&ntilde;ales:</p><p><img src="SySPrac4_eq10361666721162996353.png" alt="$$x(t)=(t)(u(t)-u(t-1)) + (1)(u(t-1)-u(t-2))$$"></p><p><img src="SySPrac4_eq14438692239168475765.png" alt="$$h(t)=(1)(u(t-1)-u(t-3))$$"></p><pre class="codeinput">clear <span class="string">all</span>;
 close <span class="string">all</span>;
 x = @(t) (t).*(t&gt;=0 &amp; t&lt;=1) + (1).*(t&gt;1 &amp; t&lt;=2);
 h = @(t) (1).*(t&gt;=1 &amp; t&lt;=3);
@@ -86,7 +86,29 @@ nombregif= <span class="string">'problema2.gif'</span>;
 convconm(x,h,a,b,nombregif) <span class="comment">%%El codigo de esta funci&oacute;n se encuentra en el ap&eacute;ndice</span>
 </pre><img vspace="5" hspace="5" src="SySPrac4_03.png" alt=""> <p><img vspace="5" hspace="5" src="problema2.png" alt=""> </p><pre class="codeinput">figure(1);
 problema2(); <span class="comment">%El codigo de esta funcion se encuentra en el ap&eacute;ndice</span>
-</pre><img vspace="5" hspace="5" src="SySPrac4_04.png" alt=""> <p><img vspace="5" hspace="5" src="problema2.gif" alt=""> </p><h2 id="10">Problema 3</h2><p>Para el PR06 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la correlaci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema e), esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de su correlaci&oacute;n, y en esta &uacute;ltima graficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un gif e inserte la animaci&oacute;n.</p><h2 id="11">Problema 4</h2><p>Para el PR06 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la correlaci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema f), esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de su correlaci&oacute;n, y en esta &uacute;ltima graficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un gif e inserte la animaci&oacute;n.</p><h2 id="12">Referencias</h2><p>[1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab</p><p>[2] https://latex2png.com/</p><p>[3] https://www.quora.com/How-do-I-add-a-GIF-image-using-HTML-code</p><h2 id="13">Apendice</h2><p>A continuaci&oacute;n se muestran los codigos de la funcion convconm, de la funcion problema1 y de la funcion problema2 respectivamente:</p><p>Codigo de la funcion convconm</p><pre class="language-matlab"><span class="keyword">function</span> convconm(x,h,a,b,nombregif)
+</pre><img vspace="5" hspace="5" src="SySPrac4_04.png" alt=""> <p><img vspace="5" hspace="5" src="problema2.gif" alt=""> </p><h2 id="22">Problema 3</h2><p>Para el PR06 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la correlaci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema e), esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de su correlaci&oacute;n, y en esta &uacute;ltima graficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un gif e inserte la animaci&oacute;n.</p><p>Se va a realizar la autocorrelacion de la siguiente se&ntilde;al:</p><p><img src="SySPrac4_eq12741011503821130531.png" alt="$$x_1(t)=u(t)-2u(t-3)+u(t-4)$$"></p><p><img src="SySPrac4_eq01925840551483649642.png" alt="$$\Gamma_{x1x1} (t) = x_{1}(t) * x_{1}(-t)$$"></p><pre class="codeinput">clear <span class="string">all</span>;
+close <span class="string">all</span>;
+w = @(t) (1).*(t&gt;=0 &amp; t&lt;=3) + (-1).*(t&gt;3 &amp; t&lt;=4);
+x = @(t) w(-t);
+h = @(t) (1).*(t&gt;=0 &amp; t&lt;=3) + (-1).*(t&gt;3 &amp; t&lt;=4);
+a=-5;
+b=5;
+nombregif= <span class="string">'problema3.gif'</span>;
+correlacion(x,h,a,b,nombregif) <span class="comment">%%El codigo de esta funci&oacute;n se encuentra en el ap&eacute;ndice</span>
+</pre><img vspace="5" hspace="5" src="SySPrac4_05.png" alt=""> <p><img vspace="5" hspace="5" src="problema3.png" alt=""> </p><pre class="codeinput">figure(1);
+problema3(); <span class="comment">%El codigo de esta funcion se encuentra en el ap&eacute;ndice</span>
+</pre><img vspace="5" hspace="5" src="SySPrac4_06.png" alt=""> <p><img vspace="5" hspace="5" src="problema3.gif" alt=""> </p><h2 id="25">Problema 4</h2><p>Para el PR06 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la correlaci&oacute;n y compare con el resultado anal&iacute;tico que obtuvo para el problema f), esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de su correlaci&oacute;n, y en esta &uacute;ltima graficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico. Investigue como crear un gif e inserte la animaci&oacute;n.</p><p>Se va a realizar la correlacion de las siguientes se&ntilde;ales:</p><p><img src="SySPrac4_eq16642850174430733304.png" alt="$$x_0(t)=u(t)-2u(t-2)+u(t-4)$$"></p><p><img src="SySPrac4_eq12741011503821130531.png" alt="$$x_1(t)=u(t)-2u(t-3)+u(t-4)$$"></p><p><img src="SySPrac4_eq18362738881961246608.png" alt="$$\Gamma_{x0x1} (t) = x_{0}(t) * x_{1}(-t)$$"></p><pre class="codeinput">clear <span class="string">all</span>;
+close <span class="string">all</span>;
+w = @(t) (1).*(t&gt;=0 &amp; t&lt;=2) + (-1).*(t&gt;2 &amp; t&lt;=4);
+x = @(t) w(-t);
+h = @(t) (1).*(t&gt;=0 &amp; t&lt;=3) + (-1).*(t&gt;3 &amp; t&lt;=4);
+a=-5;
+b=5;
+nombregif= <span class="string">'problema4.gif'</span>;
+correlacion(x,h,a,b,nombregif) <span class="comment">%%El codigo de esta funci&oacute;n se encuentra en el ap&eacute;ndice</span>
+</pre><img vspace="5" hspace="5" src="SySPrac4_07.png" alt=""> <p><img vspace="5" hspace="5" src="problema4.png" alt=""> </p><pre class="codeinput">figure(1);
+problema4(); <span class="comment">%El codigo de esta funcion se encuentra en el ap&eacute;ndice</span>
+</pre><img vspace="5" hspace="5" src="SySPrac4_08.png" alt=""> <p><img vspace="5" hspace="5" src="problema4.gif" alt=""> </p><h2 id="28">Referencias</h2><p>[1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab</p><p>[2] https://latex2png.com/</p><p>[3] https://www.quora.com/How-do-I-add-a-GIF-image-using-HTML-code</p><h2 id="29">Apendice</h2><p>A continuaci&oacute;n se muestran los codigos de las funciones convconm, correlacion, problema1, problema2, problema3 y problema4.</p><p>Codigo de la funcion convconm</p><pre class="language-matlab"><span class="keyword">function</span> convconm(x,h,a,b,nombregif)
 filename = nombregif;
 v = figure (1); <span class="comment">% Se crea una figura para hacer las gr&aacute;ficas</span>
 axis <span class="string">tight</span> <span class="string">manual</span> <span class="comment">% esto asegura que getframe() retorne un tama&ntilde;o consistente</span>
@@ -113,6 +135,46 @@ y = NaN*zeros(1, length (tvec)); <span class="comment">% Resultados de acuerdo a
     xlabel (<span class="string">'t'</span>);
     ylabel (<span class="string">'y(t) = \int h(\tau)x(t-\tau) d\tau'</span>);
     axis ([tau(1) tau(end) -1.0 2.0]); <span class="comment">% l&iacute;mites del eje</span>
+    grid; <span class="comment">% malla</span>
+    drawnow; <span class="comment">% efecto de movimiento continuo</span>
+</pre><pre>     % Captura la grafica como una imagen
+     frame = getframe(v);
+     im = frame2im(frame);
+     [imind,cm] = rgb2ind(im,256);
+     % Write to the GIF File
+     if t == a
+         imwrite(imind,cm,filename,'gif', 'Loopcount',inf);
+     else
+         imwrite(imind,cm,filename,'gif','WriteMode','append');
+     end
+ end
+ end</pre><p>Codigo de la funcion correlacion</p><pre class="language-matlab"><span class="keyword">function</span> correlacion(x,h,a,b,nombregif)
+filename = nombregif;
+v = figure (1); <span class="comment">% Se crea una figura para hacer las gr&aacute;ficas</span>
+axis <span class="string">tight</span> <span class="string">manual</span> <span class="comment">% esto asegura que getframe() retorne un tama&ntilde;o consistente</span>
+dtau = 0.005; <span class="comment">% Base de los rectangulos para realizar la integral</span>
+tau = a:dtau:b; <span class="comment">% Intervalo de visualizaci&oacute;n del resultado</span>
+ti = 0; <span class="comment">% Indice para el vector de resultados</span>
+tvec = a:0.1:b; <span class="comment">% traslaciones de t, cuantas integrales se calulan</span>
+y = NaN*zeros(1, length (tvec)); <span class="comment">% Resultados de acuerdo a cuantos t</span>
+<span class="keyword">for</span> t = tvec, <span class="comment">% Cantidad de traslaciones</span>
+    ti = ti+1; <span class="comment">% Indice para guardar el resultado (indice del tiempo)</span>
+    xh = x(t-tau).*h(tau); <span class="comment">% resultado de la multiplicaci&oacute;n</span>
+    lxh = length(xh); <span class="comment">% longitud del resultado</span>
+    y(ti) = sum(xh.*dtau); <span class="comment">% Base por altura, aproximaci&oacute;n de la integral</span>
+    subplot (2,1,1), <span class="comment">% gr&aacute;fica de 2 x 1 (primera)</span>
+    plot(tau, h(tau), <span class="string">'r-'</span>, tau, x(t-tau), <span class="string">'g--'</span>, t, 0, <span class="string">'ob'</span>); <span class="comment">%graficas</span>
+    axis ([tau(1) tau(end) -2.0 2.5]); <span class="comment">% l&iacute;mites de los ejes</span>
+    patch([tau(1:end-1); tau(1:end-1); tau(2:end); tau(2:end)],<span class="keyword">...</span>
+    [zeros(1,lxh-1);xh(1:end-1);xh(2:end);zeros(1,lxh-1)],<span class="keyword">...</span>
+    [.8 .8 .8], <span class="string">'edgecolor'</span>, <span class="string">'none'</span>);
+    xlabel(<span class="string">'\tau'</span>); <span class="comment">% Texto del eje X</span>
+    legend(<span class="string">'h(\tau)'</span>, <span class="string">'x(\tau-t)'</span>,<span class="string">'t'</span>,<span class="string">'h(\tau)x(\tau-t)'</span>)<span class="comment">% Caja de Texto</span>
+    subplot (2, 1, 2)  <span class="comment">% gr&aacute;fica de 2 x 1 (segunda)</span>
+    plot (tvec, y, <span class="string">'k'</span>, tvec (ti), y(ti), <span class="string">'ok'</span>);
+    xlabel (<span class="string">'t'</span>);
+    ylabel (<span class="string">'y(t) = \int h(\tau)x(\tau-t) d\tau'</span>);
+    axis ([tau(1) tau(end) -4.0 6.0]); <span class="comment">% l&iacute;mites del eje</span>
     grid; <span class="comment">% malla</span>
     drawnow; <span class="comment">% efecto de movimiento continuo</span>
 </pre><pre>     % Captura la grafica como una imagen
@@ -154,6 +216,46 @@ plot(t3,-t3.^2/2+3*t3-3)
 plot(t4,-t4+5)
 grid <span class="string">on</span>
 <span class="keyword">end</span>
+</pre><p>Codigo de la funcion problema3</p><pre class="language-matlab"><span class="keyword">function</span> problema3()
+hold <span class="string">on</span>
+syms <span class="string">t</span>
+t1=-4:0.01:-3;
+t2=-3:0.01:-1;
+t3=-1:0.01:0;
+t4=0:0.01:1;
+t5=1:0.01:3;
+t6=3:0.01:4;
+subplot (2, 1, 2)
+plot(t1,-t1-4)
+hold <span class="string">on</span>
+plot(t2,t2+2)
+plot(t3,3*t3+4)
+plot(t4,-3*t4+4)
+plot(t5,-t5+2)
+plot(t6,t6-4)
+grid <span class="string">on</span>
+<span class="keyword">end</span>
+</pre><p>Codigo de la funcion problema4</p><pre class="language-matlab"><span class="keyword">function</span> problema4()
+hold <span class="string">on</span>
+syms <span class="string">t</span>
+t1=-4:0.01:-2;
+t2=-2:0.01:-1;
+t3=-1:0.01:0;
+t4=0:0.01:1;
+t5=1:0.01:2;
+t6=2:0.01:3;
+t7=3:0.01:4;
+subplot (2, 1, 2)
+plot(t1,-t1-4)
+hold <span class="string">on</span>
+plot(t2,t2)
+plot(t3,3*t3+2)
+plot(t4,t4+2)
+plot(t5,-3*t5+6)
+plot(t6,-t6+2)
+plot(t7,t7-4)
+grid <span class="string">on</span>
+<span class="keyword">end</span>
 </pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 4: Convolución y Correlación de señales en tiempo continuo
@@ -177,32 +279,30 @@ grid <span class="string">on</span>
 % * Simular convoluciones y correlaciones de señales continuas
 %
 %% Introducción
-%
-% *¿Qué es MATLAB?*
-%
-% MATLAB (abreviatura de MATrix LABoratory, «laboratorio de matrices») es un sistema de 
-% cómputo numérico que ofrece un entorno de desarrollo integrado (IDE) 
-% con un lenguaje de programación propio (lenguaje M). Está disponible para 
-% las plataformas Unix, Windows, Mac OS X y GNU/Linux.
-%
-% Entre sus prestaciones básicas se hallan la manipulación de matrices, la 
-% representación de datos y funciones, la implementación de algoritmos, la creación 
-% de interfaces de usuario (GUI) y la comunicación con programas en otros 
-% lenguajes y con otros dispositivos hardware. El paquete MATLAB dispone de dos 
-% herramientas adicionales que expanden sus prestaciones, a saber, Simulink 
-% (plataforma de simulación multidominio) y 
-% GUIDE (editor de interfaces de usuario - GUI). Además, se pueden ampliar 
-% las capacidades de MATLAB con las cajas de herramientas (toolboxes); y las de 
-% Simulink con los paquetes de bloques (blocksets).
-%
-% Es un software muy usado en universidades y centros de investigación y 
-% desarrollo. En los últimos años ha aumentado el número de prestaciones, 
-% como la de programar directamente procesadores digitales de señal o crear código VHDL.
-%
-% En 2004, se estimaba que MATLAB era empleado por más de un millón de personas 
-% en ámbitos académicos y empresariales.
-% <https://es.wikipedia.org/wiki/MATLAB [1]>
-%
+%%
+% <<1.jpeg>>
+%%
+% <<2.jpeg>>
+%%
+% <<3.jpeg>>
+%%
+% <<4.jpeg>>
+%%
+% <<5.jpeg>>
+%%
+% <<6.jpeg>>
+%%
+% <<7.jpeg>>
+%%
+% <<8.jpeg>>
+%%
+% <<9.jpeg>>
+%%
+% <<10.jpeg>>
+%%
+% <<11.jpeg>>
+%%
+% <<12.jpeg>>
 %% Desarrollo
 %
 % Para el desarrollo se tienen que resolver cada uno de los siguientes
@@ -283,6 +383,26 @@ problema2(); %El codigo de esta funcion se encuentra en el apéndice
 % tendrá que incluir el resultado analitico. Investigue como crear un gif
 % e inserte la animación. 
 %
+% Se va a realizar la autocorrelacion de la siguiente señal:
+% 
+% $$x_1(t)=u(t)-2u(t-3)+u(t-4)$$
+%
+% $$\Gamma_{x1x1} (t) = x_{1}(t) * x_{1}(-t)$$
+clear all;
+close all;
+w = @(t) (1).*(t>=0 & t<=3) + (-1).*(t>3 & t<=4);
+x = @(t) w(-t);
+h = @(t) (1).*(t>=0 & t<=3) + (-1).*(t>3 & t<=4);
+a=-5;
+b=5;
+nombregif= 'problema3.gif';
+correlacion(x,h,a,b,nombregif) %%El codigo de esta función se encuentra en el apéndice
+%%
+% <<problema3.png>>
+figure(1);
+problema3(); %El codigo de esta funcion se encuentra en el apéndice
+%%
+% <<problema3.gif>>
 %% Problema 4
 % Para el PR06 reporte la grafica de la simulación númerica
 % de la correlación y compare con el resultado analítico que obtuvo para el problema f), esto
@@ -293,6 +413,28 @@ problema2(); %El codigo de esta funcion se encuentra en el apéndice
 % tendrá que incluir el resultado analitico. Investigue como crear un gif
 % e inserte la animación.
 %
+% Se va a realizar la correlacion de las siguientes señales:
+%
+% $$x_0(t)=u(t)-2u(t-2)+u(t-4)$$
+%
+% $$x_1(t)=u(t)-2u(t-3)+u(t-4)$$
+%
+% $$\Gamma_{x0x1} (t) = x_{0}(t) * x_{1}(-t)$$
+clear all;
+close all;
+w = @(t) (1).*(t>=0 & t<=2) + (-1).*(t>2 & t<=4);
+x = @(t) w(-t);
+h = @(t) (1).*(t>=0 & t<=3) + (-1).*(t>3 & t<=4);
+a=-5;
+b=5;
+nombregif= 'problema4.gif';
+correlacion(x,h,a,b,nombregif) %%El codigo de esta función se encuentra en el apéndice
+%%
+% <<problema4.png>>
+figure(1);
+problema4(); %El codigo de esta funcion se encuentra en el apéndice
+%%
+% <<problema4.gif>>
 %% Referencias
 % 
 % [1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab
@@ -303,8 +445,8 @@ problema2(); %El codigo de esta funcion se encuentra en el apéndice
 %
 %% Apendice
 %
-% A continuación se muestran los codigos de la funcion convconm, de la 
-% funcion problema1 y de la funcion problema2 respectivamente:
+% A continuación se muestran los codigos de las funciones convconm,
+% correlacion, problema1, problema2, problema3 y problema4.
 %
 %
 % Codigo de la funcion convconm
@@ -336,6 +478,51 @@ problema2(); %El codigo de esta funcion se encuentra en el apéndice
 %       xlabel ('t'); 
 %       ylabel ('y(t) = \int h(\tau)x(t-\tau) d\tau');
 %       axis ([tau(1) tau(end) -1.0 2.0]); % límites del eje
+%       grid; % malla
+%       drawnow; % efecto de movimiento continuo
+%       
+%       % Captura la grafica como una imagen
+%       frame = getframe(v); 
+%       im = frame2im(frame); 
+%       [imind,cm] = rgb2ind(im,256); 
+%       % Write to the GIF File 
+%       if t == a 
+%           imwrite(imind,cm,filename,'gif', 'Loopcount',inf); 
+%       else 
+%           imwrite(imind,cm,filename,'gif','WriteMode','append'); 
+%       end 
+%   end
+%   end
+%
+% Codigo de la funcion correlacion
+%
+%   function correlacion(x,h,a,b,nombregif)
+%   filename = nombregif;
+%   v = figure (1); % Se crea una figura para hacer las gráficas
+%   axis tight manual % esto asegura que getframe() retorne un tamaño consistente
+%   dtau = 0.005; % Base de los rectangulos para realizar la integral 
+%   tau = a:dtau:b; % Intervalo de visualización del resultado
+%   ti = 0; % Indice para el vector de resultados
+%   tvec = a:0.1:b; % traslaciones de t, cuantas integrales se calulan  
+%   y = NaN*zeros(1, length (tvec)); % Resultados de acuerdo a cuantos t
+%   for t = tvec, % Cantidad de traslaciones
+%       ti = ti+1; % Indice para guardar el resultado (indice del tiempo)
+%       xh = x(t-tau).*h(tau); % resultado de la multiplicación 
+%       lxh = length(xh); % longitud del resultado
+%       y(ti) = sum(xh.*dtau); % Base por altura, aproximación de la integral
+%       subplot (2,1,1), % gráfica de 2 x 1 (primera)
+%       plot(tau, h(tau), 'r-', tau, x(t-tau), 'gREPLACE_WITH_DASH_DASH', t, 0, 'ob'); %graficas 
+%       axis ([tau(1) tau(end) -2.0 2.5]); % límites de los ejes
+%       patch([tau(1:end-1); tau(1:end-1); tau(2:end); tau(2:end)],...
+%       [zeros(1,lxh-1);xh(1:end-1);xh(2:end);zeros(1,lxh-1)],...
+%       [.8 .8 .8], 'edgecolor', 'none');
+%       xlabel('\tau'); % Texto del eje X
+%       legend('h(\tau)', 'x(\tau-t)','t','h(\tau)x(\tau-t)')% Caja de Texto  
+%       subplot (2, 1, 2)  % gráfica de 2 x 1 (segunda)
+%       plot (tvec, y, 'k', tvec (ti), y(ti), 'ok');
+%       xlabel ('t'); 
+%       ylabel ('y(t) = \int h(\tau)x(\tau-t) d\tau');
+%       axis ([tau(1) tau(end) -4.0 6.0]); % límites del eje
 %       grid; % malla
 %       drawnow; % efecto de movimiento continuo
 %       
@@ -385,5 +572,52 @@ problema2(); %El codigo de esta funcion se encuentra en el apéndice
 %   plot(t4,-t4+5)
 %   grid on
 %   end
+%
+% Codigo de la funcion problema3
+%
+%   function problema3()
+%   hold on
+%   syms t
+%   t1=-4:0.01:-3;
+%   t2=-3:0.01:-1;
+%   t3=-1:0.01:0;
+%   t4=0:0.01:1;
+%   t5=1:0.01:3;
+%   t6=3:0.01:4;
+%   subplot (2, 1, 2)
+%   plot(t1,-t1-4)
+%   hold on
+%   plot(t2,t2+2)
+%   plot(t3,3*t3+4)
+%   plot(t4,-3*t4+4)
+%   plot(t5,-t5+2)
+%   plot(t6,t6-4)
+%   grid on
+%   end
+%
+% Codigo de la funcion problema4
+%
+%   function problema4()
+%   hold on
+%   syms t
+%   t1=-4:0.01:-2;
+%   t2=-2:0.01:-1;
+%   t3=-1:0.01:0;
+%   t4=0:0.01:1;
+%   t5=1:0.01:2;
+%   t6=2:0.01:3;
+%   t7=3:0.01:4;
+%   subplot (2, 1, 2)
+%   plot(t1,-t1-4)
+%   hold on
+%   plot(t2,t2)
+%   plot(t3,3*t3+2)
+%   plot(t4,t4+2)
+%   plot(t5,-3*t5+6)
+%   plot(t6,-t6+2)
+%   plot(t7,t7-4)
+%   grid on
+%   end
+%
 ##### SOURCE END #####
 --></body></html>

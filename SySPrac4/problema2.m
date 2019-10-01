@@ -1,4 +1,4 @@
-function problema3()
+function problema2()
 hold on
 syms t
 t1=1:0.01:2;
