@@ -20,7 +20,21 @@
 % * Calculo númerico de los coeficientes de Fourier
 %
 %% Introducción
-
+% Nos apoyaremos del codigo que viene en la sección 6.6 de Lathi (Ejemplo
+% de computadora C6.4). Con este codigo podemos hacer una aproximación para
+% calcular los coeficientes Dn
+%
+%   T_0 = ; %Periodo
+%   N_0 =; %Muestreo
+%   T = T_0/N_0; 
+%   t = (0:T:T*(N_0-1))'; 
+%   x = ; %Aqui va la función
+%   x(1) = (x + 1)/2; %Aqui calcula D_0
+%   D_n = fft (x)/N_0; %Aqui se calculan los Dn
+%
+% Este codigo utiliza la funcion fft para aproximar los valores de los coeficientes Dn
+%
+% fft significa fast fourier transform o transformada rapida de fourier
 %% Desarrollo
 %
 % Para el desarrollo se tienen que resolver cada uno de los siguientes
@@ -224,16 +238,72 @@ problema6
 % encuentra al final de la sección 6.6 de Lathi, y calcule nuevamente los 
 % coeficientes $D_0,...,D_4$ del ejemplo propuesto. Muestre una tabla
 % que contenga los coeficientes mencionados calculados con los dos
-% algoritmos y de forma exacta, ¿Qué algortmo aproxima mejor a los
+% algoritmos y de forma exacta, ¿Qué algoritmo aproxima mejor a los
 % coeficientes?, para esto compare los coeficientes con el valor absoluto de
 % la resta. 
 %
+% Los Dn
+close all;
+clear all;
+Dn=[0:4]';
+%%
+% Valor analitico
+ p=[0:4]';
+ Analitico = (0.504)./(1+4.*p.*j);
+ %%
+% Valor obtenido del codigo de Lathi
+T_0 = pi; 
+N_0 = 5; 
+T = T_0/N_0; 
+t = (0:T:T*(N_0-1))'; 
+x = exp(-t/2); 
+x(1) = (exp(-pi/2) + 1)/2;
+Lathi = fft (x)/N_0; %Este es el valor de Dn
+%%
+% Valor obtenido por el codigo del trapecio compuesto
+syms t;
+trapecios=15;
+f=@(t) exp(-t/2);
+T0=pi;
+w0=2;
+a=0;
+b=pi;
+n=[0:4]';
+Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios)%Calcula los Dn por el trapecio compuesto
+%
+%%
+% Calculamos el Error de Analitico - Lathi
+EAL= abs(Analitico-Lathi);
+%%
+% Calculamos el Error de Analitico - Trapecio compuesto
+EAT= abs(Analitico-Trapecio_compuesto);
+%%
+%Sacamos la tabla
+T = table(Dn,Analitico,Lathi,Trapecio_compuesto,EAL,EAT)
+%% Codigo de la función de trapecio compuesto 
+%   function [Integral]=Trapecio(funcion,a,b,trapecios)
+%   h=(b-a)/trapecios;
+%   f=0;
+%   for t=1:trapecios-1
+%    x=a+h*t;
+%    f=f+eval(funcion);
+%   end
+%   f=2*f;
+%   x=a; 
+%   f=f+eval(funcion); 
+%   x=b; 
+%   f=f+eval(funcion);
+%   Integral=(h/2)*(f);
+%   end
+%% Conclusiones del Problema 7
+% Como se puede observar en la tabla, los valores  del codigo de Lathi se
+% aproximan a los obtenidos del valor analítico. Sin embargo, los valores
+% obtenidos con el codigo del trapecio compuesto si difieren bastante de
+% los obtenidos en el metodo analítico. Por lo que podemos concluir que el
+% metodo de Lathi son mas precisos que los obtenidos por el metodo del
+% trapecio compuesto.
 %% Referencias
 % 
-% [1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab
+% [1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press
 %
-% [2] https://latex2png.com/
-%
-% [3] https://www.quora.com/How-do-I-add-a-GIF-image-using-HTML-code
-%
-%% Apendice
+% [2] http://obbycc.scienceontheweb.net/Practices/practica8.PDF
