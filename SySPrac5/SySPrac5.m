@@ -55,8 +55,8 @@ t0=0;
 tf=pi;
 f=@(t) exp(-t/2);
 armo=4;
-a=-7;
-b=7;
+a=-pi;
+b=4*pi;
 sft(t0,tf,a0,an,bn,f,armo,a,b)
 %%
 % *Con 15 armonicos* 
@@ -69,8 +69,8 @@ t0=0;
 tf=pi;
 f=@(t) exp(-t/2);
 armo=15;
-a=-7;
-b=7;
+a=-pi;
+b=4*pi;
 sft(t0,tf,a0,an,bn,f,armo,a,b)
 %% Problema 2
 %
@@ -91,8 +91,8 @@ g=@(t) 2.*A.*t.*(t>=-1/2 & t<=1/2);
 h=@(t) 2.*A.*(1-t).*(t>1/2 & t<=3/2);
 f=@(t) g(t)+h(t);
 armo=4;
-a=-7;
-b=1;
+a=-1/2;
+b=19/2;
 sfc(t0,tf,dn,d0,f,armo,a,b)
 %%
 % *Con 15 armonicos* 
@@ -107,8 +107,8 @@ g=@(t) 2.*A.*t.*(t>=-1/2 & t<=1/2);
 h=@(t) 2.*A.*(1-t).*(t>1/2 & t<=3/2);
 f=@(t) g(t)+h(t);
 armo=15;
-a=-7;
-b=23;
+a=-1/2;
+b=19/2;
 sfc(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 3
 % 
@@ -117,6 +117,31 @@ sfc(t0,tf,dn,d0,f,armo,a,b)
 % debe de indicar la función y los valores de sus coeficientes (sin incluir
 % el procedimiento) 
 %
+% *Con 4 armonicos* 
+close all;
+clear all;
+d0=(5734161139222659*pi)/36028797018963968;
+dn=@(n) -(exp(-(pi.*n.*1i)./2).*(exp(pi.*n.*1i) - 1).*5734161139222659i)./(36028797018963968.*n);
+t0=-pi;
+tf=pi;
+f=@(t) 0.*(t>=-pi & t<=-pi/2) + 1.*(t>-pi/2 & t<=pi/2) + 0.*(t>pi/2 & t<=pi);
+armo=4;
+a=-3*pi;
+b=7*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+%%
+% *Con 15 armonicos* 
+close all;
+clear all;
+d0=(5734161139222659*pi)/36028797018963968;
+dn=@(n) -(exp(-(pi.*n.*1i)./2).*(exp(pi.*n.*1i) - 1).*5734161139222659i)./(36028797018963968.*n);
+t0=-pi;
+tf=pi;
+f=@(t) 0.*(t>=-pi & t<=-pi/2) + 1.*(t>-pi/2 & t<=pi/2) + 0.*(t>pi/2 & t<=pi);
+armo=15;
+a=-3*pi;
+b=7*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 4
 %
 % * *Ejercicio 6.5.* Con serie y espectro exponencial,  no es
@@ -124,6 +149,31 @@ sfc(t0,tf,dn,d0,f,armo,a,b)
 % debe de indicar la función y los valores de sus coeficientes (sin incluir
 % el procedimiento)
 %
+% *Con 4 armonicos* 
+close all;
+clear all;
+d0=0.504;
+dn=@(n) (0.504)./(1+j.*4.*n);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=4;
+a=-pi;
+b=4*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+%%
+% *Con 15 armonicos* 
+close all;
+clear all;
+d0=0.504;
+dn=@(n) (0.504)./(1+j.*4.*n);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=15;
+a=-pi;
+b=4*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 5
 %
 % * *Ejemplo 6.7.* Con serie y espectro exponencial y $T_0=3$ sin incluir la
@@ -132,12 +182,40 @@ sfc(t0,tf,dn,d0,f,armo,a,b)
 % debe de indicar la función y los valores de sus coeficientes (sin incluir
 % el procedimiento)
 %
+% *Con 4 armonicos* 
+close all;
+clear all;
+T0=3;
+d0=1/T0;
+dn=@(n) 1/T0;
+t0=0;
+tf=T0;
+f=@(t) 3.*(t==0);
+armo=4;
+a=0;
+b=12;
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
+%%
+% *Con 15 armonicos* 
+close all;
+clear all;
+T0=3;
+d0=1/T0;
+dn=@(n) 1/T0;
+t0=0;
+tf=T0;
+f=@(t) 10.*(t==0);
+armo=15;
+a=0;
+b=12;
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 6
 %
 % * Elabore un código similar al COMPUTER EXAMPLE C6.2 que se encuentra al 
 % final de la sección 6.2 de Lathi para el Ejempo 6.2 con los datos
 % indicados anteriormente (no utilice inline)
 %
+problema6
 %% Problema 7
 %
 % * Elabore un código que implemente el algoritmo de trapecio compuesto
