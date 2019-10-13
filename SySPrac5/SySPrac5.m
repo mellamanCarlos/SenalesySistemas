@@ -269,7 +269,7 @@ w0=2;
 a=0;
 b=pi;
 n=[0:4]';
-Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios)%Calcula los Dn por el trapecio compuesto
+Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);%Calcula los Dn por el trapecio compuesto
 %
 %%
 % Calculamos el Error de Analitico - Lathi
