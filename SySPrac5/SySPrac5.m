@@ -261,6 +261,7 @@ x(1) = (exp(-pi/2) + 1)/2;
 Lathi = fft (x)/N_0; %Este es el valor de Dn
 %%
 % Valor obtenido por el codigo del trapecio compuesto
+syms t;
 trapecios=15;
 f=@(t) exp(-t/2);
 T0=pi;
@@ -268,7 +269,7 @@ w0=2;
 a=0;
 b=pi;
 n=[0:4]';
-Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);%Calcula los Dn por el trapecio compuesto
+Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios)%Calcula los Dn por el trapecio compuesto
 %
 %%
 % Calculamos el Error de Analitico - Lathi
@@ -280,12 +281,29 @@ EAT= abs(Analitico-Trapecio_compuesto);
 %Sacamos la tabla
 T = table(Dn,Analitico,Lathi,Trapecio_compuesto,EAL,EAT)
 %% Codigo de la función de trapecio compuesto 
-
+%   function [Integral]=Trapecio(funcion,a,b,trapecios)
+%   h=(b-a)/trapecios;
+%   f=0;
+%   for t=1:trapecios-1
+%    x=a+h*t;
+%    f=f+eval(funcion);
+%   end
+%   f=2*f;
+%   x=a; 
+%   f=f+eval(funcion); 
+%   x=b; 
+%   f=f+eval(funcion);
+%   Integral=(h/2)*(f);
+%   end
 %% Conclusiones del Problema 7
-
+% Como se puede observar en la tabla, los valores  del codigo de Lathi se
+% aproximan a los obtenidos del valor analítico. Sin embargo, los valores
+% obtenidos con el codigo del trapecio compuesto si difieren bastante de
+% los obtenidos en el metodo analítico. Por lo que podemos concluir que el
+% metodo de Lathi son mas precisos que los obtenidos por el metodo del
+% trapecio compuesto.
 %% Referencias
 % 
 % [1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press
 %
-% [2] https://www.youtube.com/watch?v=aF0IzNxWTbg
-%% Apendice 
+% [2] http://obbycc.scienceontheweb.net/Practices/practica8.PDF

@@ -1,11 +1,14 @@
 function [Integral]=Trapecio(funcion,a,b,trapecios)
-funcion2=@(t) funcion;
-h=(b-a)/trapecios;
-S=feval(funcion2,a);
-for t=1:trapecios-1
-    x(t)=a+h*t;
-    S=S+2*feval(funcion2,x(t));
-end
-S=S+feval(funcion2,b);
-Integral=h*S/2;
+ h=(b-a)/trapecios;
+ f=0;
+ for t=1:trapecios-1
+     x=a+h*t;
+     f=f+eval(funcion);
+ end
+ f=2*f;
+ x=a; 
+ f=f+eval(funcion); 
+ x=b; 
+ f=f+eval(funcion);
+ Integral=(h/2)*(f);
 end

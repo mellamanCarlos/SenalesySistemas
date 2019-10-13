@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#3">Desarrollo</a></li><li><a href="#4">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#8">Problema 3</a></li><li><a href="#10">Problema 4</a></li><li><a href="#12">Problema 5</a></li><li><a href="#14">Problema 6</a></li><li><a href="#15">Problema 7</a></li><li><a href="#22">Codigo de la funci&oacute;n de trapecio compuesto</a></li><li><a href="#23">Conclusiones del Problema 7</a></li><li><a href="#24">Referencias</a></li><li><a href="#25">Apendice</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Realizar gr&aacute;ficas de series de Fourier exponenciales y trigonom&eacute;tricas en tiempo continuo</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Calculo n&uacute;merico de los coeficientes de Fourier</li></ul></div><h2 id="2">Introducci&oacute;n</h2><p>Nos apoyaremos del codigo que viene en la secci&oacute;n 6.6 de Lathi (Ejemplo de computadora C6.4). Con este codigo podemos hacer una aproximaci&oacute;n para calcular los coeficientes Dn</p><pre class="language-matlab">T_0 = ; <span class="comment">%Periodo</span>
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#3">Desarrollo</a></li><li><a href="#4">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#8">Problema 3</a></li><li><a href="#10">Problema 4</a></li><li><a href="#12">Problema 5</a></li><li><a href="#14">Problema 6</a></li><li><a href="#15">Problema 7</a></li><li><a href="#22">Codigo de la funci&oacute;n de trapecio compuesto</a></li><li><a href="#23">Conclusiones del Problema 7</a></li><li><a href="#24">Referencias</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Realizar gr&aacute;ficas de series de Fourier exponenciales y trigonom&eacute;tricas en tiempo continuo</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Calculo n&uacute;merico de los coeficientes de Fourier</li></ul></div><h2 id="2">Introducci&oacute;n</h2><p>Nos apoyaremos del codigo que viene en la secci&oacute;n 6.6 de Lathi (Ejemplo de computadora C6.4). Con este codigo podemos hacer una aproximaci&oacute;n para calcular los coeficientes Dn</p><pre class="language-matlab">T_0 = ; <span class="comment">%Periodo</span>
 N_0 =; <span class="comment">%Muestreo</span>
 T = T_0/N_0;
 t = (0:T:T*(N_0-1))';
@@ -214,8 +214,17 @@ w0=2;
 a=0;
 b=pi;
 n=[0:4]';
-Trapecio_compuesto= (1./T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);<span class="comment">%Calcula los Dn por el trapecio compuesto</span>
+Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios)<span class="comment">%Calcula los Dn por el trapecio compuesto</span>
 <span class="comment">%</span>
+</pre><pre class="codeoutput">
+Trapecio_compuesto =
+
+          0.102733353589899 +                     0i
+        -0.0221548307128588 -    0.0196728205261219i
+        -0.0235049973277915 +    0.0141941330341689i
+         0.0703597972803104 +    0.0556567739572236i
+        -0.0196749898945597 -    0.0258227934425478i
+
 </pre><p>Calculamos el Error de Analitico - Lathi</p><pre class="codeinput">EAL= abs(Analitico-Lathi);
 </pre><p>Calculamos el Error de Analitico - Trapecio compuesto</p><pre class="codeinput">EAT= abs(Analitico-Trapecio_compuesto);
 </pre><pre class="codeinput"><span class="comment">%Sacamos la tabla</span>
@@ -225,16 +234,30 @@ T =
 
   5&times;6 table
 
-    Dn         Analitico               Lathi           Trapecio_compuesto       EAL          EAT   
-    __    ___________________    __________________    __________________    _________    _________
+    Dn                   Analitico                                   Lathi                               Trapecio_compuesto                       EAL                   EAT        
+    __    _______________________________________    ______________________________________    _______________________________________    ___________________    __________________
 
-    0         0.504+0i            0.50842+0i               [1x1 sym]         0.0044203    [1x1 sym]
-    1      0.029647-0.11859i      0.03415-0.1017i          [1x1 sym]          0.017476    [1x1 sym]
-    2     0.0077538-0.062031i    0.013609-0.025049i        [1x1 sym]          0.037443    [1x1 sym]
-    3     0.0034759-0.04171i     0.013609+0.025049i        [1x1 sym]          0.067524    [1x1 sym]
-    4     0.0019611-0.031377i     0.03415+0.1017i          [1x1 sym]           0.13692    [1x1 sym]
+    0                   0.504+0i                      0.508420250205301+0i                       0.102733353589899+0i                     0.00442025020530123     0.401266646410101
+    1      0.0296470588235294-0.118588235294118i     0.0341504807850507-0.101702768065617i     -0.0221548307128588-0.0196728205261219i     0.0174756920574917      0.11165883322991
+    2     0.00775384615384615-0.0620307692307692i    0.0136092881999891-0.0250486152496529i    -0.0235049973277915+0.0141941330341689i     0.0374428352911307    0.0823853811128461
+    3     0.00347586206896552-0.0417103448275862i    0.0136092881999891+0.0250486152496529i     0.0703597972803104+0.0556567739572236i     0.0675236630800441      0.11812627400291
+    4     0.00196108949416342-0.0313774319066148i    0.0341504807850507+0.101702768065617i     -0.0196749898945597-0.0258227934425478i      0.136917845938092     0.022337724588275
 
-</pre><h2 id="22">Codigo de la funci&oacute;n de trapecio compuesto</h2><h2 id="23">Conclusiones del Problema 7</h2><h2 id="24">Referencias</h2><p>[1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press</p><p>[2] https://www.youtube.com/watch?v=aF0IzNxWTbg</p><h2 id="25">Apendice</h2><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+</pre><h2 id="22">Codigo de la funci&oacute;n de trapecio compuesto</h2><pre class="language-matlab"><span class="keyword">function</span> [Integral]=Trapecio(funcion,a,b,trapecios)
+h=(b-a)/trapecios;
+f=0;
+<span class="keyword">for</span> t=1:trapecios-1
+ x=a+h*t;
+ f=f+eval(funcion);
+<span class="keyword">end</span>
+f=2*f;
+x=a;
+f=f+eval(funcion);
+x=b;
+f=f+eval(funcion);
+Integral=(h/2)*(f);
+<span class="keyword">end</span>
+</pre><h2 id="23">Conclusiones del Problema 7</h2><p>Como se puede observar en la tabla, los valores  del codigo de Lathi se aproximan a los obtenidos del valor anal&iacute;tico. Sin embargo, los valores obtenidos con el codigo del trapecio compuesto si difieren bastante de los obtenidos en el metodo anal&iacute;tico. Por lo que podemos concluir que el metodo de Lathi son mas precisos que los obtenidos por el metodo del trapecio compuesto.</p><h2 id="24">Referencias</h2><p>[1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press</p><p>[2] <a href="http://obbycc.scienceontheweb.net/Practices/practica8.PDF">http://obbycc.scienceontheweb.net/Practices/practica8.PDF</a></p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 5: Series de Fourier en tiempo continuo
 %
@@ -507,7 +530,7 @@ w0=2;
 a=0;
 b=pi;
 n=[0:4]';
-Trapecio_compuesto= (1./T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);%Calcula los Dn por el trapecio compuesto
+Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios)%Calcula los Dn por el trapecio compuesto
 %
 %%
 % Calculamos el Error de Analitico - Lathi
@@ -519,15 +542,32 @@ EAT= abs(Analitico-Trapecio_compuesto);
 %Sacamos la tabla
 T = table(Dn,Analitico,Lathi,Trapecio_compuesto,EAL,EAT)
 %% Codigo de la función de trapecio compuesto 
-
+%   function [Integral]=Trapecio(funcion,a,b,trapecios)
+%   h=(b-a)/trapecios;
+%   f=0;
+%   for t=1:trapecios-1
+%    x=a+h*t;
+%    f=f+eval(funcion);
+%   end
+%   f=2*f;
+%   x=a; 
+%   f=f+eval(funcion); 
+%   x=b; 
+%   f=f+eval(funcion);
+%   Integral=(h/2)*(f);
+%   end
 %% Conclusiones del Problema 7
-
+% Como se puede observar en la tabla, los valores  del codigo de Lathi se
+% aproximan a los obtenidos del valor analítico. Sin embargo, los valores
+% obtenidos con el codigo del trapecio compuesto si difieren bastante de
+% los obtenidos en el metodo analítico. Por lo que podemos concluir que el
+% metodo de Lathi son mas precisos que los obtenidos por el metodo del
+% trapecio compuesto.
 %% Referencias
 % 
 % [1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press
 %
-% [2] https://www.youtube.com/watch?v=aF0IzNxWTbg
-%% Apendice 
+% [2] http://obbycc.scienceontheweb.net/Practices/practica8.PDF
 
 ##### SOURCE END #####
 --></body></html>
