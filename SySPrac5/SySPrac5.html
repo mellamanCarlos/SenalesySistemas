@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-10-12"><meta name="DC.source" content="SySPrac5.m"><style type="text/css">
+      --><title>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-10-13"><meta name="DC.source" content="SySPrac5.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,14 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#3">Desarrollo</a></li><li><a href="#4">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#8">Problema 3</a></li><li><a href="#10">Problema 4</a></li><li><a href="#12">Problema 5</a></li><li><a href="#14">Problema 6</a></li><li><a href="#15">Problema 7</a></li><li><a href="#16">Referencias</a></li><li><a href="#17">Apendice</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Realizar gr&aacute;ficas de series de Fourier exponenciales y trigonom&eacute;tricas en tiempo continuo</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Calculo n&uacute;merico de los coeficientes de Fourier</li></ul></div><h2 id="2">Introducci&oacute;n</h2><h2 id="3">Desarrollo</h2><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><p>Para cada problema debes de realizar</p><div><ol><li>Realizar el programa de la serie que se indica</li><li>Gr&aacute;fica de la serie de Fourier en un intervalo que muestre 5 repeticiones</li><li>Gr&aacute;fica de la se&ntilde;al y la serie de Fourier para 4 armonicos</li><li>Gr&aacute;fica del error</li><li>Gr&aacute;fica de la energ&iacute;a del error</li><li>Espectro de magnitud  para 4 armonicos</li><li>Espectro de fase para 4 armonicos</li><li>Todo lo anterior para 15 armonicos</li></ol></div><h2 id="4">Problema 1</h2><div><ul><li><b>Ejemplo 6.1</b> Con serie  y espectro trigonometrico, no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#3">Desarrollo</a></li><li><a href="#4">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#8">Problema 3</a></li><li><a href="#10">Problema 4</a></li><li><a href="#12">Problema 5</a></li><li><a href="#14">Problema 6</a></li><li><a href="#15">Problema 7</a></li><li><a href="#22">Codigo de la funci&oacute;n de trapecio compuesto</a></li><li><a href="#23">Conclusiones del Problema 7</a></li><li><a href="#24">Referencias</a></li><li><a href="#25">Apendice</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Realizar gr&aacute;ficas de series de Fourier exponenciales y trigonom&eacute;tricas en tiempo continuo</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Calculo n&uacute;merico de los coeficientes de Fourier</li></ul></div><h2 id="2">Introducci&oacute;n</h2><p>Nos apoyaremos del codigo que viene en la secci&oacute;n 6.6 de Lathi (Ejemplo de computadora C6.4). Con este codigo podemos hacer una aproximaci&oacute;n para calcular los coeficientes Dn</p><pre class="language-matlab">T_0 = ; <span class="comment">%Periodo</span>
+N_0 =; <span class="comment">%Muestreo</span>
+T = T_0/N_0;
+t = (0:T:T*(N_0-1))';
+x = ; <span class="comment">%Aqui va la funci&oacute;n</span>
+x(1) = (x + 1)/2; <span class="comment">%Aqui calcula D_0</span>
+D_n = fft (x)/N_0; <span class="comment">%Aqui se calculan los Dn</span>
+</pre><p>Este codigo utiliza la funcion fft para aproximar los valores de los coeficientes Dn</p><p>fft significa fast fourier transform o transformada rapida de fourier</p><h2 id="3">Desarrollo</h2><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><p>Para cada problema debes de realizar</p><div><ol><li>Realizar el programa de la serie que se indica</li><li>Gr&aacute;fica de la serie de Fourier en un intervalo que muestre 5 repeticiones</li><li>Gr&aacute;fica de la se&ntilde;al y la serie de Fourier para 4 armonicos</li><li>Gr&aacute;fica del error</li><li>Gr&aacute;fica de la energ&iacute;a del error</li><li>Espectro de magnitud  para 4 armonicos</li><li>Espectro de fase para 4 armonicos</li><li>Todo lo anterior para 15 armonicos</li></ol></div><h2 id="4">Problema 1</h2><div><ul><li><b>Ejemplo 6.1</b> Con serie  y espectro trigonometrico, no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
 clear <span class="string">all</span>;
 a0=0.504;
 an=@(n) 0.504*(2/(1+16*n^2));
@@ -187,7 +194,47 @@ a=0;
 b=12;
 sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
 </pre><img vspace="5" hspace="5" src="SySPrac5_10.png" alt=""> <h2 id="14">Problema 6</h2><div><ul><li>Elabore un c&oacute;digo similar al COMPUTER EXAMPLE C6.2 que se encuentra al final de la secci&oacute;n 6.2 de Lathi para el Ejempo 6.2 con los datos indicados anteriormente (no utilice inline)</li></ul></div><pre class="codeinput">problema6
-</pre><img vspace="5" hspace="5" src="SySPrac5_11.png" alt=""> <h2 id="15">Problema 7</h2><div><ul><li>Elabore un c&oacute;digo que implemente el algoritmo de trapecio compuesto para <img src="SySPrac5_eq08501079337458606022.png" alt="$n=15$">, Utilice este c&oacute;digo para aproximar <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo de la pr&aacute;ctica. Ahora implemente el c&oacute;digo COMPUTER EXAMPLE C6.4 que se encuentra al final de la secci&oacute;n 6.6 de Lathi, y calcule nuevamente los coeficientes <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo propuesto. Muestre una tabla que contenga los coeficientes mencionados calculados con los dos algoritmos y de forma exacta, &iquest;Qu&eacute; algortmo aproxima mejor a los coeficientes?, para esto compare los coeficientes con el valor absoluto de la resta.</li></ul></div><h2 id="16">Referencias</h2><p>[1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab</p><p>[2] https://latex2png.com/</p><p>[3] https://www.quora.com/How-do-I-add-a-GIF-image-using-HTML-code</p><h2 id="17">Apendice</h2><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="SySPrac5_11.png" alt=""> <h2 id="15">Problema 7</h2><div><ul><li>Elabore un c&oacute;digo que implemente el algoritmo de trapecio compuesto para <img src="SySPrac5_eq08501079337458606022.png" alt="$n=15$">, Utilice este c&oacute;digo para aproximar <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo de la pr&aacute;ctica. Ahora implemente el c&oacute;digo COMPUTER EXAMPLE C6.4 que se encuentra al final de la secci&oacute;n 6.6 de Lathi, y calcule nuevamente los coeficientes <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo propuesto. Muestre una tabla que contenga los coeficientes mencionados calculados con los dos algoritmos y de forma exacta, &iquest;Qu&eacute; algoritmo aproxima mejor a los coeficientes?, para esto compare los coeficientes con el valor absoluto de la resta.</li></ul></div><p>Los Dn</p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+Dn=[0:4]';
+</pre><p>Valor analitico</p><pre class="codeinput"> p=[0:4]';
+ Analitico = (0.504)./(1+4.*p.*j);
+</pre><p>Valor obtenido del codigo de Lathi</p><pre class="codeinput">T_0 = pi;
+N_0 = 5;
+T = T_0/N_0;
+t = (0:T:T*(N_0-1))';
+x = exp(-t/2);
+x(1) = (exp(-pi/2) + 1)/2;
+Lathi = fft (x)/N_0; <span class="comment">%Este es el valor de Dn</span>
+</pre><p>Valor obtenido por el codigo del trapecio compuesto</p><pre class="codeinput">syms <span class="string">t</span>;
+trapecios=15;
+f=@(t) exp(-t/2);
+T0=pi;
+w0=2;
+a=0;
+b=pi;
+n=[0:4]';
+Trapecio_compuesto= (1./T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);<span class="comment">%Calcula los Dn por el trapecio compuesto</span>
+<span class="comment">%</span>
+</pre><p>Calculamos el Error de Analitico - Lathi</p><pre class="codeinput">EAL= abs(Analitico-Lathi);
+</pre><p>Calculamos el Error de Analitico - Trapecio compuesto</p><pre class="codeinput">EAT= abs(Analitico-Trapecio_compuesto);
+</pre><pre class="codeinput"><span class="comment">%Sacamos la tabla</span>
+T = table(Dn,Analitico,Lathi,Trapecio_compuesto,EAL,EAT)
+</pre><pre class="codeoutput">
+T =
+
+  5&times;6 table
+
+    Dn         Analitico               Lathi           Trapecio_compuesto       EAL          EAT   
+    __    ___________________    __________________    __________________    _________    _________
+
+    0         0.504+0i            0.50842+0i               [1x1 sym]         0.0044203    [1x1 sym]
+    1      0.029647-0.11859i      0.03415-0.1017i          [1x1 sym]          0.017476    [1x1 sym]
+    2     0.0077538-0.062031i    0.013609-0.025049i        [1x1 sym]          0.037443    [1x1 sym]
+    3     0.0034759-0.04171i     0.013609+0.025049i        [1x1 sym]          0.067524    [1x1 sym]
+    4     0.0019611-0.031377i     0.03415+0.1017i          [1x1 sym]           0.13692    [1x1 sym]
+
+</pre><h2 id="22">Codigo de la funci&oacute;n de trapecio compuesto</h2><h2 id="23">Conclusiones del Problema 7</h2><h2 id="24">Referencias</h2><p>[1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press</p><p>[2] https://www.youtube.com/watch?v=aF0IzNxWTbg</p><h2 id="25">Apendice</h2><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 5: Series de Fourier en tiempo continuo
 %
@@ -211,7 +258,21 @@ sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
 % * Calculo númerico de los coeficientes de Fourier
 %
 %% Introducción
-
+% Nos apoyaremos del codigo que viene en la sección 6.6 de Lathi (Ejemplo
+% de computadora C6.4). Con este codigo podemos hacer una aproximación para
+% calcular los coeficientes Dn
+%
+%   T_0 = ; %Periodo
+%   N_0 =; %Muestreo
+%   T = T_0/N_0; 
+%   t = (0:T:T*(N_0-1))'; 
+%   x = ; %Aqui va la función
+%   x(1) = (x + 1)/2; %Aqui calcula D_0
+%   D_n = fft (x)/N_0; %Aqui se calculan los Dn
+%
+% Este codigo utiliza la funcion fft para aproximar los valores de los coeficientes Dn
+%
+% fft significa fast fourier transform o transformada rapida de fourier
 %% Desarrollo
 %
 % Para el desarrollo se tienen que resolver cada uno de los siguientes
@@ -415,19 +476,58 @@ problema6
 % encuentra al final de la sección 6.6 de Lathi, y calcule nuevamente los 
 % coeficientes $D_0,...,D_4$ del ejemplo propuesto. Muestre una tabla
 % que contenga los coeficientes mencionados calculados con los dos
-% algoritmos y de forma exacta, ¿Qué algortmo aproxima mejor a los
+% algoritmos y de forma exacta, ¿Qué algoritmo aproxima mejor a los
 % coeficientes?, para esto compare los coeficientes con el valor absoluto de
 % la resta. 
 %
+% Los Dn
+close all;
+clear all;
+Dn=[0:4]';
+%%
+% Valor analitico
+ p=[0:4]';
+ Analitico = (0.504)./(1+4.*p.*j);
+ %%
+% Valor obtenido del codigo de Lathi
+T_0 = pi; 
+N_0 = 5; 
+T = T_0/N_0; 
+t = (0:T:T*(N_0-1))'; 
+x = exp(-t/2); 
+x(1) = (exp(-pi/2) + 1)/2;
+Lathi = fft (x)/N_0; %Este es el valor de Dn
+%%
+% Valor obtenido por el codigo del trapecio compuesto
+syms t;
+trapecios=15;
+f=@(t) exp(-t/2);
+T0=pi;
+w0=2;
+a=0;
+b=pi;
+n=[0:4]';
+Trapecio_compuesto= (1./T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);%Calcula los Dn por el trapecio compuesto
+%
+%%
+% Calculamos el Error de Analitico - Lathi
+EAL= abs(Analitico-Lathi);
+%%
+% Calculamos el Error de Analitico - Trapecio compuesto
+EAT= abs(Analitico-Trapecio_compuesto);
+%%
+%Sacamos la tabla
+T = table(Dn,Analitico,Lathi,Trapecio_compuesto,EAL,EAT)
+%% Codigo de la función de trapecio compuesto 
+
+%% Conclusiones del Problema 7
+
 %% Referencias
 % 
-% [1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab
+% [1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press
 %
-% [2] https://latex2png.com/
-%
-% [3] https://www.quora.com/How-do-I-add-a-GIF-image-using-HTML-code
-%
-%% Apendice
+% [2] https://www.youtube.com/watch?v=aF0IzNxWTbg
+%% Apendice 
 
 ##### SOURCE END #####
 --></body></html>
