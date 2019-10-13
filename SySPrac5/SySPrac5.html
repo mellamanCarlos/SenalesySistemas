@@ -214,17 +214,8 @@ w0=2;
 a=0;
 b=pi;
 n=[0:4]';
-Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios)<span class="comment">%Calcula los Dn por el trapecio compuesto</span>
+Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);<span class="comment">%Calcula los Dn por el trapecio compuesto</span>
 <span class="comment">%</span>
-</pre><pre class="codeoutput">
-Trapecio_compuesto =
-
-          0.102733353589899 +                     0i
-        -0.0221548307128588 -    0.0196728205261219i
-        -0.0235049973277915 +    0.0141941330341689i
-         0.0703597972803104 +    0.0556567739572236i
-        -0.0196749898945597 -    0.0258227934425478i
-
 </pre><p>Calculamos el Error de Analitico - Lathi</p><pre class="codeinput">EAL= abs(Analitico-Lathi);
 </pre><p>Calculamos el Error de Analitico - Trapecio compuesto</p><pre class="codeinput">EAT= abs(Analitico-Trapecio_compuesto);
 </pre><pre class="codeinput"><span class="comment">%Sacamos la tabla</span>
@@ -234,14 +225,14 @@ T =
 
   5&times;6 table
 
-    Dn                   Analitico                                   Lathi                               Trapecio_compuesto                       EAL                   EAT        
-    __    _______________________________________    ______________________________________    _______________________________________    ___________________    __________________
+    Dn         Analitico               Lathi           Trapecio_compuesto        EAL         EAT   
+    __    ___________________    __________________    ___________________    _________    ________
 
-    0                   0.504+0i                      0.508420250205301+0i                       0.102733353589899+0i                     0.00442025020530123     0.401266646410101
-    1      0.0296470588235294-0.118588235294118i     0.0341504807850507-0.101702768065617i     -0.0221548307128588-0.0196728205261219i     0.0174756920574917      0.11165883322991
-    2     0.00775384615384615-0.0620307692307692i    0.0136092881999891-0.0250486152496529i    -0.0235049973277915+0.0141941330341689i     0.0374428352911307    0.0823853811128461
-    3     0.00347586206896552-0.0417103448275862i    0.0136092881999891+0.0250486152496529i     0.0703597972803104+0.0556567739572236i     0.0675236630800441      0.11812627400291
-    4     0.00196108949416342-0.0313774319066148i    0.0341504807850507+0.101702768065617i     -0.0196749898945597-0.0258227934425478i      0.136917845938092     0.022337724588275
+    0         0.504+0i            0.50842+0i             0.10273+0i           0.0044203     0.40127
+    1      0.029647-0.11859i      0.03415-0.1017i      -0.022155-0.019673i     0.017476     0.11166
+    2     0.0077538-0.062031i    0.013609-0.025049i    -0.023505+0.014194i     0.037443    0.082385
+    3     0.0034759-0.04171i     0.013609+0.025049i      0.07036+0.055657i     0.067524     0.11813
+    4     0.0019611-0.031377i     0.03415+0.1017i      -0.019675-0.025823i      0.13692    0.022338
 
 </pre><h2 id="22">Codigo de la funci&oacute;n de trapecio compuesto</h2><pre class="language-matlab"><span class="keyword">function</span> [Integral]=Trapecio(funcion,a,b,trapecios)
 h=(b-a)/trapecios;
@@ -530,7 +521,7 @@ w0=2;
 a=0;
 b=pi;
 n=[0:4]';
-Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios)%Calcula los Dn por el trapecio compuesto
+Trapecio_compuesto= (1/T0).*Trapecio(f(t).*cos(n.*w0.*t),a,b,trapecios) - j.*(1/T0).*Trapecio(f(t).*sin(n.*w0.*t),a,b,trapecios);%Calcula los Dn por el trapecio compuesto
 %
 %%
 % Calculamos el Error de Analitico - Lathi
