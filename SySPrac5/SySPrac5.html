@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-10-09"><meta name="DC.source" content="SySPrac5.m"><style type="text/css">
+      --><title>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-10-12"><meta name="DC.source" content="SySPrac5.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#3">Desarrollo</a></li><li><a href="#4">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#7">Problema 3</a></li><li><a href="#8">Problema 4</a></li><li><a href="#9">Problema 5</a></li><li><a href="#10">Problema 6</a></li><li><a href="#11">Problema 7</a></li><li><a href="#12">Referencias</a></li><li><a href="#13">Apendice</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Realizar gr&aacute;ficas de series de Fourier exponenciales y trigonom&eacute;tricas en tiempo continuo</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Calculo n&uacute;merico de los coeficientes de Fourier</li></ul></div><h2 id="2">Introducci&oacute;n</h2><h2 id="3">Desarrollo</h2><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><p>Para cada problema debes de realizar</p><div><ol><li>Realizar el programa de la serie que se indica</li><li>Gr&aacute;fica de la serie de Fourier en un intervalo que muestre 5 repeticiones</li><li>Gr&aacute;fica de la se&ntilde;al y la serie de Fourier para 4 armonicos</li><li>Gr&aacute;fica del error</li><li>Gr&aacute;fica de la energ&iacute;a del error</li><li>Espectro de magnitud  para 4 armonicos</li><li>Espectro de fase para 4 armonicos</li><li>Todo lo anterior para 15 armonicos</li></ol></div><h2 id="4">Problema 1</h2><div><ul><li><b>Ejemplo 6.1</b> Con serie  y espectro trigonometrico, no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 5: Series de Fourier en tiempo continuo</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#3">Desarrollo</a></li><li><a href="#4">Problema 1</a></li><li><a href="#6">Problema 2</a></li><li><a href="#8">Problema 3</a></li><li><a href="#10">Problema 4</a></li><li><a href="#12">Problema 5</a></li><li><a href="#14">Problema 6</a></li><li><a href="#15">Problema 7</a></li><li><a href="#16">Referencias</a></li><li><a href="#17">Apendice</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Realizar gr&aacute;ficas de series de Fourier exponenciales y trigonom&eacute;tricas en tiempo continuo</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Calculo n&uacute;merico de los coeficientes de Fourier</li></ul></div><h2 id="2">Introducci&oacute;n</h2><h2 id="3">Desarrollo</h2><p>Para el desarrollo se tienen que resolver cada uno de los siguientes problemas comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><p>Para cada problema debes de realizar</p><div><ol><li>Realizar el programa de la serie que se indica</li><li>Gr&aacute;fica de la serie de Fourier en un intervalo que muestre 5 repeticiones</li><li>Gr&aacute;fica de la se&ntilde;al y la serie de Fourier para 4 armonicos</li><li>Gr&aacute;fica del error</li><li>Gr&aacute;fica de la energ&iacute;a del error</li><li>Espectro de magnitud  para 4 armonicos</li><li>Espectro de fase para 4 armonicos</li><li>Todo lo anterior para 15 armonicos</li></ol></div><h2 id="4">Problema 1</h2><div><ul><li><b>Ejemplo 6.1</b> Con serie  y espectro trigonometrico, no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
 clear <span class="string">all</span>;
 a0=0.504;
 an=@(n) 0.504*(2/(1+16*n^2));
@@ -75,10 +75,10 @@ t0=0;
 tf=pi;
 f=@(t) exp(-t/2);
 armo=4;
-a=-7;
-b=7;
+a=-pi;
+b=4*pi;
 sft(t0,tf,a0,an,bn,f,armo,a,b)
-</pre><p><b>Con 15 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac5_01.png" alt=""> <p><b>Con 15 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
 clear <span class="string">all</span>;
 a0=0.504;
 an=@(n) 0.504*(2/(1+16*n^2));
@@ -87,36 +87,107 @@ t0=0;
 tf=pi;
 f=@(t) exp(-t/2);
 armo=15;
-a=-7;
-b=7;
+a=-pi;
+b=4*pi;
 sft(t0,tf,a0,an,bn,f,armo,a,b)
-</pre><h2 id="6">Problema 2</h2><div><ul><li><b>Ejemplo 6.2.</b> Con serie y espectro exponencial y A=3,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+</pre><img vspace="5" hspace="5" src="SySPrac5_02.png" alt=""> <h2 id="6">Problema 2</h2><div><ul><li><b>Ejemplo 6.2.</b> Con serie y espectro exponencial y A=3,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
 clear <span class="string">all</span>;
 A=3;
 d0=0;
 dn=@(n) (A*exp(-(pi*n*3i)/2)*(exp(pi*n*1i) - 1)*(2 + pi*n*1i + n*pi*exp(pi*n*1i)*1i - 2*exp(pi*n*1i)))/(2*n^2*pi^2);
 t0=-1/2;
 tf=3/2;
-g=@(t) 2*A*t*(t&gt;=-1/2 &amp; t&lt;=1/2);
-h=@(t) 2*A*(1-t)*(t&gt;=-1/2 &amp; t&lt;=1/2);
+g=@(t) 2.*A.*t.*(t&gt;=-1/2 &amp; t&lt;=1/2);
+h=@(t) 2.*A.*(1-t).*(t&gt;1/2 &amp; t&lt;=3/2);
 f=@(t) g(t)+h(t);
 armo=4;
-a=-7;
-b=7;
+a=-1/2;
+b=19/2;
 sfc(t0,tf,dn,d0,f,armo,a,b)
-</pre><pre class="codeoutput error">Error using *
-Incorrect dimensions for matrix multiplication. Check that the number of columns in the first matrix matches the number of rows in the second matrix. To perform elementwise multiplication, use '.*'.
-
-Error in SySPrac5&gt;@(t)2*A*t*(t&gt;=-1/2&amp;t&lt;=1/2)
-
-Error in SySPrac5&gt;@(t)g(t)+h(t)
-
-Error in sfc (line 34)
-plot(t1,f(t1),'r','LineWidth',2)
-
-Error in SySPrac5 (line 96)
+</pre><img vspace="5" hspace="5" src="SySPrac5_03.png" alt=""> <p><b>Con 15 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+A=3;
+d0=0;
+dn=@(n) (A*exp(-(pi*n*3i)/2)*(exp(pi*n*1i) - 1)*(2 + pi*n*1i + n*pi*exp(pi*n*1i)*1i - 2*exp(pi*n*1i)))/(2*n^2*pi^2);
+t0=-1/2;
+tf=3/2;
+g=@(t) 2.*A.*t.*(t&gt;=-1/2 &amp; t&lt;=1/2);
+h=@(t) 2.*A.*(1-t).*(t&gt;1/2 &amp; t&lt;=3/2);
+f=@(t) g(t)+h(t);
+armo=15;
+a=-1/2;
+b=19/2;
 sfc(t0,tf,dn,d0,f,armo,a,b)
-</pre><h2 id="7">Problema 3</h2><div><ul><li><b>Ejemplo 6.4.</b> Con serie y espectro exponencial,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><h2 id="8">Problema 4</h2><div><ul><li><b>Ejercicio 6.5.</b> Con serie y espectro exponencial,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><h2 id="9">Problema 5</h2><div><ul><li><b>Ejemplo 6.7.</b> Con serie y espectro exponencial y <img src="SySPrac5_eq04356084194358646376.png" alt="$T_0=3$"> sin incluir la gr&aacute;fica de f, error ni energ&iacute;a del error,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><h2 id="10">Problema 6</h2><div><ul><li>Elabore un c&oacute;digo similar al COMPUTER EXAMPLE C6.2 que se encuentra al final de la secci&oacute;n 6.2 de Lathi para el Ejempo 6.2 con los datos indicados anteriormente (no utilice inline)</li></ul></div><h2 id="11">Problema 7</h2><div><ul><li>Elabore un c&oacute;digo que implemente el algoritmo de trapecio compuesto para <img src="SySPrac5_eq08501079337458606022.png" alt="$n=15$">, Utilice este c&oacute;digo para aproximar <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo de la pr&aacute;ctica. Ahora implemente el c&oacute;digo COMPUTER EXAMPLE C6.4 que se encuentra al final de la secci&oacute;n 6.6 de Lathi, y calcule nuevamente los coeficientes <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo propuesto. Muestre una tabla que contenga los coeficientes mencionados calculados con los dos algoritmos y de forma exacta, &iquest;Qu&eacute; algortmo aproxima mejor a los coeficientes?, para esto compare los coeficientes con el valor absoluto de la resta.</li></ul></div><h2 id="12">Referencias</h2><p>[1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab</p><p>[2] https://latex2png.com/</p><p>[3] https://www.quora.com/How-do-I-add-a-GIF-image-using-HTML-code</p><h2 id="13">Apendice</h2><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="SySPrac5_04.png" alt=""> <h2 id="8">Problema 3</h2><div><ul><li><b>Ejemplo 6.4.</b> Con serie y espectro exponencial,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+d0=(5734161139222659*pi)/36028797018963968;
+dn=@(n) -(exp(-(pi.*n.*1i)./2).*(exp(pi.*n.*1i) - 1).*5734161139222659i)./(36028797018963968.*n);
+t0=-pi;
+tf=pi;
+f=@(t) 0.*(t&gt;=-pi &amp; t&lt;=-pi/2) + 1.*(t&gt;-pi/2 &amp; t&lt;=pi/2) + 0.*(t&gt;pi/2 &amp; t&lt;=pi);
+armo=4;
+a=-3*pi;
+b=7*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+</pre><img vspace="5" hspace="5" src="SySPrac5_05.png" alt=""> <p><b>Con 15 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+d0=(5734161139222659*pi)/36028797018963968;
+dn=@(n) -(exp(-(pi.*n.*1i)./2).*(exp(pi.*n.*1i) - 1).*5734161139222659i)./(36028797018963968.*n);
+t0=-pi;
+tf=pi;
+f=@(t) 0.*(t&gt;=-pi &amp; t&lt;=-pi/2) + 1.*(t&gt;-pi/2 &amp; t&lt;=pi/2) + 0.*(t&gt;pi/2 &amp; t&lt;=pi);
+armo=15;
+a=-3*pi;
+b=7*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+</pre><img vspace="5" hspace="5" src="SySPrac5_06.png" alt=""> <h2 id="10">Problema 4</h2><div><ul><li><b>Ejercicio 6.5.</b> Con serie y espectro exponencial,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+d0=0.504;
+dn=@(n) (0.504)./(1+j.*4.*n);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=4;
+a=-pi;
+b=4*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+</pre><img vspace="5" hspace="5" src="SySPrac5_07.png" alt=""> <p><b>Con 15 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+d0=0.504;
+dn=@(n) (0.504)./(1+j.*4.*n);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=15;
+a=-pi;
+b=4*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+</pre><img vspace="5" hspace="5" src="SySPrac5_08.png" alt=""> <h2 id="12">Problema 5</h2><div><ul><li><b>Ejemplo 6.7.</b> Con serie y espectro exponencial y <img src="SySPrac5_eq04356084194358646376.png" alt="$T_0=3$"> sin incluir la gr&aacute;fica de f, error ni energ&iacute;a del error,  no es necesario entregar el c&oacute;digo, solo la aplicaci&oacute;n al problema especifico, debe de indicar la funci&oacute;n y los valores de sus coeficientes (sin incluir el procedimiento)</li></ul></div><p><b>Con 4 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+T0=3;
+d0=1/T0;
+dn=@(n) 1/T0;
+t0=0;
+tf=T0;
+f=@(t) 3.*(t==0);
+armo=4;
+a=0;
+b=12;
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
+</pre><img vspace="5" hspace="5" src="SySPrac5_09.png" alt=""> <p><b>Con 15 armonicos</b></p><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+T0=3;
+d0=1/T0;
+dn=@(n) 1/T0;
+t0=0;
+tf=T0;
+f=@(t) 10.*(t==0);
+armo=15;
+a=0;
+b=12;
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
+</pre><img vspace="5" hspace="5" src="SySPrac5_10.png" alt=""> <h2 id="14">Problema 6</h2><div><ul><li>Elabore un c&oacute;digo similar al COMPUTER EXAMPLE C6.2 que se encuentra al final de la secci&oacute;n 6.2 de Lathi para el Ejempo 6.2 con los datos indicados anteriormente (no utilice inline)</li></ul></div><pre class="codeinput">problema6
+</pre><img vspace="5" hspace="5" src="SySPrac5_11.png" alt=""> <h2 id="15">Problema 7</h2><div><ul><li>Elabore un c&oacute;digo que implemente el algoritmo de trapecio compuesto para <img src="SySPrac5_eq08501079337458606022.png" alt="$n=15$">, Utilice este c&oacute;digo para aproximar <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo de la pr&aacute;ctica. Ahora implemente el c&oacute;digo COMPUTER EXAMPLE C6.4 que se encuentra al final de la secci&oacute;n 6.6 de Lathi, y calcule nuevamente los coeficientes <img src="SySPrac5_eq12324390629844581234.png" alt="$D_0,...,D_4$"> del ejemplo propuesto. Muestre una tabla que contenga los coeficientes mencionados calculados con los dos algoritmos y de forma exacta, &iquest;Qu&eacute; algortmo aproxima mejor a los coeficientes?, para esto compare los coeficientes con el valor absoluto de la resta.</li></ul></div><h2 id="16">Referencias</h2><p>[1] https://la.mathworks.com/matlabcentral/answers/94495-how-can-i-create-animated-gif-images-in-matlab</p><p>[2] https://latex2png.com/</p><p>[3] https://www.quora.com/How-do-I-add-a-GIF-image-using-HTML-code</p><h2 id="17">Apendice</h2><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 5: Series de Fourier en tiempo continuo
 %
@@ -175,8 +246,8 @@ t0=0;
 tf=pi;
 f=@(t) exp(-t/2);
 armo=4;
-a=-7;
-b=7;
+a=-pi;
+b=4*pi;
 sft(t0,tf,a0,an,bn,f,armo,a,b)
 %%
 % *Con 15 armonicos* 
@@ -189,8 +260,8 @@ t0=0;
 tf=pi;
 f=@(t) exp(-t/2);
 armo=15;
-a=-7;
-b=7;
+a=-pi;
+b=4*pi;
 sft(t0,tf,a0,an,bn,f,armo,a,b)
 %% Problema 2
 %
@@ -207,12 +278,28 @@ d0=0;
 dn=@(n) (A*exp(-(pi*n*3i)/2)*(exp(pi*n*1i) - 1)*(2 + pi*n*1i + n*pi*exp(pi*n*1i)*1i - 2*exp(pi*n*1i)))/(2*n^2*pi^2);
 t0=-1/2;
 tf=3/2;
-g=@(t) 2*A*t*(t>=-1/2 & t<=1/2);
-h=@(t) 2*A*(1-t)*(t>=-1/2 & t<=1/2);
+g=@(t) 2.*A.*t.*(t>=-1/2 & t<=1/2);
+h=@(t) 2.*A.*(1-t).*(t>1/2 & t<=3/2);
 f=@(t) g(t)+h(t);
 armo=4;
-a=-7;
-b=7;
+a=-1/2;
+b=19/2;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+%%
+% *Con 15 armonicos* 
+close all;
+clear all;
+A=3;
+d0=0;
+dn=@(n) (A*exp(-(pi*n*3i)/2)*(exp(pi*n*1i) - 1)*(2 + pi*n*1i + n*pi*exp(pi*n*1i)*1i - 2*exp(pi*n*1i)))/(2*n^2*pi^2);
+t0=-1/2;
+tf=3/2;
+g=@(t) 2.*A.*t.*(t>=-1/2 & t<=1/2);
+h=@(t) 2.*A.*(1-t).*(t>1/2 & t<=3/2);
+f=@(t) g(t)+h(t);
+armo=15;
+a=-1/2;
+b=19/2;
 sfc(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 3
 % 
@@ -221,6 +308,31 @@ sfc(t0,tf,dn,d0,f,armo,a,b)
 % debe de indicar la función y los valores de sus coeficientes (sin incluir
 % el procedimiento) 
 %
+% *Con 4 armonicos* 
+close all;
+clear all;
+d0=(5734161139222659*pi)/36028797018963968;
+dn=@(n) -(exp(-(pi.*n.*1i)./2).*(exp(pi.*n.*1i) - 1).*5734161139222659i)./(36028797018963968.*n);
+t0=-pi;
+tf=pi;
+f=@(t) 0.*(t>=-pi & t<=-pi/2) + 1.*(t>-pi/2 & t<=pi/2) + 0.*(t>pi/2 & t<=pi);
+armo=4;
+a=-3*pi;
+b=7*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+%%
+% *Con 15 armonicos* 
+close all;
+clear all;
+d0=(5734161139222659*pi)/36028797018963968;
+dn=@(n) -(exp(-(pi.*n.*1i)./2).*(exp(pi.*n.*1i) - 1).*5734161139222659i)./(36028797018963968.*n);
+t0=-pi;
+tf=pi;
+f=@(t) 0.*(t>=-pi & t<=-pi/2) + 1.*(t>-pi/2 & t<=pi/2) + 0.*(t>pi/2 & t<=pi);
+armo=15;
+a=-3*pi;
+b=7*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 4
 %
 % * *Ejercicio 6.5.* Con serie y espectro exponencial,  no es
@@ -228,6 +340,31 @@ sfc(t0,tf,dn,d0,f,armo,a,b)
 % debe de indicar la función y los valores de sus coeficientes (sin incluir
 % el procedimiento)
 %
+% *Con 4 armonicos* 
+close all;
+clear all;
+d0=0.504;
+dn=@(n) (0.504)./(1+j.*4.*n);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=4;
+a=-pi;
+b=4*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+%%
+% *Con 15 armonicos* 
+close all;
+clear all;
+d0=0.504;
+dn=@(n) (0.504)./(1+j.*4.*n);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=15;
+a=-pi;
+b=4*pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 5
 %
 % * *Ejemplo 6.7.* Con serie y espectro exponencial y $T_0=3$ sin incluir la
@@ -236,12 +373,40 @@ sfc(t0,tf,dn,d0,f,armo,a,b)
 % debe de indicar la función y los valores de sus coeficientes (sin incluir
 % el procedimiento)
 %
+% *Con 4 armonicos* 
+close all;
+clear all;
+T0=3;
+d0=1/T0;
+dn=@(n) 1/T0;
+t0=0;
+tf=T0;
+f=@(t) 3.*(t==0);
+armo=4;
+a=0;
+b=12;
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
+%%
+% *Con 15 armonicos* 
+close all;
+clear all;
+T0=3;
+d0=1/T0;
+dn=@(n) 1/T0;
+t0=0;
+tf=T0;
+f=@(t) 10.*(t==0);
+armo=15;
+a=0;
+b=12;
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
 %% Problema 6
 %
 % * Elabore un código similar al COMPUTER EXAMPLE C6.2 que se encuentra al 
 % final de la sección 6.2 de Lathi para el Ejempo 6.2 con los datos
 % indicados anteriormente (no utilice inline)
 %
+problema6
 %% Problema 7
 %
 % * Elabore un código que implemente el algoritmo de trapecio compuesto
