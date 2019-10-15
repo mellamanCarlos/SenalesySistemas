@@ -71,7 +71,7 @@ f=@(t) exp(-t/2);
 armo=4;
 a=-pi;
 b=4*pi;
-sft(t0,tf,a0,an,bn,f,armo,a,b)
+sft(t0,tf,a0,an,bn,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %%
 % *Con 15 armonicos* 
 close all;
@@ -85,7 +85,7 @@ f=@(t) exp(-t/2);
 armo=15;
 a=-pi;
 b=4*pi;
-sft(t0,tf,a0,an,bn,f,armo,a,b)
+sft(t0,tf,a0,an,bn,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %% Problema 2
 %
 % * *Ejemplo 6.2.* Con serie y espectro exponencial y A=3,  no es
@@ -107,7 +107,7 @@ f=@(t) g(t)+h(t);
 armo=4;
 a=-1/2;
 b=19/2;
-sfc(t0,tf,dn,d0,f,armo,a,b)
+sfc(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %%
 % *Con 15 armonicos* 
 close all;
@@ -123,7 +123,7 @@ f=@(t) g(t)+h(t);
 armo=15;
 a=-1/2;
 b=19/2;
-sfc(t0,tf,dn,d0,f,armo,a,b)
+sfc(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %% Problema 3
 % 
 % * *Ejemplo 6.4.* Con serie y espectro exponencial,  no es
@@ -142,7 +142,7 @@ f=@(t) 0.*(t>=-pi & t<=-pi/2) + 1.*(t>-pi/2 & t<=pi/2) + 0.*(t>pi/2 & t<=pi);
 armo=4;
 a=-3*pi;
 b=7*pi;
-sfc(t0,tf,dn,d0,f,armo,a,b)
+sfc(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %%
 % *Con 15 armonicos* 
 close all;
@@ -155,7 +155,7 @@ f=@(t) 0.*(t>=-pi & t<=-pi/2) + 1.*(t>-pi/2 & t<=pi/2) + 0.*(t>pi/2 & t<=pi);
 armo=15;
 a=-3*pi;
 b=7*pi;
-sfc(t0,tf,dn,d0,f,armo,a,b)
+sfc(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %% Problema 4
 %
 % * *Ejercicio 6.5.* Con serie y espectro exponencial,  no es
@@ -174,7 +174,7 @@ f=@(t) exp(-t/2);
 armo=4;
 a=-pi;
 b=4*pi;
-sfc(t0,tf,dn,d0,f,armo,a,b)
+sfc(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %%
 % *Con 15 armonicos* 
 close all;
@@ -187,7 +187,7 @@ f=@(t) exp(-t/2);
 armo=15;
 a=-pi;
 b=4*pi;
-sfc(t0,tf,dn,d0,f,armo,a,b)
+sfc(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %% Problema 5
 %
 % * *Ejemplo 6.7.* Con serie y espectro exponencial y $T_0=3$ sin incluir la
@@ -208,7 +208,7 @@ f=@(t) 3.*(t==0);
 armo=4;
 a=0;
 b=12;
-sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %%
 % *Con 15 armonicos* 
 close all;
@@ -222,14 +222,14 @@ f=@(t) 10.*(t==0);
 armo=15;
 a=0;
 b=12;
-sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
+sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b) %El codigo de esta función se encuentra en el apéndice
 %% Problema 6
 %
 % * Elabore un código similar al COMPUTER EXAMPLE C6.2 que se encuentra al 
 % final de la sección 6.2 de Lathi para el Ejempo 6.2 con los datos
 % indicados anteriormente (no utilice inline)
 %
-problema6
+problema6 %El codigo de esta función se encuentra en el apéndice
 %% Problema 7
 %
 % * Elabore un código que implemente el algoritmo de trapecio compuesto
@@ -307,3 +307,295 @@ T = table(Dn,Analitico,Lathi,Trapecio_compuesto,EAL,EAT)
 % [1] Lathi, B. (2005). Linear systems and signals, second edition. Oxford University Press
 %
 % [2] http://obbycc.scienceontheweb.net/Practices/practica8.PDF
+%
+%% Apendice
+%
+% A continuación se muestran los codigos de las funciones sft, sfc,
+% problema6 y sfc_sin_energia
+%
+%% Codigo de la funcion sft
+%
+%   function sft(t0,tf,a0,an,bn,f,armo,a,b)
+%   % t0 el valor inicial para calcular la serie
+%   % tf el valor final donde calcular la serie
+%   % an función de la fórmula an de la serie de fourier trigonometrica
+%   % bn función de la fórmula bn de la serie de fourier trigonometrica
+%   % f función original
+%   % armo número de armonicos a utilizar en la gráfica
+%   % a, b intevalo para realizar la grafica de la serie
+% 
+%   w0=2*pi/(tf-t0);
+% 
+%   sf=a0;
+%   t=a:0.0001:b;
+% 
+%   for n=1:armo
+%     sf=sf+an(n).*cos(n.*w0.*t)+bn(n).*sin(n.*w0.*t);
+%   end
+%   figure (1)
+%   hFig = figure(1);
+%   set(hFig, 'Position', [0 0 900 900])
+%   subplot(3,2,1)
+%   plot(t,sf,'LineWidth',2)
+%   grid on
+%   legend('Serie de Fourier','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+% 
+%   sf=a0;
+%   t1=t0:0.0001:tf;
+% 
+%   for n=1:armo
+%      sf=sf+an(n).*cos(n.*w0.*t1)+bn(n).*sin(n.*w0.*t1);
+%   end
+% 
+%   subplot(3,2,2)
+%   plot(t1,f(t1),'r','LineWidth',2)
+%   grid on
+%   hold on
+%   plot(t1,sf,'LineWidth',2)
+%   legend('Función original','Serie de Fourier ','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+%   nn=0:armo;
+%   axis auto
+% 
+%   subplot(3,2,4)
+%   e=f(t1)-sf;
+%   plot(t1,e,'LineWidth',2)
+%   title('Error','FontWeight','bold','FontSize',16)
+%   xlabel('t','FontWeight','bold','FontSize',16)
+%   axis auto
+%   grid on
+% 
+%   subplot(3,2,6)
+%   e=f(t1)-sf;
+%   area(t1,e.^2)
+%   legend('Energia del error','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+%   axis auto
+%   grid on
+% 
+%   absan=zeros(1,length(nn));
+%   absbn=zeros(1,length(nn));
+%   cont=1;
+% 
+%   for i =0:armo
+%     if i==0
+%         absan(cont)=a0;
+%         cont=cont+1;
+%     else
+%     absan(cont)=an(i);
+%     absbn(cont)=bn(i);
+%     cont=cont+1;
+%     end
+%   end
+% 
+% 
+%   subplot(3,2,3)
+%   stem((w0*nn),absan,'LineWidth',2)
+%   title('a_n ','FontWeight','bold','FontSize',16)
+%   xlabel('n\omega_0','FontWeight','bold','FontSize',16)
+%   grid on
+% 
+%   subplot(3,2,5) % % 
+%   stem(w0*nn,absbn,'LineWidth',2) % % 
+%   title('bn','FontWeight','bold','FontSize',16) % % 
+%   xlabel('n\omega_0','FontWeight','bold','FontSize',16)
+%   grid on
+% 
+%   end
+%
+%% Codigo de la funcion sfc
+%
+%   function sfc(t0,tf,dn,d0,f,armo,a,b)
+%   % t0 el valor inicial para calcular la serie
+%   % tf el valor final donde calcular la serie
+%   % dn función de la fórmula de los dn
+%   % f función original
+%   % armo número de armonicos a utilizar en la gráfica
+%   % a, b intevalo para realizar la grafica de la serie
+% 
+%   w0=2*pi/(tf-t0);
+% 
+%   sf=d0;
+%   t=a:0.0001:b;
+% 
+%   for n=1:armo
+%     sf=sf+dn(-n)*exp(w0*-n*t*j)+dn(n)*exp(w0*n*t*j);
+%   end
+%   figure (1)
+%   hFig = figure(1);
+%   set(hFig, 'Position', [0 0 900 900])
+%   subplot(3,2,1)
+%   plot(t,sf,'LineWidth',2)
+%   grid on
+%   legend('Serie de Fourier','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+% 
+%   sf=d0;
+%   t1=t0:0.0001:tf;
+% 
+%   for n=1:armo
+%     sf=sf+dn(-n)*exp(w0*-n*t1*j)+dn(n)*exp(w0*n*t1*j);
+%   end
+% 
+%   subplot(3,2,2)
+%   plot(t1,f(t1),'r','LineWidth',2)
+%   grid on
+%   hold on
+%   plot(t1,sf,'LineWidth',2)
+%   legend('Función original','Serie de Fourier ','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+%   nn=-armo:armo;
+%   axis auto
+% 
+%   subplot(3,2,4)
+%   e=f(t1)-sf;
+%   plot(t1,e,'LineWidth',2)
+%   title('Error','FontWeight','bold','FontSize',16)
+%   xlabel('t','FontWeight','bold','FontSize',16)
+%   axis auto
+%   grid on
+% 
+%   subplot(3,2,6)
+%   e=f(t1)-sf;
+%   area(t1,e.^2)
+%   legend('Energia del error','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+%   axis auto
+%   grid on
+% 
+%   absdn=zeros(1,length(nn));
+%   cont=1;
+%   for i =-armo:armo
+%     if i==0
+%         absdn(cont)=d0;
+%     end
+%     absdn(cont)=dn(i);
+%     cont=cont+1;
+%   end
+% 
+%   subplot(3,2,3)
+%   stem(w0*nn,abs(absdn),'LineWidth',2)
+%   hold on
+%   stem(0,abs(d0),'LineWidth',2)
+%   title('Espectro de magnitud D_n ','FontWeight','bold','FontSize',16)
+%   xlabel('\omega','FontWeight','bold','FontSize',16)
+%   grid on
+% 
+%   subplot(3,2,5) % % 
+%   stem(w0*nn,angle(absdn),'LineWidth',2) % %
+%   hold on
+%   stem(0,angle(d0),'LineWidth',2)
+%   title('Espectro de fase, \angle de D_n ','FontWeight','bold','FontSize',16) % % 
+%   xlabel('\omega','FontWeight','bold','FontSize',16)
+%   grid on
+% 
+%   end
+%
+%% Codigo de la funcion sfc_sin_energia
+%
+%   function sfc_sin_energia(t0,tf,dn,d0,f,armo,a,b)
+%   % t0 el valor inicial para calcular la serie
+%   % tf el valor final donde calcular la serie
+%   % dn función de la fórmula de los dn
+%   % f función original
+%   % armo número de armonicos a utilizar en la gráfica
+%   % a, b intevalo para realizar la grafica de la serie
+% 
+%   w0=2*pi/(tf-t0);
+% 
+%   sf=d0;
+%   t=a:0.0001:b;
+% 
+%   for n=1:armo
+%     sf=sf+dn(-n)*exp(w0*-n*t*j)+dn(n)*exp(w0*n*t*j);
+%   end
+%   figure (1)
+%   hFig = figure(1);
+%   set(hFig, 'Position', [0 0 900 900])
+%   subplot(2,2,1)
+%   plot(t,sf,'LineWidth',2)
+%   grid on
+%   legend('Serie de Fourier','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+% 
+%   sf=d0;
+%   t1=t0:0.0001:tf;
+% 
+%   for n=1:armo
+%     sf=sf+dn(-n)*exp(w0*-n*t1*j)+dn(n)*exp(w0*n*t1*j);
+%   end
+% 
+%   subplot(2,2,2)
+%   stem(t1,f(t1),'r','LineWidth',2)
+%   grid on
+%   hold on
+%   plot(t1,sf,'LineWidth',2)
+%   legend('Función original','Serie de Fourier ','Location','Best')
+%   xlabel('t','FontWeight','bold','FontSize',16)
+%   nn=-armo:armo;
+%   axis auto
+% 
+% 
+%   absdn=zeros(1,length(nn));
+%   cont=1;
+%   for i =-armo:armo
+%     if i==0
+%         absdn(cont)=d0;
+%     end
+%     absdn(cont)=dn(i);
+%     cont=cont+1;
+%   end
+%  
+%   subplot(2,2,3)
+%   stem(w0*nn,abs(absdn),'LineWidth',2)
+%   hold on
+%   stem(0,abs(d0),'LineWidth',2)
+%   title('Espectro de magnitud D_n ','FontWeight','bold','FontSize',16)
+%   xlabel('\omega','FontWeight','bold','FontSize',16)
+%   grid on
+% 
+%   subplot(2,2,4) % % 
+%   stem(w0*nn,angle(absdn),'LineWidth',2) % %
+%   hold on
+%   stem(0,angle(d0),'LineWidth',2)
+%   title('Espectro de fase, \angle de D_n ','FontWeight','bold','FontSize',16) % % 
+%   xlabel('\omega','FontWeight','bold','FontSize',16)
+%   grid on
+% 
+%   end
+%
+%% Codigo de la funcion problema6
+%
+%   function problema6
+% 
+%   clear all;
+%   close all;
+% 
+%   A=3;
+%   g=@(t) 2.*A.*t.*(t>=-1/2 & t<=1/2);
+%   h=@(t) 2.*A.*(1-t).*(t>1/2 & t<=3/2);
+%   x=@(t) g(t)+h(t);
+%   t = linspace(-1/2, 3/2,1000);
+%   sumterms = zeros(16,length(t)); 
+%   sumterms(1,:) = 0;
+%   for n = 1:size(sumterms,1)-1;
+%     sumterms(n+1,:) = (8.*A)./(n.^2.*pi.^2).*sin(n.*pi./2).*sin(n.*pi.*t);
+%   end
+% 
+%   x_N = cumsum(sumterms); 
+%   figure(1); 
+%   clf; 
+%   ind = 0;
+% 
+%   for N = [0,1:2:size(sumterms, 1)-1],
+%     ind = ind+1;
+%     subplot (3,3,ind);
+%     plot(t,x_N(N+1,:),'k',t,x(t), 'k--');
+%     axis([-1/2 3/2 -4 4]);
+%     xlabel('t'); 
+%     ylabel(['x_{',num2str(N),'} (t)']);
+%   end
+% 
+%   end
+%
