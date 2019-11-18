@@ -99,4 +99,5 @@ fun6([1 1 1],[1],heaviside(t),[0,0],10)
 % El código de la función fun7 se puede encontrar en el siguiente 
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun7.m enlace>
 %
-fun7
+syms t
+fun7([1 1 1],[1],exp(-t),[1,-1],10)

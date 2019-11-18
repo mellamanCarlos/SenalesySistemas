@@ -323,7 +323,8 @@ y(t)=
 1 - exp| - - | | cos| --------- | + ------------------------ |
        \   2 / \    \     2     /               3            /
 
-</pre><img vspace="5" hspace="5" src="SySPrac6_05.png" alt=""> <h2 id="9">Ejercicio 7</h2><p><b>5 gr&aacute;ficas anteriores</b></p><p>El c&oacute;digo de la funci&oacute;n fun7 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun7.m">enlace</a></p><pre class="codeinput">fun7
+</pre><img vspace="5" hspace="5" src="SySPrac6_05.png" alt=""> <h2 id="9">Ejercicio 7</h2><p><b>5 gr&aacute;ficas anteriores</b></p><p>El c&oacute;digo de la funci&oacute;n fun7 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun7.m">enlace</a></p><pre class="codeinput">syms <span class="string">t</span>
+fun7([1 1 1],[1],exp(-t),[1,-1],10)
 </pre><img vspace="5" hspace="5" src="SySPrac6_06.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 6: Sistemas diferenciales
@@ -427,6 +428,7 @@ fun6([1 1 1],[1],heaviside(t),[0,0],10)
 % El código de la función fun7 se puede encontrar en el siguiente 
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun7.m enlace>
 %
-fun7
+syms t
+fun7([1 1 1],[1],exp(-t),[1,-1],10)
 ##### SOURCE END #####
 --></body></html>
