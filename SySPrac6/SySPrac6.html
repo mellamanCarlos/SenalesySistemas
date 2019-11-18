@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Pr&aacute;ctica 6: Sistemas diferenciales</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Desarrollo</a></li><li><a href="#2">Ejercicio 1</a></li><li><a href="#3">Ejercicio 2</a></li><li><a href="#4">Ejercicio 3</a></li><li><a href="#5">Ejercicio 4</a></li><li><a href="#6">Ejercicio 5</a></li><li><a href="#7">Ejercicio 6</a></li><li><a href="#8">Ejercicio 7</a></li></ul></div><h2 id="1">Desarrollo</h2><p>Para sistemas diferenciales realiza un programa con las siguientes caracter&iacute;sticas</p><div><ol><li>Muestra la funci&oacute;n de transferencia del sistema</li><li>Muestra la respuesta al impulso (simb&oacute;lico, gr&aacute;fica)</li><li>Muestra la respuesta a entrada cero (simb&oacute;lico, gr&aacute;fica)</li><li>Muestra la respuesta a estado cero (simb&oacute;lico, gr&aacute;fica)</li><li>Muestra la respuesta total (simb&oacute;lico, gr&aacute;fica)</li><li>La respuesta total al escal&oacute;n con condiciones iniciales 0 (simb&oacute;lico, gr&aacute;fica)</li><li>Usando subplot, despliega una figura con 5 gr&aacute;ficas</li></ol></div><p>Observa que los entregables pueden resolverse (solo la funci&oacute;n de transferencia) con llamadas a las funciones presentadas en esta publicaci&oacute;n</p><p>Nota: Ejecuta los ejemplos descritos dentro de los comentarios de cada c&oacute;digo para que observes el uso de estos</p><p>Se entrega una publicaci&oacute;n en html de tu desarrollo y se probar&aacute; para un problema espec&iacute;fico.</p><h2 id="2">Ejercicio 1</h2><p>Para esta practica vamos a ocupar la siguiente ecuaci&oacute;n diferencial, con su respectiva entrada y condiciones iniciales.</p><p><img src="SySPrac6_eq02474359970057350858.png" alt="$$\ddot{y}(t)+ \dot{y}(t)+ y(t)=x(t),\;\;y(0)=1,\;\dot{y}(0)=-1,\;\;x(t)=e^{-t}u(t)  $$"></p><p>NOTA: Para esta funci&oacute;n, los coeficientes deben de ponerse de mayor a menor, tanto las salidas como las entradas</p><pre class="codeinput">mitrans([1 1 1],[1])
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 6: Sistemas diferenciales</h1><!--introduction--><p><b>Autores:</b></p><div><ul><li>Argaez Herrera Antonia Margarita</li><li>Leguizamo Lara Daniela Denisse</li><li>Rojas Solis Juan Carlos</li></ul></div><p><b>Grupo: 2TV1</b></p><p><b>Profesor:</b></p><p>Dr. Rafael Mart&iacute;nez Mart&iacute;nez</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Desarrollo</a></li><li><a href="#2">Ejercicio 1</a></li><li><a href="#4">Ejercicio 2</a></li><li><a href="#5">Ejercicio 3</a></li><li><a href="#6">Ejercicio 4</a></li><li><a href="#7">Ejercicio 5</a></li><li><a href="#8">Ejercicio 6</a></li><li><a href="#9">Ejercicio 7</a></li></ul></div><h2 id="1">Desarrollo</h2><p>Para sistemas diferenciales realiza un programa con las siguientes caracter&iacute;sticas</p><div><ol><li>Muestra la funci&oacute;n de transferencia del sistema</li><li>Muestra la respuesta al impulso (simb&oacute;lico, gr&aacute;fica)</li><li>Muestra la respuesta a entrada cero (simb&oacute;lico, gr&aacute;fica)</li><li>Muestra la respuesta a estado cero (simb&oacute;lico, gr&aacute;fica)</li><li>Muestra la respuesta total (simb&oacute;lico, gr&aacute;fica)</li><li>La respuesta total al escal&oacute;n con condiciones iniciales 0 (simb&oacute;lico, gr&aacute;fica)</li><li>Usando subplot, despliega una figura con 5 gr&aacute;ficas</li></ol></div><p>Para esta practica vamos a ocupar la siguiente ecuaci&oacute;n diferencial, con su respectiva entrada y condiciones iniciales.</p><p><img src="SySPrac6_eq02474359970057350858.png" alt="$$\ddot{y}(t)+ \dot{y}(t)+ y(t)=x(t),\;\;y(0)=1,\;\dot{y}(0)=-1,\;\;x(t)=e^{-t}u(t)  $$"></p><h2 id="2">Ejercicio 1</h2><p><b>Funci&oacute;n de transferencia del sistema</b></p><p>METODO 1</p><p>NOTA: Para la funci&oacute;n mitrans1 los coeficientes deben de ponerse de mayor a menor, tanto las salidas como las entradas</p><p>El c&oacute;digo de la funci&oacute;n mitrans1 se puede encontrar en el siguiente <a href="https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0">enlace</a></p><pre class="codeinput">mitrans1([1 1 1],[1])
 </pre><pre class="codeoutput">H(S) =
 
 ans =
@@ -77,7 +77,28 @@ ans =
  
 Continuous-time transfer function.
 
-</pre><h2 id="3">Ejercicio 2</h2><pre class="codeinput">fun2([1 1 1],[1],10)
+</pre><p>METODO 2</p><p>El c&oacute;digo de la funci&oacute;n mitrans2 se puede encontrar en el siguiente <a href="https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0">enlace</a></p><pre class="codeinput">mitrans2([1 1 1],[1])
+<span class="comment">%</span>
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE LAPLACE
+ 
+                 2
+Y(s) + s Y(s) + s  Y(s)
+
+=
+X(s)
+
+ 
+DESPEJAMOS H(s)
+ 
+H(s)=
+     1
+----------
+ 2
+s  + s + 1
+
+</pre><h2 id="4">Ejercicio 2</h2><p><b>Respuesta al impulso (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun2 se puede encontrar en el siguiente <a href="https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0">enlace</a></p><pre class="codeinput">fun2([1 1 1],[1],10)
+<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE
  
@@ -115,7 +136,8 @@ sqrt(3) exp| - - | sin| --------- | 2
 -------------------------------------
                   3
 
-</pre><img vspace="5" hspace="5" src="SySPrac6_01.png" alt=""> <h2 id="4">Ejercicio 3</h2><pre class="codeinput">fun3([1 1 1],[1],[1,-1],10)
+</pre><img vspace="5" hspace="5" src="SySPrac6_01.png" alt=""> <h2 id="5">Ejercicio 3</h2><p><b>Respuesta a entrada cero (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun3 se puede encontrar en el siguiente <a href="https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0">enlace</a></p><pre class="codeinput">fun3([1 1 1],[1],[1,-1],10)
+<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE y subtituimos condiciones iniciales
  
@@ -153,7 +175,9 @@ y(t)=
 exp| - - | | cos| --------- | - ------------------------ |
    \   2 / \    \     2     /               3            /
 
-</pre><img vspace="5" hspace="5" src="SySPrac6_02.png" alt=""> <h2 id="5">Ejercicio 4</h2><pre class="codeinput">fun4([1 1 1],[1],exp(-t),10)
+</pre><img vspace="5" hspace="5" src="SySPrac6_02.png" alt=""> <h2 id="6">Ejercicio 4</h2><p><b>Respuesta a estado cero (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun4 se puede encontrar en el siguiente <a href="https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0">enlace</a></p><pre class="codeinput">syms <span class="string">t</span>
+fun4([1 1 1],[1],exp(-t),10)
+<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE
  
@@ -202,7 +226,103 @@ y(t)=
 exp(-t) - exp| - - | | cos| --------- | - ------------------------ |
              \   2 / \    \     2     /               3            /
 
-</pre><img vspace="5" hspace="5" src="SySPrac6_03.png" alt=""> <h2 id="6">Ejercicio 5</h2><h2 id="7">Ejercicio 6</h2><h2 id="8">Ejercicio 7</h2><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="SySPrac6_03.png" alt=""> <h2 id="7">Ejercicio 5</h2><p><b>Respuesta total (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun5 se puede encontrar en el siguiente <a href="https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0">enlace</a></p><pre class="codeinput">syms <span class="string">t</span>
+fun5([1 1 1],[1],exp(-t),[1,-1],10)
+<span class="comment">%</span>
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE LAPLACE y sustituimos condiciones iniciales
+ 
+                     2
+Y(s) - s + s Y(s) + s  Y(s)
+
+=
+X(s)
+
+ 
+SUSTITUIMOS LA TRANSFORMADA DE LA ENTRADA
+ 
+                     2
+Y(s) - s + s Y(s) + s  Y(s)
+
+=
+  1
+-----
+s + 1
+
+ 
+DESPEJAMOS Y(s)
+ 
+Y(s)=
+  1
+-----
+s + 1
+
+ 
+DESARROLLAMOS LAS FRACCIONES PARCIALES DE Y(s)
+ 
+Y(s)=
+  1
+-----
+s + 1
+
+ 
+Aplicamos transformada inversa, asi la soluci&oacute;n es
+ 
+y(t)=
+exp(-t)
+
+</pre><img vspace="5" hspace="5" src="SySPrac6_04.png" alt=""> <h2 id="8">Ejercicio 6</h2><p><b>Respuesta total al escal&oacute;n con condiciones iniciales 0 (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun6 se puede encontrar en el siguiente <a href="https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0">enlace</a></p><pre class="codeinput">sympref(<span class="string">'HeavisideAtOrigin'</span>, 1);
+syms <span class="string">t</span>
+fun6([1 1 1],[1],heaviside(t),[0,0],10)
+</pre><pre class="codeoutput"> 
+APLICAMOS TRANSFORMADA DE LAPLACE y sustituimos condiciones iniciales
+ 
+                 2
+Y(s) + s Y(s) + s  Y(s)
+
+=
+X(s)
+
+ 
+SUSTITUIMOS LA TRANSFORMADA DE LA ENTRADA
+ 
+                 2
+Y(s) + s Y(s) + s  Y(s)
+
+=
+1
+-
+s
+
+ 
+DESPEJAMOS Y(s)
+ 
+Y(s)=
+       1
+--------------
+    2
+s (s  + s + 1)
+
+ 
+DESARROLLAMOS LAS FRACCIONES PARCIALES DE Y(s)
+ 
+Y(s)=
+1      s + 1
+- - ----------
+s    2
+    s  + s + 1
+
+ 
+Aplicamos transformada inversa, asi la soluci&oacute;n es
+ 
+y(t)=
+               /                               / sqrt(3) t \ \
+               |                    sqrt(3) sin| --------- | |
+       /   t \ |    / sqrt(3) t \              \     2     / |
+1 - exp| - - | | cos| --------- | + ------------------------ |
+       \   2 / \    \     2     /               3            /
+
+</pre><img vspace="5" hspace="5" src="SySPrac6_05.png" alt=""> <h2 id="9">Ejercicio 7</h2><p><b>5 gr&aacute;ficas anteriores</b></p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 6: Sistemas diferenciales
 %
@@ -230,41 +350,76 @@ exp(-t) - exp| - - | | cos| --------- | - ------------------------ |
 % # La respuesta total al escalón con condiciones iniciales 0 (simbólico, gráfica) 
 % # Usando subplot, despliega una figura con 5 gráficas
 % 
-% Observa que los entregables pueden resolverse (solo la función de 
-% transferencia) con llamadas a las funciones
-% presentadas en esta publicación
-%
-% Nota: Ejecuta los ejemplos descritos dentro de los comentarios de cada
-% código para que observes el uso de estos
-%
-% Se entrega una publicación en html de tu desarrollo y se probará para un
-% problema específico. 
-% 
-%% Ejercicio 1
 % Para esta practica vamos a ocupar la siguiente ecuación diferencial, con
 % su respectiva entrada y condiciones iniciales.
 %
 % $$\ddot{y}(t)+ \dot{y}(t)+ y(t)=x(t),\;\;y(0)=1,\;\dot{y}(0)=-1,\;\;x(t)=e^{-t}u(t)  $$
 %
-% NOTA: Para esta función, los coeficientes deben de ponerse de mayor a
+%% Ejercicio 1
+% *Función de transferencia del sistema*
+%
+% METODO 1
+%
+% NOTA: Para la función mitrans1 los coeficientes deben de ponerse de mayor a
 % menor, tanto las salidas como las entradas
 %
-mitrans([1 1 1],[1])
+% El código de la función mitrans1 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
+mitrans1([1 1 1],[1])
+%%
+% METODO 2
+%
+% El código de la función mitrans2 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
+mitrans2([1 1 1],[1])
+%
 %% Ejercicio 2
+% *Respuesta al impulso (simbólico, gráfica)*
+%
+% El código de la función fun2 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
 fun2([1 1 1],[1],10)
+%
 %% Ejercicio 3
+% *Respuesta a entrada cero (simbólico, gráfica)*
+%
+% El código de la función fun3 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
 fun3([1 1 1],[1],[1,-1],10)
+%
 %% Ejercicio 4
+% *Respuesta a estado cero (simbólico, gráfica)*
+%
+% El código de la función fun4 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
+syms t
 fun4([1 1 1],[1],exp(-t),10)
+%
 %% Ejercicio 5
+% *Respuesta total (simbólico, gráfica)*
 %
+% El código de la función fun5 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
+syms t
+fun5([1 1 1],[1],exp(-t),[1,-1],10)
 %
 %% Ejercicio 6
+% *Respuesta total al escalón con condiciones iniciales 0 (simbólico, gráfica)*
 %
+% El código de la función fun6 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
-%
+sympref('HeavisideAtOrigin', 1);
+syms t
+fun6([1 1 1],[1],heaviside(t),[0,0],10)
 %% Ejercicio 7
+% *5 gráficas anteriores*
 %
 %
 %
