@@ -38,14 +38,14 @@
 % menor, tanto las salidas como las entradas
 %
 % El código de la función mitrans1 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/mitrans1.m enlace>
 %
 mitrans1([1 1 1],[1])
 %%
 % METODO 2
 %
 % El código de la función mitrans2 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/mitrans2.m enlace>
 %
 mitrans2([1 1 1],[1])
 %
@@ -53,7 +53,7 @@ mitrans2([1 1 1],[1])
 % *Respuesta al impulso (simbólico, gráfica)*
 %
 % El código de la función fun2 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun2.m enlace>
 %
 fun2([1 1 1],[1],10)
 %
@@ -61,7 +61,7 @@ fun2([1 1 1],[1],10)
 % *Respuesta a entrada cero (simbólico, gráfica)*
 %
 % El código de la función fun3 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun3.m enlace>
 %
 fun3([1 1 1],[1],[1,-1],10)
 %
@@ -69,7 +69,7 @@ fun3([1 1 1],[1],[1,-1],10)
 % *Respuesta a estado cero (simbólico, gráfica)*
 %
 % El código de la función fun4 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun4.m enlace>
 %
 syms t
 fun4([1 1 1],[1],exp(-t),10)
@@ -78,7 +78,7 @@ fun4([1 1 1],[1],exp(-t),10)
 % *Respuesta total (simbólico, gráfica)*
 %
 % El código de la función fun5 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun5.m enlace>
 %
 syms t
 fun5([1 1 1],[1],exp(-t),[1,-1],10)
@@ -87,7 +87,7 @@ fun5([1 1 1],[1],exp(-t),[1,-1],10)
 % *Respuesta total al escalón con condiciones iniciales 0 (simbólico, gráfica)*
 %
 % El código de la función fun6 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun6.m enlace>
 %
 sympref('HeavisideAtOrigin', 1);
 syms t
@@ -97,6 +97,6 @@ fun6([1 1 1],[1],heaviside(t),[0,0],10)
 % *5 gráficas anteriores*
 %
 % El código de la función fun7 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun7.m enlace>
 %
 fun7()
