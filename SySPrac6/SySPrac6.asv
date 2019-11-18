@@ -38,7 +38,7 @@
 % menor, tanto las salidas como las entradas
 %
 % El código de la función mitrans1 se puede encontrar en el siguiente 
-% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+% <https://carloscet1.github.io/SenalesySistemas/SySPrac6/mitrans1.m enlace>
 %
 mitrans1([1 1 1],[1])
 %%
@@ -99,4 +99,4 @@ fun6([1 1 1],[1],heaviside(t),[0,0],10)
 % El código de la función fun7 se puede encontrar en el siguiente 
 % <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
-fun6([1 1 1],[1],heaviside(t),[0,0],10)
+fun7()
