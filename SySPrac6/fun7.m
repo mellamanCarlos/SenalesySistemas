@@ -1,71 +1,23 @@
-function fun7(t0,tf,dn,d0,f,armo,a,b)
-
+function fun7()
 figure (1)
 hFig = figure(1);
 set(hFig, 'Position', [0 0 900 900])
+
 subplot(3,2,1)
-plot(t,sf,'LineWidth',2)
-grid on
-legend('Serie de Fourier','Location','Best')
-xlabel('t','FontWeight','bold','FontSize',16)
+imshow('SySPrac6_01.png');
 
-sf=d0;
-t1=t0:0.0001:tf;
-
-for n=1:armo
-    sf=sf+dn(-n)*exp(w0*-n*t1*j)+dn(n)*exp(w0*n*t1*j);
-end
+hold on;
 
 subplot(3,2,2)
-plot(t1,f(t1),'r','LineWidth',2)
-grid on
-hold on
-plot(t1,sf,'LineWidth',2)
-legend('Función original','Serie de Fourier ','Location','Best')
-xlabel('t','FontWeight','bold','FontSize',16)
-nn=-armo:armo;
-axis auto
-
-subplot(3,2,4)
-e=f(t1)-sf;
-plot(t1,e,'LineWidth',2)
-title('Error','FontWeight','bold','FontSize',16)
-xlabel('t','FontWeight','bold','FontSize',16)
-axis auto
-grid on
-
-subplot(3,2,6)
-e=f(t1)-sf;
-area(t1,e.^2)
-legend('Energia del error','Location','Best')
-xlabel('t','FontWeight','bold','FontSize',16)
-axis auto
-grid on
-
-absdn=zeros(1,length(nn));
-cont=1;
-for i =-armo:armo
-    if i==0
-        absdn(cont)=d0;
-    end
-    absdn(cont)=dn(i);
-    cont=cont+1;
-end
+imshow('SySPrac6_02.png');
 
 subplot(3,2,3)
-stem(w0*nn,abs(absdn),'LineWidth',2)
-hold on
-stem(0,abs(d0),'LineWidth',2)
-title('Espectro de magnitud D_n ','FontWeight','bold','FontSize',16)
-xlabel('\omega','FontWeight','bold','FontSize',16)
-grid on
+imshow('SySPrac6_03.png');
 
-subplot(3,2,5) % % 
-stem(w0*nn,angle(absdn),'LineWidth',2) % %
-hold on
-stem(0,angle(d0),'LineWidth',2)
-title('Espectro de fase, \angle de D_n ','FontWeight','bold','FontSize',16) % % 
-xlabel('\omega','FontWeight','bold','FontSize',16)
-grid on
+subplot(3,2,4)
+imshow('SySPrac6_04.png');
+
+subplot(3,2,5)
+imshow('SySPrac6_05.png');
 
 end
