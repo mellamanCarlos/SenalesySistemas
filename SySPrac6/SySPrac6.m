@@ -48,7 +48,6 @@ mitrans1([1 1 1],[1])
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/mitrans2.m enlace>
 %
 mitrans2([1 1 1],[1])
-%
 %% Ejercicio 2
 % *Respuesta al impulso (simbólico, gráfica)*
 %
@@ -56,7 +55,6 @@ mitrans2([1 1 1],[1])
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun2.m enlace>
 %
 fun2([1 1 1],[1],10)
-%
 %% Ejercicio 3
 % *Respuesta a entrada cero (simbólico, gráfica)*
 %
@@ -64,7 +62,6 @@ fun2([1 1 1],[1],10)
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun3.m enlace>
 %
 fun3([1 1 1],[1],[1,-1],10)
-%
 %% Ejercicio 4
 % *Respuesta a estado cero (simbólico, gráfica)*
 %
@@ -73,7 +70,6 @@ fun3([1 1 1],[1],[1,-1],10)
 %
 syms t
 fun4([1 1 1],[1],exp(-t),10)
-%
 %% Ejercicio 5
 % *Respuesta total (simbólico, gráfica)*
 %
@@ -82,7 +78,6 @@ fun4([1 1 1],[1],exp(-t),10)
 %
 syms t
 fun5([1 1 1],[1],exp(-t),[1,-1],10)
-%
 %% Ejercicio 6
 % *Respuesta total al escalón con condiciones iniciales 0 (simbólico, gráfica)*
 %
@@ -92,7 +87,6 @@ fun5([1 1 1],[1],exp(-t),[1,-1],10)
 sympref('HeavisideAtOrigin', 1);
 syms t
 fun6([1 1 1],[1],heaviside(t),[0,0],10)
-%
 %% Ejercicio 7
 % *5 gráficas anteriores*
 %
