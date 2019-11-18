@@ -78,7 +78,6 @@ ans =
 Continuous-time transfer function.
 
 </pre><p>METODO 2</p><p>El c&oacute;digo de la funci&oacute;n mitrans2 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/mitrans2.m">enlace</a></p><pre class="codeinput">mitrans2([1 1 1],[1])
-<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE
  
@@ -98,7 +97,6 @@ H(s)=
 s  + s + 1
 
 </pre><h2 id="4">Ejercicio 2</h2><p><b>Respuesta al impulso (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun2 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun2.m">enlace</a></p><pre class="codeinput">fun2([1 1 1],[1],10)
-<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE
  
@@ -137,7 +135,6 @@ sqrt(3) exp| - - | sin| --------- | 2
                   3
 
 </pre><img vspace="5" hspace="5" src="SySPrac6_01.png" alt=""> <h2 id="5">Ejercicio 3</h2><p><b>Respuesta a entrada cero (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun3 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun3.m">enlace</a></p><pre class="codeinput">fun3([1 1 1],[1],[1,-1],10)
-<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE y subtituimos condiciones iniciales
  
@@ -177,7 +174,6 @@ exp| - - | | cos| --------- | - ------------------------ |
 
 </pre><img vspace="5" hspace="5" src="SySPrac6_02.png" alt=""> <h2 id="6">Ejercicio 4</h2><p><b>Respuesta a estado cero (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun4 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun4.m">enlace</a></p><pre class="codeinput">syms <span class="string">t</span>
 fun4([1 1 1],[1],exp(-t),10)
-<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE
  
@@ -228,7 +224,6 @@ exp(-t) - exp| - - | | cos| --------- | - ------------------------ |
 
 </pre><img vspace="5" hspace="5" src="SySPrac6_03.png" alt=""> <h2 id="7">Ejercicio 5</h2><p><b>Respuesta total (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun5 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun5.m">enlace</a></p><pre class="codeinput">syms <span class="string">t</span>
 fun5([1 1 1],[1],exp(-t),[1,-1],10)
-<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE y sustituimos condiciones iniciales
  
@@ -274,7 +269,6 @@ exp(-t)
 </pre><img vspace="5" hspace="5" src="SySPrac6_04.png" alt=""> <h2 id="8">Ejercicio 6</h2><p><b>Respuesta total al escal&oacute;n con condiciones iniciales 0 (simb&oacute;lico, gr&aacute;fica)</b></p><p>El c&oacute;digo de la funci&oacute;n fun6 se puede encontrar en el siguiente <a href="https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun6.m">enlace</a></p><pre class="codeinput">sympref(<span class="string">'HeavisideAtOrigin'</span>, 1);
 syms <span class="string">t</span>
 fun6([1 1 1],[1],heaviside(t),[0,0],10)
-<span class="comment">%</span>
 </pre><pre class="codeoutput"> 
 APLICAMOS TRANSFORMADA DE LAPLACE y sustituimos condiciones iniciales
  
@@ -377,7 +371,6 @@ mitrans1([1 1 1],[1])
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/mitrans2.m enlace>
 %
 mitrans2([1 1 1],[1])
-%
 %% Ejercicio 2
 % *Respuesta al impulso (simbólico, gráfica)*
 %
@@ -385,7 +378,6 @@ mitrans2([1 1 1],[1])
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun2.m enlace>
 %
 fun2([1 1 1],[1],10)
-%
 %% Ejercicio 3
 % *Respuesta a entrada cero (simbólico, gráfica)*
 %
@@ -393,7 +385,6 @@ fun2([1 1 1],[1],10)
 % <https://carloscet1.github.io/SenalesySistemas/SySPrac6/fun3.m enlace>
 %
 fun3([1 1 1],[1],[1,-1],10)
-%
 %% Ejercicio 4
 % *Respuesta a estado cero (simbólico, gráfica)*
 %
@@ -402,7 +393,6 @@ fun3([1 1 1],[1],[1,-1],10)
 %
 syms t
 fun4([1 1 1],[1],exp(-t),10)
-%
 %% Ejercicio 5
 % *Respuesta total (simbólico, gráfica)*
 %
@@ -411,7 +401,6 @@ fun4([1 1 1],[1],exp(-t),10)
 %
 syms t
 fun5([1 1 1],[1],exp(-t),[1,-1],10)
-%
 %% Ejercicio 6
 % *Respuesta total al escalón con condiciones iniciales 0 (simbólico, gráfica)*
 %
@@ -421,7 +410,6 @@ fun5([1 1 1],[1],exp(-t),[1,-1],10)
 sympref('HeavisideAtOrigin', 1);
 syms t
 fun6([1 1 1],[1],heaviside(t),[0,0],10)
-%
 %% Ejercicio 7
 % *5 gráficas anteriores*
 %
