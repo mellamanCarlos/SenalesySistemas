@@ -147,6 +147,7 @@ title('Entrada y Respuesta total','FontWeight','bold','FontSize',16)
 grid on
 
 %% Respuesta total al escalón con condiciones iniciales 0 (gráfica)
+sympref('HeavisideAtOrigin', 1);
 xi3=heaviside(t);
 ciy2=[0,0];
 edd=0;
