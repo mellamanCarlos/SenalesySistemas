@@ -3,8 +3,7 @@ function fun4(a,b,xi,t0)
 % b coeficientes de las derivadas de la entrada menor a mayor [b_0, ..., b_m]
 % xi función de entrada en terminos de la variable simbolica t previamente
 % declarada en el command window
-% t0 tiempo final para graficar la solucion, la derivada, y la segunda 
-% derivada 
+% t0 tiempo final para graficar la solucion
 close all
 tam=size(a);
 tami=size(b);
@@ -58,12 +57,13 @@ hFig = figure(1);
 set(hFig, 'Position', [0 0 500 400])
 axes1 = axes('Parent',hFig,'FontWeight','bold','FontSize',16);
 tiempo=0:0.01:t0;
+fplot(xi,[0, t0],'b','LineWidth',2)
 hold on
-fplot(y,[0,t0],'LineWidth',2)
+fplot(y,[0,t0],'r','LineWidth',2)
 
-legend('Respuesta a estado cero','Location','Best')
+legend('Entrada x(t)','Respuesta a estado cero','Location','Best')
 xlabel('tiempo','FontWeight','bold','FontSize',16)
-title('Respuesta a estado cero','FontWeight','bold','FontSize',16)
+title('Entrada y Respuesta a estado cero','FontWeight','bold','FontSize',16)
 grid on
 end
 

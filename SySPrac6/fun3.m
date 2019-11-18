@@ -2,11 +2,11 @@ function fun3(a,b,ciy,t0)
 % a coeficientes de las derivadas de la salida menor a mayor [a_0, ..., a_n]
 % b coeficientes de las derivadas de la entrada menor a mayor [b_0, ..., b_m]
 % ciy condiciones iniciales de la salida de  menor a mayor [y(0), y(0)^(n-1)]
-% t0 tiempo final para graficar la solucion, la derivada, y la segunda 
-% derivada 
+% t0 tiempo final para graficar la solucion
 close all
 tam=size(a);
 tami=size(b);
+xi=0;
 syms y(t) Y(s) x(t) X(s) Yy fp;
 syms edd edi 
 edd=0;
@@ -54,12 +54,13 @@ hFig = figure(1);
 set(hFig, 'Position', [0 0 500 400])
 axes1 = axes('Parent',hFig,'FontWeight','bold','FontSize',16);
 tiempo=0:0.01:t0;
+fplot(xi,[0, t0],'b','LineWidth',2)
 hold on
-fplot(y,[0,t0],'LineWidth',2)
+fplot(y,[0,t0],'r','LineWidth',2)
 
-legend('Respuesta a entrada cero','Location','Best')
+legend('Entrada x(t)','Respuesta a entrada cero','Location','Best')
 xlabel('tiempo','FontWeight','bold','FontSize',16)
-title('Respuesta a entrada cero','FontWeight','bold','FontSize',16)
+title('Entrada y Respuesta a entrada cero','FontWeight','bold','FontSize',16)
 grid on
 end
 

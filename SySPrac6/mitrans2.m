@@ -1,7 +1,6 @@
-function fun2(a,b,t0)
+function mitrans2(a,b)
 % a coeficientes de las derivadas de la salida menor a mayor [a_0, ..., a_n]
 % b coeficientes de las derivadas de la entrada menor a mayor [b_0, ..., b_m]
-% t0 tiempo final para graficar la solucion
 close all
 tam=size(a);
 tami=size(b);
@@ -40,29 +39,6 @@ disp('H(s)=')
 edd=solve(eq1, Yy);
 pretty(simplify(edd))
 
-
-mensaje('DESARROLLAMOS LAS FRACCIONES PARCIALES DE H(s)')
-disp('H(s)=')
-pretty(partfrac(edd))
-
-
-mensaje('Aplicamos transformada inversa, asi la solución es')
-disp('h(t)=')
-y(t)=ilaplace(edd);
-pretty(y(t))
-
-
-figure (1)
-hFig = figure(1);
-set(hFig, 'Position', [0 0 500 400])
-axes1 = axes('Parent',hFig,'FontWeight','bold','FontSize',16);
-tiempo=0:0.01:t0;
-fplot(y,[0,t0],'r','LineWidth',2)
-
-legend('Respuesta al impulso, h(t)','Location','Best')
-xlabel('tiempo','FontWeight','bold','FontSize',16)
-title('Respuesta al impulso','FontWeight','bold','FontSize',16)
-grid on
 end
 
 function mensaje(texto)

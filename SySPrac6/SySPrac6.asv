@@ -24,45 +24,79 @@
 % # La respuesta total al escalón con condiciones iniciales 0 (simbólico, gráfica) 
 % # Usando subplot, despliega una figura con 5 gráficas
 % 
-% Observa que los entregables pueden resolverse (solo la función de 
-% transferencia) con llamadas a las funciones
-% presentadas en esta publicación
-%
-% Nota: Ejecuta los ejemplos descritos dentro de los comentarios de cada
-% código para que observes el uso de estos
-%
-% Se entrega una publicación en html de tu desarrollo y se probará para un
-% problema específico. 
-% 
-%% Ejercicio 1
 % Para esta practica vamos a ocupar la siguiente ecuación diferencial, con
 % su respectiva entrada y condiciones iniciales.
 %
 % $$\ddot{y}(t)+ \dot{y}(t)+ y(t)=x(t),\;\;y(0)=1,\;\dot{y}(0)=-1,\;\;x(t)=e^{-t}u(t)  $$
 %
-% NOTA: Para esta función, los coeficientes deben de ponerse de mayor a
+%% Ejercicio 1
+% *Función de transferencia del sistema*
+%
+% METODO 1
+%
+% NOTA: Para la función mitrans1 los coeficientes deben de ponerse de mayor a
 % menor, tanto las salidas como las entradas
 %
-mitrans([1 1 1],[1])
+% El código de la función mitrans1 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
+mitrans1([1 1 1],[1])
+%%
+% METODO 2
+%
+% El código de la función mitrans2 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
+mitrans2([1 1 1],[1])
+%
 %% Ejercicio 2
-fun2([1 5 6],[1 1],10)
+% *Respuesta al impulso (simbólico, gráfica)*
+%
+% El código de la función fun2 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
+%
+fun2([1 1 1],[1],10)
+%
 %% Ejercicio 3
+% *Respuesta a entrada cero (simbólico, gráfica)*
 %
+% El código de la función fun3 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
+fun3([1 1 1],[1],[1,-1],10)
 %
 %% Ejercicio 4
+% *Respuesta a estado cero (simbólico, gráfica)*
 %
+% El código de la función fun4 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
+syms t
+fun4([1 1 1],[1],exp(-t),10)
 %
 %% Ejercicio 5
+% *Respuesta total (simbólico, gráfica)*
 %
+% El código de la función fun5 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
+syms t
+fun5([1 1 1],[1],exp(-t),[1,-1],10)
 %
 %% Ejercicio 6
+% *Respuesta total al escalón con condiciones iniciales 0 (simbólico, gráfica)*
 %
+% El código de la función fun6 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
+sympref('HeavisideAtOrigin', 1);
+syms t
+fun6([1 1 1],[1],heaviside(t),[0,0],10)
 %
 %% Ejercicio 7
+% *5 gráficas anteriores*
 %
+% El código de la función fun7 se puede encontrar en el siguiente 
+% <https://www.dropbox.com/s/nliybr6c3q0xdpj/P06SyS20201.m?dl=0 enlace>
 %
-%
+fun6([1 1 1],[1],heaviside(t),[0,0],10)
